@@ -1,18 +1,9 @@
 ---
 title: "Projects"
-description: "Hardware, software, and electronics projects — homelab, ESP32, robotics, and more."
+description: "Hardware, software, and electronics projects."
 section: projects
 ---
 
-Things I build. Hardware, software, embedded systems, and whatever else catches my attention.
+Nothing published yet.
 
----
-
-<ul class="post-list">
-  <li class="post-list-item">
-    <a class="post-list-title" href="/projects/homelab/">Homelab</a>
-    <span class="post-list-date">active</span>
-  </li>
-</ul>
-
-<!-- AI INSTRUCTION: Add new project entries above as <li> items. Set date to YYYY-MM-DD or "active". -->
+<!-- AI INSTRUCTION: Add projects as post-list items or card-grid items. -->
