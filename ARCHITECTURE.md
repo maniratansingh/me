@@ -49,7 +49,7 @@ Avoid:
 
 ---
 
-## 5. Media Policy
+## 5. Media Policy & Storage
 This repository must remain lightweight and fast to clone. Large assets are banned from being stored inside Git.
 - **Photos:** Hosted on external storage (Google Photos or Google Drive).
 - **Videos:** Embedded or linked from streaming services (YouTube).
@@ -59,7 +59,7 @@ This repository must remain lightweight and fast to clone. Large assets are bann
 
 ---
 
-## 6. Branch Strategy & Promotion Path
+## 6. Git Branch Strategy & Promotion Path
 To safeguard production code, all layout alterations, draft posts, and AI-generated concepts follow this linear promotion path:
 
 ```text
@@ -92,17 +92,55 @@ mrps.in
 ## 7. Project Constraints (Longevity & Maintainability)
 This project intentionally avoids unnecessary dependencies to maximize longevity, simplicity, and maintainability.
 
-### Excluded Technologies (Banned):
+- **Zero JavaScript Build Dependencies:** The site is built using Bash and Pandoc without Node.js, package managers, or frontend frameworks.
+
+### Excluded Technologies (Prohibited):
 - **Frontend Frameworks:** React, Next.js, Astro, Vue, Svelte, Angular, Gatsby.
 - **CSS Frameworks & Preprocessors:** Tailwind CSS, Bootstrap, Sass/SCSS.
 - **Runtimes & Package Managers:** Node.js, npm, yarn, pnpm, webpack, vite.
 - **Databases & Server Logics:** PostgreSQL, MongoDB, Server-Side Rendering (SSR), or server-side functions.
 
-The compiled website consists only of lightweight, pure static HTML and CSS.
+---
+
+## 8. Git Policy for Compiled Output (`site/`)
+To keep the repository size clean and Git history clutter-free, the compiled output folder (`site/`) is added to `.gitignore` and **must never be committed to GitHub**. 
+
+Cloudflare Pages compiles the website during the deployment phase:
+```text
+GitHub Repository
+        │
+        ▼
+Cloudflare Pages
+        │
+   bash build.sh
+        │
+        ▼
+     Pandoc
+        │
+        ▼
+     site/
+        │
+        ▼
+    mrps.in
+```
 
 ---
 
-## 8. Content Rules
+## 9. AI-First Principle
+- The repository is designed to be maintainable by both humans and AI agents.
+- Repository structure, naming conventions, and documentation should prioritize absolute clarity over cleverness.
+
+---
+
+## 10. Backup Strategy
+Because GitHub acts as your source of truth, your backup strategy consists of three independent nodes:
+1. **Local Clone:** A copy of the source code on your physical development machine.
+2. **GitHub Repository:** The remote host.
+3. **Cloudflare Deployment:** A static stateless snapshot of the latest compiled code.
+
+---
+
+## 11. Content Rules
 - **Markdown First:** Content is written in Markdown. HTML elements are used only when Markdown cannot represent the target layout.
 - **Formatting:** Keep paragraphs short, use clear list groupings to organize specs, and maintain a single `<h1>` heading per page.
 - **Accessibility:** Ensure layout structures use semantic tags (`<header>`, `<main>`, `<nav>`) to support screen readers and keyboard navigation.
