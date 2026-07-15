@@ -16,7 +16,6 @@ description: "Mani Ratan Pratap Singh — Personal Website"
   <h2>Connect</h2>
   <nav class="hero-links">
     <a href="https://www.instagram.com/maniratanpratapsingh/" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://twitter.com/maniratanprata" target="_blank" rel="noopener">Twitter</a>
-    <a href="https://m.facebook.com/maniratanpratap" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://github.com/maniratanpratapsingh" target="_blank" rel="noopener">GitHub</a>
   </nav>
 </section>

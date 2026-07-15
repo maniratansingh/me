@@ -5,17 +5,17 @@
 
 /* ── Tokens ──────────────────────────────────────────────────────────────── */
 :root {
-  --bg:         #080808;
-  --surface:    #0f0f0f;
-  --border:     #1a1a1a;
-  --border-mid: #282828;
+  --bg:         #202123;
+  --surface:    #2d2d30;
+  --border:     #343541;
+  --border-mid: #4a4b53;
 
-  --text:       #e0e0e0;
-  --muted:      #666;
-  --faint:      #333;
+  --text:       #ececf1;
+  --muted:      #c5c5d2;
+  --faint:      #565869;
 
-  --accent:     #00d084;
-  --accent-dim: #009f63;
+  --accent:     #10a37f;
+  --accent-dim: #0e8c6d;
 
   --sans:  'IBM Plex Sans',  system-ui, sans-serif;
   --mono:  'IBM Plex Mono',  'Courier New', monospace;
@@ -35,7 +35,7 @@
   --s-md:  clamp(1rem,     0.8rem  + 1vw,    2rem);
   --s-lg:  clamp(1.5rem,   1.2rem  + 1.5vw,  3rem);
   --s-xl:  clamp(2rem,     1.5rem  + 2.5vw,  5rem);
-  --s-2xl: clamp(3rem,     2rem,   + 4vw,    8rem);
+  --s-2xl: clamp(3rem,     2rem + 4vw,    8rem);
 
   /* Layout */
   --measure:   68ch;       /* prose width */
