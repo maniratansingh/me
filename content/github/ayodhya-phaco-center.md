@@ -1,20 +1,34 @@
 ---
 title: "Ayodhya Phaco Center Website"
-description: "The official static website repository for the Ayodhya Phaco Center clinic."
+description: "The official static website repository for the Ayodhya Phaco Center eye clinic."
 section: github
 ---
 
 ## Philosophy & Architecture Decisions
-A medical information portal must be lightweight, responsive, and render immediately even under slow network conditions (such as rural 3G environments). The frontend architecture skips single-page application (SPA) frameworks. Utilizing pure semantic markup and optimized CSS, it preserves bandwidth, satisfies screen readers, and ensures the booking layout is clean and fast.
+Medical information websites must be accessible, reliable, and load instantly even under poor network conditions (such as rural 3G environments). Modern single-page application (SPA) frameworks compile into large JavaScript bundles, delaying page interactivity on low-powered devices. 
 
-## Visual Design & Optimization Features
-- **Glassmorphism Layout:** Uses light frosted surfaces (`backdrop-filter`) over subtle backgrounds to keep layouts modern and visually premium.
-- **Form Readability:** Optimizes booking form transparency so text blocks are highly readable against layout grids.
-- **Mobile Friendly:** Scaled specifically to render cleanly on tablets and smartphone displays.
+By utilizing static HTML and vanilla CSS, the site ensures page layouts are available immediately. This structure reduces data usage, satisfies search engine scrapers, and ensures accessibility tools function correctly.
 
-## Technical Details
-- **Tech Stack:** Vanilla HTML5 and CSS3 (no external JavaScript scripts or render-blocking stylesheets).
-- **Accessibility:** Constructed with structured layout tags (`<header>`, `<main>`, `<nav>`) to comply with accessibility requirements.
+---
+
+## Key Interface & Performance Features
+
+### 1. Frosted Glass UI Layout
+The website incorporates a modern layout inspired by glassmorphism design:
+- Uses subtle frosted glass panels (`backdrop-filter: blur(12px)`) to construct header bars, info sections, and navigation panels.
+- Retains a clean dark-background feel while overlaying semi-translucent containers over backdrops.
+
+### 2. Form Visibility & Readability Optimization
+Online patient scheduling and appointment booking interfaces require high visual contrast:
+- The opacity levels of contact boxes and appointment forms are optimized.
+- The styling guarantees text is legible under bright sunlight on small mobile screens.
+- Avoids layered opacity conflicts to keep form validation states readable.
+
+### 3. Mobile Fluidity & Accessibility
+- **CSS Grid Integration:** Uses responsive layouts that automatically scale column counts based on viewport width. The design adapts from narrow smartphone viewports to wide desktop monitors.
+- **Semantic HTML Markup:** Built using standard landmark tags (`<header>`, `<main>`, `<nav>`, `<article>`) to satisfy screen-reader compliance.
+- **Zero Render-Blocking Scripts:** Eliminates third-party trackers, large fonts, and render-blocking libraries to ensure fast load times.
+- **Print Layout Support:** Includes print-specific CSS rules. This formats appointment confirmations and address details for standard physical paper sizing if patients print instructions.
 
 ## Code Link
 - [View ayodhya-phaco-center on GitHub](https://github.com/maniratansingh/ayodhya-phaco-center) ↗
