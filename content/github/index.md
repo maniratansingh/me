@@ -1,22 +1,34 @@
 ---
 title: "GitHub Projects"
-description: "My repositories, setups, and coding projects."
+description: "My open source repositories, production setups, and hardware/software experiments."
 section: github
 ---
 
-Here I document what I am working on, what I want to achieve, and my production environments. 
-
-Instead of host copy-pasting code, I only provide direct links to the relevant code on GitHub.
+Here is a list of my active GitHub repositories. For each project, I outline the design thoughts, what I am achieving with the setup, and provide direct references to the repository.
 
 ---
 
 <ul class="post-list">
-  <!-- AI INSTRUCTION: Add new GitHub projects / updates here. Example:
   <li class="post-list-item">
-    <a class="post-list-title" href="/github/my-awesome-repo/">My Awesome Project Setup</a>
-    <span class="post-list-date">2026-07-15</span>
+    <a class="post-list-title" href="/github/rp2040-oled-macropad/">RP2040 OLED Macropad</a>
+    <span class="post-list-date">Python</span>
   </li>
-  -->
+  <li class="post-list-item">
+    <a class="post-list-title" href="/github/wificlock/">WiFi Clock</a>
+    <span class="post-list-date">C++</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/github/jellyfin-liquid-glass/">Jellyfin Liquid Glass Theme</a>
+    <span class="post-list-date">CSS</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/github/ayodhya-phaco-center/">Ayodhya Phaco Center Website</a>
+    <span class="post-list-date">HTML</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/github/law-exam-batch-processor/">Law Exam Batch Processor</a>
+    <span class="post-list-date">Python</span>
+  </li>
 </ul>
 
-_No project updates posted yet. Check back soon!_
+<!-- AI INSTRUCTION: Add new repositories at the top of the list above. -->
