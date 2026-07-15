@@ -43,7 +43,6 @@ cp -r "$STATIC_DIR"/. "$OUTPUT_DIR/"
 
 # ── Copy Cloudflare config files ─────────────────────────────────────────────
 [ -f "_headers" ]   && cp "_headers"   "$OUTPUT_DIR/_headers"
-[ -f "_redirects" ] && cp "_redirects" "$OUTPUT_DIR/_redirects"
 
 # ── Build all Markdown files ─────────────────────────────────────────────────
 log "Building pages..."

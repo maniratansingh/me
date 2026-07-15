@@ -26,7 +26,6 @@ Markdown (content/) → build.sh + pandoc → HTML (site/) → Cloudflare Pages 
 mrps.in/
 ├── build.sh              # Run this to build the site
 ├── _headers              # Cloudflare Pages cache + security headers
-├── _redirects            # Cloudflare Pages URL redirects
 │
 ├── content/              # All content — edit these files
 │   ├── index.md          # Homepage (About & Connect)
