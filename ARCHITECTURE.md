@@ -93,6 +93,7 @@ mrps.in
 This project intentionally avoids unnecessary dependencies to maximize longevity, simplicity, and maintainability.
 
 - **Zero JavaScript Build Dependencies:** The site is built using Bash and Pandoc without Node.js, package managers, or frontend frameworks.
+- **Automated Rootless Dependencies:** If Pandoc is not found in the path, `build.sh` automatically downloads the official static Linux Pandoc binary (version 3.10) to a local folder and adds it to the PATH during Cloudflare deployment.
 - **Build Tool Pinning:** The site compilation has been tested and verified using **Pandoc version 3.10**. Future upgrades to Pandoc should be verified locally to ensure the generated HTML remains fully compatible with templates inside `templates/`.
 
 ### Excluded Technologies (Prohibited):

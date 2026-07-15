@@ -24,3 +24,6 @@ site/
 # Python
 __pycache__/
 *.pyc
+
+# Local downloaded binaries
+bin/

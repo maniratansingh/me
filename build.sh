@@ -25,11 +25,24 @@ RESET='\033[0m'
 log()  { echo -e "${GREEN}▸${RESET} $*"; }
 dim()  { echo -e "${DIM}  $*${RESET}"; }
 
-# ── Check dependencies ────────────────────────────────────────────────────────
+# ── Check & Install dependencies ─────────────────────────────────────────────
 if ! command -v pandoc &> /dev/null; then
-  echo "Error: pandoc is not installed."
-  echo "Install it: https://pandoc.org/installing.html"
-  exit 1
+  # If running in Cloudflare Pages (CF_PAGES=1) or if Pandoc is missing, auto-download the static binary
+  if [ "${CF_PAGES:-}" = "1" ] || [ "${CI:-}" = "true" ]; then
+    log "Pandoc not found. Running in CI/Cloudflare environment. Downloading static binary..."
+    mkdir -p bin
+    curl -sSL "https://github.com/jgm/pandoc/releases/download/3.10/pandoc-3.10-linux-amd64.tar.gz" | tar -xzf - --strip-components=2 -C bin pandoc-3.10/bin/pandoc
+    export PATH="$PWD/bin:$PATH"
+  else
+    # Fallback to local check in case it's in a local bin/ folder
+    if [ -f "bin/pandoc" ]; then
+      export PATH="$PWD/bin:$PATH"
+    else
+      echo "Error: pandoc is not installed."
+      echo "Install it: https://pandoc.org/installing.html"
+      exit 1
+    fi
+  fi
 fi
 
 # ── Clean + recreate output directory ────────────────────────────────────────
