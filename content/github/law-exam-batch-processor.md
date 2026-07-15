@@ -272,4 +272,9 @@ Contributions, audits, and improvements are welcome via pull requests.
 
 
 ***
+
+### Code Link
+- [View Original Repository on GitHub](https://github.com/maniratansingh/law-exam-batch-processor) ↗
+
+***
 ← [Back to GitHub Projects](/github/)

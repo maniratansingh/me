@@ -1,6 +1,6 @@
 ---
 title: "Jellyfin Liquid Glass Theme"
-description: "A modern glassmorphism custom stylesheet for Jellyfin web client and desktop players."
+description: "A modern glassmorphism custom stylesheet for Jellyfin web client."
 section: github
 ---
 
@@ -97,6 +97,11 @@ To force your browser or mobile app to bypass the cache and load the updates ins
 
 If the CSS changes again in the future, simply increase the number (e.g., `?v=3`) to force another update.
 
+
+***
+
+### Code Link
+- [View Original Repository on GitHub](https://github.com/maniratansingh/jellyfin-liquid-glass) ↗
 
 ***
 ← [Back to GitHub Projects](/github/)

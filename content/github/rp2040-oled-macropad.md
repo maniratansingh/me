@@ -69,7 +69,7 @@ The code uses the following GPIO assignments:
 
 ## Wiring Diagram
 
-![RP2040 OLED Macro Pad wiring diagram](docs/wiring-diagram.svg)
+![RP2040 OLED Macro Pad wiring diagram](https://raw.githubusercontent.com/maniratansingh/rp2040-oled-macropad/main/docs/wiring-diagram.svg)
 
 Quick wiring summary:
 
@@ -172,6 +172,11 @@ Edit this constant:
 SLEEP_DELAY = 30
 ```
 
+
+***
+
+### Code Link
+- [View Original Repository on GitHub](https://github.com/maniratansingh/rp2040-oled-macropad) ↗
 
 ***
 ← [Back to GitHub Projects](/github/)

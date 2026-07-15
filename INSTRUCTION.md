@@ -53,12 +53,23 @@ for repo, info in repos.items():
         # Clean carriage returns
         sanitized_content = content.replace('\r\n', '\n')
         
-        # Replace standalone "---" dividers with "***" to prevent Pandoc from choking on nested YAML blocks
+        # Replace standalone "---" dividers with "***" to prevent Pandoc from parsing them as YAML blocks
         sanitized_content = re.sub(r'\n---\n', '\n***\n', sanitized_content)
+        
+        # Convert relative image/diagram links to absolute raw GitHub URLs so they render on the site
+        raw_prefix = f"https://raw.githubusercontent.com/maniratansingh/{repo}/{info['branch']}/"
+        sanitized_content = re.sub(
+            r'(!\[.*?\]\()(?!(?:https?://|/))(.*?)\)',
+            rf'\1{raw_prefix}\2)',
+            sanitized_content
+        )
         
         # Prepend site frontmatter metadata
         frontmatter = f"---\ntitle: \"{info['title']}\"\ndescription: \"{info['desc']}\"\nsection: github\n---\n\n"
-        footer = "\n\n***\n← [Back to GitHub Projects](/github/)\n"
+        
+        # Original Repository link at the bottom
+        repo_url = f"https://github.com/maniratansingh/{repo}"
+        footer = f"\n\n***\n\n### Code Link\n- [View Original Repository on GitHub]({repo_url}) ↗\n\n***\n← [Back to GitHub Projects](/github/)\n"
         
         dest_path = f"content/github/{repo}.md"
         with open(dest_path, "w", encoding="utf-8") as f:
@@ -79,16 +90,12 @@ python3 update_projects.py
 
 When importing raw Markdown files from GitHub, certain elements might fail to render or block the compiler. Use the following guides to handle them:
 
-### A. Broken Image Links
-* **The Problem:** Relative image references (e.g. `![diagram](docs/wiring-diagram.svg)`) will break because the `docs/` folder does not exist inside this repository.
-* **The Solution:** 
-  1. Simply leave the broken images alone if you do not need them displayed locally, OR
-  2. Change them to absolute URLs pointing directly to the raw file on GitHub:
-     `https://raw.githubusercontent.com/maniratansingh/[repo-name]/[branch]/[path-to-image]`
-     *Example:* `https://raw.githubusercontent.com/maniratansingh/rp2040-oled-macropad/main/docs/wiring-diagram.svg`
+### A. Circuit Diagrams & Relative Image Links
+* **The Problem:** Relative image references (e.g., `![diagram](docs/wiring-diagram.svg)`) will break on the website because the target asset folders (like `docs/` or `images/`) do not exist inside this repository.
+* **The Solution:** The `update_projects.py` script automatically scans for relative markdown image tags and updates them to use absolute URLs pointing to the raw file on your GitHub repository (e.g., `https://raw.githubusercontent.com/maniratansingh/...`). If you write manual updates, ensure all circuit diagrams or media assets point to absolute URLs.
 
 ### B. Mermaid Diagrams
-* **The Problem:** Fenced code blocks with `mermaid` tags (like the circuit diagrams in `wificlock` and `law-exam-batch-processor`) require client-side JavaScript libraries to render. Without JS, they render as raw text boxes.
+* **The Problem:** Fenced code blocks with `mermaid` tags (like the circuit connections in `wificlock` and architecture chart in `law-exam-batch-processor`) require client-side JavaScript libraries to render dynamically. Without JS, they render as raw text boxes.
 * **The Solution:** Leave them as-is. They will display as clean, legible text-based charts, preserving the pure static HTML profile of this website.
 
 ### C. Pandoc YAML Parsing Errors (Line Snapping / Truncation)
