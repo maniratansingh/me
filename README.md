@@ -2,7 +2,14 @@
 
 **Live site:** https://mrps.in  
 **Owner:** Mani Ratan Pratap Singh  
-**Deployed via:** Cloudflare Pages (auto-deploy on push to `main`)
+**Deployed via:** Cloudflare Pages (auto-deploy on push to `main` branch)
+
+---
+
+## 📖 Architecture & Developer Guides
+Before making any updates, changes, or experiments, please read:
+- **[ARCHITECTURE.md](file:///Users/mrps/projects/me/ARCHITECTURE.md):** Outlines technology constraints (no npm, no React/Astro), branching guidelines (`main` ──► `testing` ──► `experimental`), content structure, media rules, and homepage constraints.
+- **[INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md):** Guides you on how to run the python synchronization script to import project README files directly from GitHub and resolve rendering issues.
 
 ---
 
@@ -26,6 +33,8 @@ Markdown (content/) → build.sh + pandoc → HTML (site/) → Cloudflare Pages 
 mrps.in/
 ├── build.sh              # Run this to build the site
 ├── _headers              # Cloudflare Pages cache + security headers
+├── ARCHITECTURE.md       # Development philosophy, branching, and stack rules
+├── INSTRUCTION.md        # Script for importing/syncing READMEs from GitHub
 │
 ├── content/              # All content — edit these files
 │   ├── index.md          # Homepage (About & Connect)
