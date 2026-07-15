@@ -1,0 +1,12 @@
+# Cloudflare Pages redirects
+# Format: /old-url  /new-url  [status-code]
+
+# WordPress old URLs → new clean URLs
+/my-photos/                              /photography/           301
+/tag/my-posts/                           /blog/                  301
+/fair-lucknow/night-photography/mani/   /blog/2024-02-02-fair-lucknow/            301
+/cyber-city-gurugram/night-photography/mani/  /blog/2023-02-19-cyber-city-gurugram/  301
+/after-effect-circumfrence/night-photography/mani/  /blog/2022-12-29-after-effect-circumference/  301
+/symmetrical-rails/night-photography/mani/  /blog/2022-12-29-symmetrical-rails/    301
+/drenched-signal-post/night-photography/mani/  /blog/2022-12-28-drenched-signal-post/  301
+/metro-light-trail/night-photography/mani/  /blog/2022-12-28-metro-light-trail/    301
