@@ -1,149 +1,76 @@
 # mrps.in — Personal Website
 
-**Live site:** https://mrps.in  
-**Owner:** Mani Ratan Pratap Singh  
-**Deployed via:** Cloudflare Pages (auto-deploy on push to `main` branch)
+A framework-independent, static personal digital archive and directory.
+
+- **Live Site:** https://mrps.in
+- **Deployment Platform:** Cloudflare Pages (built dynamically from GitHub)
+- **Source of Truth:** [ARCHITECTURE.md](file:///Users/mrps/projects/me/ARCHITECTURE.md)
 
 ---
 
-## 📖 Architecture & Developer Guides
-Before making any updates, changes, or experiments, please read:
-- **[ARCHITECTURE.md](file:///Users/mrps/projects/me/ARCHITECTURE.md):** Outlines technology constraints (no npm, no React/Astro), branching guidelines (`main` ──► `testing` ──► `experimental`), content structure, media rules, and homepage constraints.
-- **[INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md):** Guides you on how to run the python synchronization script to import project README files directly from GitHub and resolve rendering issues.
+## 📖 Essential Documentation
+Before building or modifying the site, read these guides:
+- **[ARCHITECTURE.md](file:///Users/mrps/projects/me/ARCHITECTURE.md):** The core system design. Contains the git branching model, technology constraints, media policies, and homepage rules.
+- **[INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md):** Explains how to use the automated python sync script to import READMEs directly from GitHub.
 
 ---
 
-## How This Site Works
+## 🚀 Quick Start & Development Commands
 
-Content is written in **Markdown** (`.md` files in `content/`).  
-The `build.sh` script converts them into **static HTML** using [Pandoc](https://pandoc.org/).  
-The output goes into `site/` — that directory is what Cloudflare Pages serves.
+You can manage the project using the included `Makefile`:
 
-```
-Markdown (content/) → build.sh + pandoc → HTML (site/) → Cloudflare Pages → mrps.in
-```
-
-**Dependencies:** `pandoc` only. No Node.js. No npm. No frameworks.
-
----
-
-## Repository Structure
-
-```
-mrps.in/
-├── build.sh              # Run this to build the site
-├── _headers              # Cloudflare Pages cache + security headers
-├── ARCHITECTURE.md       # Development philosophy, branching, and stack rules
-├── INSTRUCTION.md        # Script for importing/syncing READMEs from GitHub
-│
-├── content/              # All content — edit these files
-│   ├── index.md          # Homepage (About & Connect)
-│   ├── blog/             # Personal Posts / Blog
-│   ├── github/           # GitHub Projects / Repos
-│   └── photos/           # Photography external links
-│
-├── templates/            # HTML wrappers (nav, head, footer)
-│   ├── base.html         # Used by all pages except homepage
-│   └── index.html        # Used by homepage only
-│
-├── static/               # Copied as-is into site/
-│   └── css/style.css     # All CSS (Fluid scaling up to 4K / 10 Gbps ready)
-│
-└── site/                 # BUILD OUTPUT — git-ignored
-```
-
----
-
-## Frontmatter Reference
-
-Every Markdown file starts with a YAML block between `---` fences:
-
-```yaml
----
-title: "Page Title"                     # Required — appears in <title> and <h1>
-description: "Short page description"   # Recommended — used for SEO meta
-date: 2026-07-15                        # For blog posts, notes, reviews
-tags: [thought, personal, homelab]      # Optional list of tags
-section: blog                           # blog | github | photos
-cover: /img/cover.jpg                   # Optional — used for OG image
----
-```
-
----
-
-## Common AI Tasks
-
-### Publish a Blog / Thought Post
-
-1. Create a new file: `content/blog/YYYY-MM-DD-slug.md`
-2. Write content using the template below
-3. Add an entry to `content/blog/index.md` (newest first)
-
-**Blog post template:**
-
-```markdown
----
-title: "Post Title"
-description: "One sentence description."
-date: YYYY-MM-DD
-tags: [tag1, tag2]
-section: blog
----
-
-Post content here.
-
----
-
-← [Back to Posts](/blog/)
-```
-
----
-
-### Add/Update a Project Description
-
-To add a new project repository or sync updates from existing repositories, follow the automated synchronization process described in [INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md). 
-
-Briefly:
-1. Open [INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md) and copy the `update_projects.py` script code.
-2. Run it using Python to automatically fetch your repository README file from GitHub, format it correctly with site metadata, resolve relative paths to absolute raw links (like circuit diagrams), and append the original repository link:
-   ```bash
-   python3 update_projects.py
-   ```
-3. Add the project link to the list in `content/projects/index.md`.
-
----
-
-### Update Photos Links
-
-To add/change your Google Drive or other external photo gallery links, edit `content/photos/index.md` directly.
-
----
-
-## Build Locally
-
+### 1. Build the Site
+Converts all Markdown in `content/` to static HTML5 in `site/`:
 ```bash
-# Install pandoc (one-time)
-brew install pandoc          # macOS
-sudo apt install pandoc      # Ubuntu/Debian
+make build
+```
+*(Or run `bash build.sh`)*
 
-# Build the site
-bash build.sh
+### 2. Live Preview
+Starts a local web server at `http://localhost:8080` to preview pages:
+```bash
+make serve
+```
 
-# Preview (Python built-in server)
-cd site && python3 -m http.server 8080
-# Then open http://localhost:8080
+### 3. Clean Output
+Wipes the generated compiled directory:
+```bash
+make clean
 ```
 
 ---
 
-## Deployment
+## 🛠️ Deployment Configuration
+Deployments are fully automated. Every `git push` to the `main` branch triggers an automated build on Cloudflare Pages.
 
-**Cloudflare Pages settings:**
+### Cloudflare Pages Build Settings:
+- **Build Command:** `bash build.sh`
+- **Build Output Directory:** `site`
+- **Root Directory:** `/` (Project root)
+- **Production Branch:** `main`
 
-| Setting | Value |
-|---------|-------|
-| Build command | `bash build.sh` |
-| Build output directory | `site` |
-| Branch | `main` |
+---
 
-Every `git push` to `main` triggers a new deploy automatically.
+## 📂 Project Layout
+
+```text
+mrps.in/
+├── build.sh              # Bash compile loop (Markdown -> site/)
+├── Makefile              # Local helper commands (build, serve, clean)
+├── _headers              # Cloudflare Pages security & cache configuration
+├── ARCHITECTURE.md       # Development philosophy and branch strategies
+├── INSTRUCTION.md        # AI script for syncing/formatting GitHub READMEs
+│
+├── content/              # Source Markdown files
+│   ├── index.md          # Homepage directory (Introduction & links only)
+│   ├── blog/             # Personal thoughts and posts
+│   ├── projects/         # Technical projects imported from GitHub READMEs
+│   └── photos/           # Links to external media storage
+│
+├── templates/            # HTML structural template layouts
+│   ├── base.html         # Wrapper for inner pages (header, footer, nav)
+│   └── index.html        # Wrapper for the homepage directory hero layout
+│
+└── static/               # Assets copied as-is to site/
+    └── css/style.css     # Fluid-scale dark theme stylesheet
+```

@@ -93,6 +93,7 @@ mrps.in
 This project intentionally avoids unnecessary dependencies to maximize longevity, simplicity, and maintainability.
 
 - **Zero JavaScript Build Dependencies:** The site is built using Bash and Pandoc without Node.js, package managers, or frontend frameworks.
+- **Build Tool Pinning:** The site compilation has been tested and verified using **Pandoc version 3.10**. Future upgrades to Pandoc should be verified locally to ensure the generated HTML remains fully compatible with templates inside `templates/`.
 
 ### Excluded Technologies (Prohibited):
 - **Frontend Frameworks:** React, Next.js, Astro, Vue, Svelte, Angular, Gatsby.
@@ -140,8 +141,26 @@ Because GitHub acts as your source of truth, your backup strategy consists of th
 
 ---
 
-## 11. Content Rules
+## 11. Future Extensions: RSS Feed
+If you decide to write posts regularly, an RSS feed can easily be added. The static nature of this site allows generating a standard XML feed (such as `feed.xml`) directly during the build. This does not require any JavaScript or client-side frameworks and can be seamlessly integrated into the `build.sh` compilation script.
+
+---
+
+## 12. Content Rules
 - **Markdown First:** Content is written in Markdown. HTML elements are used only when Markdown cannot represent the target layout.
 - **Formatting:** Keep paragraphs short, use clear list groupings to organize specs, and maintain a single `<h1>` heading per page.
 - **Accessibility:** Ensure layout structures use semantic tags (`<header>`, `<main>`, `<nav>`) to support screen readers and keyboard navigation.
 - **Performance:** Keep HTML/CSS code clean and avoid external scripts to ensure instant page load speeds.
+
+---
+
+## 13. Version History
+- **Architecture Version:** 1.0
+- **Last Updated:** July 2026
+- **Major Changes:**
+  - GitHub established as the single source of truth.
+  - Cloudflare Pages configured for automated deployment from source branch.
+  - Navigation menu permanently locked to Home, Posts, Projects, and Photos.
+  - Verbatim original GitHub READMEs used as source content for Projects.
+  - CSS stylesheet overhauled to support fluid viewport scaling up to 8K.
+  - Excluded the generated `site/` folder from Git tracking.
