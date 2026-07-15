@@ -1,71 +1,102 @@
 ---
 title: "Jellyfin Liquid Glass Theme"
-description: "A custom user interface theme for Jellyfin Media Server utilizing CSS variables and glassmorphism styling."
+description: "A modern glassmorphism custom stylesheet for Jellyfin web client and desktop players."
 section: github
 ---
 
-## Philosophy & Architecture Decisions
-A media server theme should be visual and fluid without impacting the host server or client playback performance. While JavaScript plugins can modify structural interfaces, they introduce rendering delays. By utilizing pure CSS overrides, this theme processes modifications entirely on the GPU. It turns the stock Jellyfin layout into a translucent, modern design that scales smoothly to high-refresh-rate displays.
+# Jellyfin Liquid Glass Theme
 
----
+> **Note:** This is a personal CSS theme I use for my own Jellyfin server. I am sharing it in case someone else finds it useful, but it is provided as-is. It is highly experimental and might break when Jellyfin updates.
 
-## Visual Design Enhancements
+## Credits
+
+This is a direct modification of the **Abyss Jellyfin Theme** by **AumGupta**. I used their work as the foundation and modified it heavily to fit my own needs. Full credit goes to them for the original theme.
+Source: https://github.com/AumGupta/abyss-jellyfin
+
+## Comprehensive Explanation of Changes
+
+If you add this CSS to your Jellyfin server, here is a comprehensive list of exactly what it changes compared to the stock Jellyfin UI:
 
 ### 1. Frosted Glass UI (Backdrop Filters)
-Replaces solid dark backgrounds with translucent frosted glass styling using `backdrop-filter: blur(x)` rules. This is applied to:
-- The main sidebar navigation panel.
-- System pop-up dialog boxes.
-- User profile configuration drawers.
-- Action menus and mobile bottom navigation bars.
 
-### 2. Floating Video Player Control Pills
-- **Pill-Shaped Layout:** Restyles the top navigation bar (back buttons, titles, control indicators) and the bottom control panel (seek bar, volume slider, configuration toggles) into floating rounded pill elements instead of full-width blocks.
-- **Glass Transparency:** The control pills use 10% opacity, matching the play/pause button layout for a uniform visual flow. The media behind the controls remains visible.
-- **Zero Double-Overlays:** The base parent container for the player controls is forced to be transparent. This prevents stacked glass layers, which would make the controls look opaque.
-- **Access to Native Elements:** Preserves button visibility for Play/Pause, Rewind, Fast Forward, Volume controls, Settings, Subtitle configuration, Fullscreen, Favorites, Track skipping, casting, and SyncPlay.
+- Replaces solid dark backgrounds with translucent frosted glass (`backdrop-filter: blur`) across the entire application.
+- This applies to the main sidebar, pop-up dialog boxes, the user profile drawer, action sheets, and the mobile bottom navigation bar.
 
----
+### 2. Video Player OSD — Floating Glass Pills
 
-## Platform-Specific Optimizations
+- **Pill-Shaped Controls:** The top bar (back button, movie title, cast/sync icons) and the bottom bar (playback controls, seek bar) are restyled as floating rounded pill shapes instead of full-width bars.
+- **Clear Glass Transparency:** Both OSD pills use ultra-low `0.1` (10%) opacity, matching the central play orb for a uniform, see-through aesthetic. The movie behind the controls is clearly visible.
+- **No Double Overlay:** The parent OSD container is forced fully transparent to prevent layered glass effects that would make the bars look opaque.
+- **All Buttons Visible:** Play/Pause orb, Rewind, Fast Forward, Volume, Settings, Subtitles, Fullscreen, Favorite, Next/Previous Track, Cast, and SyncPlay are all accessible.
 
-### Mobile Devices (Safari / Android WebKit / iOS Apps)
-- **Clear Glass Styling:** Disables `backdrop-filter` blur on mobile players to ensure instant responsiveness.
-- **Dynamic Text Scaling:** Decreases title font sizes on mobile displays to prevent longer titles from being cut off.
-- **Poster Sizing:** Adjusts the width of media layout cards to optimize mobile screen space.
-- **Rotational Transitions:** Implements a 0.5-second CSS transition animation. When screen orientation is rotated between portrait and landscape modes, the player controls scale smoothly rather than snapping instantly.
-- **Input Freeze Patch:** Resolves a known WebKit bug that causes text fields to ignore input on iPhones by removing conflicting GPU hardware acceleration attributes (`translateZ(0)` and `isolation`) from login fields.
+### 3. Mobile Device Optimizations
 
-### Smart TV Client Optimization
+- **Clear Glass (No Frosting):** On mobile devices, `backdrop-filter` blur is completely removed from OSD elements, resulting in a pure clear glass look without any frosting effect.
+- **Text Sizing:** Reduces the font size of movie and TV show titles specifically on mobile phones. This prevents long titles from getting cut off or hidden.
+- **Poster Sizing:** Adjusts the width of media cards on mobile so they fit the screen better.
+- **Screen Rotation:** Adds a smooth 0.5-second CSS transition animation to the video player. When you rotate your phone from portrait to landscape, the video controls resize smoothly instead of instantly snapping and glitching.
+- **Bottom Navigation:** Adds a subtle top border to the mobile bottom navigation bar to separate it from the main content.
+
+### 4. General Tweaks & Bug Fixes
+
+- **Hidden Badges:** Hides the small "Watched" (Checkmark) and "Favorite" (Heart) badge indicators that usually sit on top of movie posters.
+- **Login Screen Bug Fix:** Removes aggressive CSS GPU hardware acceleration (`translateZ(0)` and `isolation`) specifically from the login form. This fixes a known bug where WebKit browsers (like Safari and iPhones) would freeze or ignore clicks on the username and password fields.
+
+## How to use
+
+Add one of the following to your **Jellyfin Dashboard -> General -> Custom CSS code**:
+
+### 1. Stable Version (Main Branch)
+
+Use this for normal, daily usage.
+
+- **Mobile & Desktop (Web/App):**
+  Use this for phones, tablets, browsers, and desktop clients.
+  ```css
+  @import url("https://cdn.jsdelivr.net/gh/maniratansingh/jellyfin-liquid-glass@main/liquid-glass-bundle.css");
+  ```
+- **Android TV / Fire TV:**
+  Use this specifically for smart TVs and streaming sticks. It is optimized for TV layouts and remote control (D-Pad) focus states.
+  ```css
+  @import url("https://cdn.jsdelivr.net/gh/maniratansingh/jellyfin-liquid-glass@main/liquid-glass-tv.css");
+  ```
+
+***
+
+### 2. Testing Version (Beta Branch)
+
+Use this if you want to test experimental features (which may break things).
+
+- **Mobile & Desktop (Web/App):**
+  ```css
+  @import url("https://cdn.jsdelivr.net/gh/maniratansingh/jellyfin-liquid-glass@testing/liquid-glass-bundle.css");
+  ```
+- **Android TV / Fire TV:**
+  ```css
+  @import url("https://cdn.jsdelivr.net/gh/maniratansingh/jellyfin-liquid-glass@testing/liquid-glass-tv.css");
+  ```
+
+***
+
+### Why is the TV stylesheet separate?
+
 Jellyfin's TV client has a completely different layout from the mobile/desktop app. It is built for a **10-foot interface** (large text/buttons read from a distance) and navigated using a **D-pad TV remote** (requiring clear glowing focus indicator styles when selecting buttons). Using the mobile CSS on a TV would break D-pad navigation and ruin the TV layout, so the styles are separated to keep TV functionality working perfectly.
 
----
+***
 
-## Installation & Deployment Instructions
+### Note on Caching (Force Updating)
 
-To apply these styles, copy and paste the CDN import directives into **Jellyfin Dashboard -> General -> Custom CSS code**:
+Because CDNs and browsers cache CSS files heavily, you might not see changes immediately when the theme is updated.
 
-### Desktop, Browser, and Mobile Clients
-```css
-@import url("https://cdn.jsdelivr.net/gh/maniratansingh/jellyfin-liquid-glass@main/liquid-glass-bundle.css");
-```
-
-### Android TV & Fire TV (Optimized for remote controllers)
-```css
-@import url("https://cdn.jsdelivr.net/gh/maniratansingh/jellyfin-liquid-glass@main/liquid-glass-tv.css");
-```
-
----
-
-## Force Updating Styles (CDN Caching)
-CDNs and web browsers cache CSS stylesheets aggressively. When styles are updated on GitHub, clients may continue loading cached versions. To bypass the cache and force client updates immediately, append a version query parameter (`?v=number`) to the CDN link:
+To force your browser or mobile app to bypass the cache and load the updates instantly, append a version parameter like `?v=1` or `?v=2` to the end of your import link:
 
 ```css
+/* Example of force-updating the main bundle */
 @import url("https://cdn.jsdelivr.net/gh/maniratansingh/jellyfin-liquid-glass@main/liquid-glass-bundle.css?v=2");
 ```
-Simply increment the version parameter (e.g. `?v=3`) whenever new style updates are pushed to force client browsers to download the fresh stylesheet.
 
-## Code Link
-- [View jellyfin-liquid-glass on GitHub](https://github.com/maniratansingh/jellyfin-liquid-glass) ↗
+If the CSS changes again in the future, simply increase the number (e.g., `?v=3`) to force another update.
 
----
+
+***
 ← [Back to GitHub Projects](/github/)

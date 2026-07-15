@@ -1,99 +1,275 @@
 ---
 title: "Law Exam Batch Processor"
-description: "A self-hosted legal-tech pipeline utilizing Flask, Ollama, and SearXNG to batch parse questions, run local inference, and export PDFs."
+description: "A self-hosted legal-tech pipeline utilizing Flask, Ollama, and SearXNG."
 section: github
 ---
 
-## Objective & Design Philosophy
-Studying for judicial services and university law examinations requires synthesizing questions with relevant case law, statutory provisions, and summaries of court decisions. While public AI APIs (such as OpenAI or Google Cloud) can compile this information, they present data privacy concerns for sensitive exam preparation materials. They are also prone to hallucinations when dealing with region-specific statutory acts, like the Indian Penal Code (IPC) or specific state ordinances.
+# Law Exam Batch Processor
 
-This application provides a self-hosted legal-tech batch processor. It parses lists of exam questions, retrieves search context, runs local LLM inference, and generates structured PDF study sheets offline.
+Enterprise‑grade, self‑hosted system for generating **strict, exam‑oriented Indian law answers**, performing **domain‑prioritized fact‑checking**, and exporting **verified PDFs**.
 
----
+***
 
-## Technical Architecture & Retrieval-Augmented Generation (RAG) Flow
+## 1. Overview
 
-```mermaid
-graph TD
-    QuestionInput[Input Raw Exam Questions] --> Parse[Question Splitter & Parser]
-    Parse --> SearXNG[Search Context via SearXNG]
-    SearXNG --> LocalLLM[Prompt Local Ollama / Gemma 3 Model]
-    LocalLLM --> Pandoc[Convert Markdown to HTML]
-    Pandoc --> wkhtmltopdf[Generate PDF Study Sheet]
-    wkhtmltopdf --> Download[Serve PDF Output File]
+**Law Exam Batch Processor** is a production‑ready Flask application designed for Indian law students, researchers, and legal professionals who require:
+
+* Strict, marks‑oriented exam answers
+* Minimal but authoritative case‑law usage
+* Statute‑first accuracy with verification
+* Batch processing of questions
+* Single consolidated, printable PDF output
+
+The system combines:
+
+* Local LLM inference (Ollama)
+* Self‑hosted metasearch (SearXNG)
+* Deterministic prompt control
+* Pandoc + wkhtmltopdf publishing
+
+***
+
+## 2. Architecture
+
+### Backend
+
+* **Flask** – REST API and task orchestration
+* **Threaded workers** – Non‑blocking batch execution
+* **Ollama** – Local LLM inference (Gemma 3 4B)
+* **SearXNG** – Fact‑checking via Indian legal domains
+* **Pandoc + wkhtmltopdf** – Markdown → PDF pipeline
+
+### Frontend
+
+* Pure HTML + CSS + JavaScript (no framework)
+* Dark, distraction‑free exam interface
+* Live progress polling
+* Incremental answer rendering
+* One‑click final PDF export
+
+***
+
+## 3. Key Features
+
+* Strict exam‑safe answer format
+* One‑case‑law rule enforced
+* Statute‑priority verification
+* Domain‑weighted search ranking
+* Per‑question Markdown archival
+* Final combined verified PDF
+* Self‑hosted, offline‑friendly
+* No third‑party APIs or data leakage
+
+***
+
+## 4. Answer Policy (Exam Mode)
+
+Each answer strictly follows:
+
+1. Meaning / Direct Answer
+2. Statutory Provision
+3. Essential Points (brief explanation only)
+4. Case Law (ONE most relevant case)
+5. Conclusion
+6. Confidence Level
+
+**Explicitly excluded**:
+
+* Academic discussion
+* Multiple case laws
+* Illustrations
+* Comparative commentary
+
+***
+
+## 5. Fact‑Checking Strategy
+
+* Queries routed through self‑hosted SearXNG
+* Domain‑priority scoring
+* Preferred sources:
+
+  * indiankanoon.org
+  * sci.gov.in
+  * supremecourtofindia.nic.in
+  * highcourts.gov.in
+  * gov.in
+* LLM instructed to:
+
+  * Correct errors only
+  * Preserve structure
+  * Avoid expansion
+
+***
+
+## 6. Directory Structure
+
+```text
+project-root/
+│
+├── app.py              # Flask backend
+├── templates/
+│   └── index.html      # Frontend UI
+├── md/                 # Per‑question markdown
+├── output/
+│   ├── *_final.md
+│   └── *_final.pdf
+└── README.md
 ```
 
-The application implements a local **Retrieval-Augmented Generation (RAG)** pipeline to synthesize responses:
-1. **Input Parsing:** Users submit raw question sheets via a web form. The Flask backend splits questions into independent queries.
-2. **Context Querying:** The processor executes queries against a local, privacy-respecting **SearXNG** metasearch engine instance. This queries search engines in parallel, gathering context from legal databases and case archives.
-3. **Local Inference:** The extracted text snippets are injected into a structured prompt context. This context is sent to a local **Ollama** runtime running the Google Gemma 3 model. The model reasons over the documents to generate legal analyses, complete with citations and arguments.
-4. **Document Compilation:** The markdown output is processed by **Pandoc** and compiled into a styled PDF document using the **wkhtmltopdf** engine.
+***
 
----
+## 7. Requirements
 
-## Detailed System Requirements
+### System
 
-### Hardware Specs
-- **OS:** Linux (recommended) or macOS.
-- **CPU:** Apple Silicon (M1/M2/M3) or modern multi-core Intel/AMD x86-64 processors.
-- **RAM:** Minimum 8 GB required; 16 GB or higher is recommended for smooth model token generation speeds.
-- **Storage:** Solid State Drive (SSD) with at least 15 GB of free space to store local LLM model weights.
+* Linux (recommended)
+* Python 3.10+
+* 8 GB RAM minimum (16 GB recommended)
 
-### Software Stack
-- **Backend Framework:** Python 3.10+ running a Flask web server.
-- **Local Inference Engine:** Ollama running `gemma3:4b` weights (optimized for local deployment).
-- **Metasearch Interface:** Self-hosted SearXNG instance configured to output JSON data payloads.
-- **Rendering Libraries:** Pandoc (document conversion) and wkhtmltopdf (system tool for converting layouts to PDF).
+### Dependencies
 
----
+* Flask
+* requests
+* ollama (local runtime)
+* pandoc
+* wkhtmltopdf
+* SearXNG (self‑hosted)
 
-## API Design & Endpoints
+***
 
-The Flask server hosts the following RESTful API structure to manage processing jobs:
+## 8. Installation
 
-| Endpoint | Method | Input Parameters | Output Payload | Operational Purpose |
-| --- | --- | --- | --- | --- |
-| `/exam` | `POST` | JSON array of raw questions | `{ "task_id": "uuid" }` | Submits batch questions to the queue and starts processing. |
-| `/progress/<task_id>` | `GET` | URL Parameter: `task_id` | `{ "status": "processing/done", "percent": 75 }` | Polls the processing status of a batch job. |
-| `/download/pdf/<name>` | `GET` | URL Parameter: `file_name` | Raw Binary PDF stream | Downloads the final generated study sheets. |
+### 1. Clone Repository
 
----
-
-## Installation & Deployment Guide
-
-### Step 1: Install System Dependencies
-Install Pandoc and wkhtmltopdf using system package managers:
 ```bash
-sudo apt update
-sudo apt install pandoc wkhtmltopdf
+git clone <your-repo-url>
+cd law-exam-batch-processor
 ```
 
-### Step 2: Setup Python Virtual Environment
-Clone the repository, initialize the virtual environment, and install dependencies:
+### 2. Python Environment
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install flask requests ollama
 ```
 
-### Step 3: Configure Ollama Runtime
-Start the local Ollama daemon and pull the Gemma 3 model:
+### 3. Install System Tools
+
+```bash
+sudo apt install pandoc wkhtmltopdf
+```
+
+### 4. Setup Ollama
+
 ```bash
 ollama pull gemma3:4b
 ```
 
-### Step 4: Configure SearXNG
-Ensure your self-hosted SearXNG instance is running and has the JSON format output engine enabled in its config files. Update the backend application variables to point to the SearXNG endpoint.
+### 5. Setup SearXNG
 
-### Step 5: Run the Server
-Launch the Flask server:
+* Deploy SearXNG (Docker recommended)
+* Ensure `/search?format=json` is accessible
+* Update `SEARXNG_BASE_URL` in `app.py`
+
+***
+
+## 9. Running the Application
+
 ```bash
 python app.py
 ```
-Open a browser and navigate to `http://localhost:5000` to access the UI.
 
-## Code Link
-- [View law-exam-batch-processor on GitHub](https://github.com/maniratansingh/law-exam-batch-processor) ↗
+Access UI at:
 
----
+```text
+http://localhost:5000
+```
+
+***
+
+## 10. API Endpoints
+
+| Endpoint             | Method | Purpose                |
+| -------------------- | ------ | ---------------------- |
+| /exam                | POST   | Submit batch questions |
+| /progress/<task_id>  | GET    | Poll progress          |
+| /download/pdf/<name> | GET    | Download final PDF     |
+
+***
+
+## 11. Security & Privacy
+
+* Fully self‑hosted
+* No cloud inference
+* No third‑party data sharing
+* Local network deployment possible
+* Suitable for confidential exam preparation
+
+***
+
+## 12. Intended Use
+
+* Law examinations
+* Judicial service preparation
+* University assessments
+* Legal revision notes
+* Offline legal research
+
+**Not intended for**:
+
+* Casual Q&A
+* Chat‑style responses
+* Opinion‑based analysis
+
+***
+
+## 13. License
+
+This project is released under a **permissive open‑source license**.
+
+You are free to:
+
+* Use
+* Modify
+* Self‑host
+* Deploy commercially
+
+Attribution is appreciated.
+
+***
+
+## 14. Credits & Acknowledgements
+
+This project builds upon and credits the following open‑source software and platforms:
+
+* **Python** – Core language runtime
+* **Flask** – Web framework
+* **Ollama** – Local LLM serving
+* **Gemma Models** – Google DeepMind
+* **SearXNG** – Privacy‑respecting metasearch engine
+* **Pandoc** – Universal document converter
+* **wkhtmltopdf** – HTML/Markdown to PDF rendering
+* **Indian Kanoon** – Public legal information (referenced, not scraped)
+
+All trademarks and copyrights belong to their respective owners.
+
+***
+
+## 15. Disclaimer
+
+This software is provided for **educational and research purposes**.
+
+While best efforts are made to ensure legal accuracy, users must independently verify answers before reliance in professional or judicial contexts.
+
+***
+
+## 16. Maintainer
+
+Maintained by an independent legal‑tech developer.
+
+Contributions, audits, and improvements are welcome via pull requests.
+
+
+***
 ← [Back to GitHub Projects](/github/)
