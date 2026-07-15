@@ -65,7 +65,7 @@ for repo, info in repos.items():
         )
         
         # Prepend site frontmatter metadata
-        frontmatter = f"---\ntitle: \"{info['title']}\"\ndescription: \"{info['desc']}\"\nsection: projects\n---\n\n"
+        frontmatter = f"---\ntitle: \"{info['title']}\"\ndescription: \"{info['desc']}\"\nsection: projects\nparent_link: \"/projects/\"\nparent_text: \"Projects\"\n---\n\n"
         
         # Original Repository link at the bottom
         repo_url = f"https://github.com/maniratansingh/{repo}"

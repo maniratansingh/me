@@ -38,6 +38,12 @@
 
 <main id="main" class="main-content">
 
+$if(parent_link)$
+<div class="back-nav">
+  <a href="$parent_link$" class="btn-back">← Back to $parent_text$</a>
+</div>
+$endif$
+
 $if(title)$
 <header class="page-header">
   <h1>$title$</h1>

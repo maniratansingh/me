@@ -2,6 +2,8 @@
 title: "Photos"
 description: "My photography collection and external galleries."
 section: photos
+parent_link: "/"
+parent_text: "Home"
 ---
 
 I capture stories through night photography, long exposures, light trails, and geometry in everyday places. 

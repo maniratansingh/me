@@ -2,6 +2,8 @@
 title: "Law Exam Batch Processor"
 description: "A self-hosted legal-tech pipeline utilizing Flask, Ollama, and SearXNG."
 section: projects
+parent_link: "/projects/"
+parent_text: "Projects"
 ---
 
 # Law Exam Batch Processor

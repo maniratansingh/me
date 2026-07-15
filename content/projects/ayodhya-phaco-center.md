@@ -2,6 +2,8 @@
 title: "Ayodhya Phaco Center Website"
 description: "Official static website repository for the Ayodhya Phaco Center clinic."
 section: projects
+parent_link: "/projects/"
+parent_text: "Projects"
 ---
 
 # Ayodhya Phaco Center 🏥

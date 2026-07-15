@@ -2,6 +2,8 @@
 title: "Personal Posts"
 description: "My personal thoughts, views, and ideas on anything and everything."
 section: blog
+parent_link: "/"
+parent_text: "Home"
 ---
 
 This is my personal blog where I share my unfiltered thoughts, views, and ideas.

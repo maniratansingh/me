@@ -2,6 +2,8 @@
 title: "Projects"
 description: "My open source repositories, production setups, and hardware/software experiments."
 section: projects
+parent_link: "/"
+parent_text: "Home"
 ---
 
 Here is a list of my active projects. For each project, I outline the design thoughts, what I am achieving with the setup, and provide direct references to the repository.

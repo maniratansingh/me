@@ -2,6 +2,8 @@
 title: "Jellyfin Liquid Glass Theme"
 description: "A modern glassmorphism custom stylesheet for Jellyfin web client."
 section: projects
+parent_link: "/projects/"
+parent_text: "Projects"
 ---
 
 # Jellyfin Liquid Glass Theme

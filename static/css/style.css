@@ -351,6 +351,29 @@ code, kbd { font-family: var(--mono); font-size: 0.875em; }
 }
 .btn:hover { border-color: var(--accent); color: var(--accent); }
 
+.back-nav {
+  margin-bottom: var(--s-lg);
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--step--1);
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  transition: all var(--trans);
+}
+
+.btn-back:hover {
+  color: var(--text);
+  border-color: var(--border-mid);
+  background: var(--bg);
+}
+
 /* ── Homepage ─────────────────────────────────────────────────────────────── */
 .hero {
   min-height: calc(100svh - 60px);

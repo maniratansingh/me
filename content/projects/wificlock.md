@@ -2,6 +2,8 @@
 title: "ESP8266 Smart LED Matrix Clock"
 description: "An ESP8266 smart clock utilizing a MAX7219 LED matrix, weather, and NTP sync."
 section: projects
+parent_link: "/projects/"
+parent_text: "Projects"
 ---
 
 # ESP8266 Smart LED Matrix Clock
