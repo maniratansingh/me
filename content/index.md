@@ -1,6 +1,6 @@
 ---
 title: "Mani Ratan Pratap Singh"
-description: "Photography · Tech Hobbyist · Homelab · Full Nerd from India"
+description: "Mani Ratan Pratap Singh — Personal Website"
 ---
 
 <section class="hero">
@@ -8,10 +8,15 @@ description: "Photography · Tech Hobbyist · Homelab · Full Nerd from India"
   <p class="hero-bio">Photography · Tech Hobbyist · Homelab · 🇮🇳</p>
   <p class="hero-tagline">My Simplicity Is My Identity.</p>
 
+  <hr style="border: 0; border-top: 1px solid var(--border); margin: var(--s-md) 0;">
+
+  <h2>About Me</h2>
+  <p>I am a generalist who loves working on homelabs, hardware (ESP32), networking, robotics, and capturing stories through photography. This website serves as my clean, permanent digital archive.</p>
+
+  <h2>Connect</h2>
   <nav class="hero-links">
     <a href="https://www.instagram.com/maniratanpratapsingh/" target="_blank" rel="noopener">Instagram</a>
     <a href="https://twitter.com/maniratanprata" target="_blank" rel="noopener">Twitter</a>
     <a href="https://m.facebook.com/maniratanpratap" target="_blank" rel="noopener">Facebook</a>
-    <a href="/contact/">Contact</a>
   </nav>
 </section>

@@ -1,16 +1,20 @@
 ---
-title: "Blog"
-description: "Posts on photography, tech, homelab, electronics, and everything else."
+title: "Personal Posts"
+description: "My personal thoughts, views, and ideas on anything and everything."
 section: blog
 ---
 
-Nothing published yet.
+This is my personal blog where I share my unfiltered thoughts, views, and ideas.
 
-<!-- AI INSTRUCTION: Add new posts as <li> items inside .post-list, newest first:
+---
+
 <ul class="post-list">
+  <!-- AI INSTRUCTION: Add new personal post links here, newest first. Example:
   <li class="post-list-item">
-    <a class="post-list-title" href="/blog/YYYY-MM-DD-slug/">Post Title</a>
-    <span class="post-list-date">YYYY-MM-DD</span>
+    <a class="post-list-title" href="/blog/2026-07-15-my-first-post/">My First Post Title</a>
+    <span class="post-list-date">2026-07-15</span>
   </li>
+  -->
 </ul>
--->
+
+_No posts yet. Check back soon for updates!_

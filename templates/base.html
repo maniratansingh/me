@@ -11,11 +11,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="$if(title)$$title$$else$Mani Ratan Pratap Singh$endif$" />
   $if(description)$<meta property="og:description" content="$description$" />$endif$
-  $if(cover)$<meta property="og:image" content="$cover$" />$endif$
   <meta property="og:site_name" content="Mani Ratan Pratap Singh" />
-
-  <!-- Canonical -->
-  $if(canonical)$<link rel="canonical" href="$canonical$" />$endif$
 
   <!-- Fonts: IBM Plex (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,9 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,200;0,400;0,600;1,400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/css/style.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/img/avatar.png" />
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
 </head>
 <body>
 
@@ -35,11 +29,9 @@
   <div class="header-inner">
     <a class="site-title" href="/">MRPS</a>
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="/photography/">Photography</a>
-      <a href="/blog/">Blog</a>
-      <a href="/projects/">Projects</a>
-      <a href="/docs/">Docs</a>
-      <a href="/about/">About</a>
+      <a href="/blog/">Posts</a>
+      <a href="/github/">GitHub</a>
+      <a href="/photos/">Photos</a>
     </nav>
   </div>
 </header>
@@ -64,15 +56,11 @@ $body$
   <div class="footer-inner">
     <p class="footer-name"><a href="/">Mani Ratan Pratap Singh</a></p>
     <nav class="footer-nav" aria-label="Footer navigation">
-      <a href="/photography/">Photography</a>
-      <a href="/blog/">Blog</a>
-      <a href="/projects/">Projects</a>
-      <a href="/docs/">Docs</a>
-      <a href="/reviews/">Reviews</a>
-      <a href="/notes/">Notes</a>
-      <a href="/contact/">Contact</a>
+      <a href="/blog/">Posts</a>
+      <a href="/github/">GitHub</a>
+      <a href="/photos/">Photos</a>
     </nav>
-    <p class="footer-meta">© $if(year)$$year$$else$2024$endif$ Mani Ratan Pratap Singh · <a href="https://piecs.org/" target="_blank" rel="noopener">Pragati India Eye Care Society</a></p>
+    <p class="footer-meta">© 2026 Mani Ratan Pratap Singh · <a href="https://piecs.org/" target="_blank" rel="noopener">Pragati India Eye Care Society</a></p>
   </div>
 </footer>
 
