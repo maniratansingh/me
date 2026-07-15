@@ -6,13 +6,15 @@ section: photos
 
 I capture stories through night photography, long exposures, light trails, and geometry in everyday places. 
 
-Rather than hosting heavy media files directly on this server, my full collections are stored and updated in external galleries.
+To keep this website repository lightweight and maintainable, all large assets live outside this codebase.
 
 ---
 
-### External Galleries
+### External Media & Assets
 
-- [My Google Drive Photos Link (Placeholder)](#) ↗
-- [Instagram Photos](https://www.instagram.com/maniratanpratapsingh/) ↗
+- **Photos:** [My Google Photos / Google Drive Link (Placeholder)](#) ↗
+- **Social Gallery:** [Instagram Photos](https://www.instagram.com/maniratanpratapsingh/) ↗
+- **Videos:** [YouTube Channel (Placeholder)](#) ↗
+- **Downloads & Binaries:** [GitHub Releases](https://github.com/maniratansingh) ↗
 
-<!-- AI INSTRUCTION: To update the Google Drive link or add external gallery links, modify the list above. -->
+<!-- AI INSTRUCTION: To update these links, edit the Markdown references directly. -->

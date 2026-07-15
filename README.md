@@ -99,9 +99,9 @@ Post content here.
 
 ---
 
-### Add/Update a GitHub Project / Repo Description
+### Add/Update a Project Description
 
-To add a new repository or sync updates from existing repositories, follow the automated synchronization process described in [INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md). 
+To add a new project repository or sync updates from existing repositories, follow the automated synchronization process described in [INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md). 
 
 Briefly:
 1. Open [INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md) and copy the `update_projects.py` script code.
@@ -109,7 +109,7 @@ Briefly:
    ```bash
    python3 update_projects.py
    ```
-3. Add the project link to the list in `content/github/index.md`.
+3. Add the project link to the list in `content/projects/index.md`.
 
 ---
 

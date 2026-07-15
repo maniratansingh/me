@@ -1,7 +1,7 @@
 ---
 title: "ESP8266 Smart LED Matrix Clock"
 description: "An ESP8266 smart clock utilizing a MAX7219 LED matrix, weather, and NTP sync."
-section: github
+section: projects
 ---
 
 # ESP8266 Smart LED Matrix Clock
@@ -66,4 +66,4 @@ graph LR
 - [View Original Repository on GitHub](https://github.com/maniratansingh/wificlock) ↗
 
 ***
-← [Back to GitHub Projects](/github/)
+← [Back to Projects](/projects/)

@@ -1,7 +1,7 @@
 ---
 title: "Jellyfin Liquid Glass Theme"
 description: "A modern glassmorphism custom stylesheet for Jellyfin web client."
-section: github
+section: projects
 ---
 
 # Jellyfin Liquid Glass Theme
@@ -104,4 +104,4 @@ If the CSS changes again in the future, simply increase the number (e.g., `?v=3`
 - [View Original Repository on GitHub](https://github.com/maniratansingh/jellyfin-liquid-glass) ↗
 
 ***
-← [Back to GitHub Projects](/github/)
+← [Back to Projects](/projects/)

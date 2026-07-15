@@ -65,13 +65,13 @@ for repo, info in repos.items():
         )
         
         # Prepend site frontmatter metadata
-        frontmatter = f"---\ntitle: \"{info['title']}\"\ndescription: \"{info['desc']}\"\nsection: github\n---\n\n"
+        frontmatter = f"---\ntitle: \"{info['title']}\"\ndescription: \"{info['desc']}\"\nsection: projects\n---\n\n"
         
         # Original Repository link at the bottom
         repo_url = f"https://github.com/maniratansingh/{repo}"
-        footer = f"\n\n***\n\n### Code Link\n- [View Original Repository on GitHub]({repo_url}) ↗\n\n***\n← [Back to GitHub Projects](/github/)\n"
+        footer = f"\n\n***\n\n### Code Link\n- [View Original Repository on GitHub]({repo_url}) ↗\n\n***\n← [Back to Projects](/projects/)\n"
         
-        dest_path = f"content/github/{repo}.md"
+        dest_path = f"content/projects/{repo}.md"
         with open(dest_path, "w", encoding="utf-8") as f:
             f.write(frontmatter + sanitized_content + footer)
         print(f"Successfully sync'd: {dest_path}")

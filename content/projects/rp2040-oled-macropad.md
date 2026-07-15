@@ -1,7 +1,7 @@
 ---
 title: "RP2040 OLED Macro Pad (Wi-Fi Edition)"
 description: "A 16-key USB macro pad built with CircuitPython, OLED, and Wi-Fi."
-section: github
+section: projects
 ---
 
 # RP2040 OLED Macro Pad (Wi-Fi Edition)
@@ -179,4 +179,4 @@ SLEEP_DELAY = 30
 - [View Original Repository on GitHub](https://github.com/maniratansingh/rp2040-oled-macropad) ↗
 
 ***
-← [Back to GitHub Projects](/github/)
+← [Back to Projects](/projects/)

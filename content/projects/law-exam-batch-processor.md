@@ -1,7 +1,7 @@
 ---
 title: "Law Exam Batch Processor"
 description: "A self-hosted legal-tech pipeline utilizing Flask, Ollama, and SearXNG."
-section: github
+section: projects
 ---
 
 # Law Exam Batch Processor
@@ -277,4 +277,4 @@ Contributions, audits, and improvements are welcome via pull requests.
 - [View Original Repository on GitHub](https://github.com/maniratansingh/law-exam-batch-processor) ↗
 
 ***
-← [Back to GitHub Projects](/github/)
+← [Back to Projects](/projects/)

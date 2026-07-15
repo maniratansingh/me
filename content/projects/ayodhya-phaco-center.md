@@ -1,7 +1,7 @@
 ---
 title: "Ayodhya Phaco Center Website"
 description: "Official static website repository for the Ayodhya Phaco Center clinic."
-section: github
+section: projects
 ---
 
 # Ayodhya Phaco Center 🏥
@@ -72,4 +72,4 @@ The visual design focuses on a modern **Glassmorphism** aesthetic.
 - [View Original Repository on GitHub](https://github.com/maniratansingh/ayodhya-phaco-center) ↗
 
 ***
-← [Back to GitHub Projects](/github/)
+← [Back to Projects](/projects/)
