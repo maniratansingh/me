@@ -1,17 +1,20 @@
 ---
 title: "Ayodhya Phaco Center Website"
-description: "Repository for the official website of the Ayodhya Phaco Center."
+description: "The official static website repository for the Ayodhya Phaco Center clinic."
 section: github
 ---
 
 ## Philosophy & Architecture Decisions
-Medical information pages must be accessible, lightweight, and load instantly even under poor rural network conditions (such as 3G/low-speed connections). The website's architecture completely bypasses heavy single-page application (SPA) frameworks or runtime systems. By relying on pure semantic HTML structure and highly optimized styles, the site guarantees an ultra-fast Time-to-Interactive (TTI).
+A medical information portal must be lightweight, responsive, and render immediately even under slow network conditions (such as rural 3G environments). The frontend architecture skips single-page application (SPA) frameworks. Utilizing pure semantic markup and optimized CSS, it preserves bandwidth, satisfies screen readers, and ensures the booking layout is clean and fast.
+
+## Visual Design & Optimization Features
+- **Glassmorphism Layout:** Uses light frosted surfaces (`backdrop-filter`) over subtle backgrounds to keep layouts modern and visually premium.
+- **Form Readability:** Optimizes booking form transparency so text blocks are highly readable against layout grids.
+- **Mobile Friendly:** Scaled specifically to render cleanly on tablets and smartphone displays.
 
 ## Technical Details
-- **Tech Stack:** Vanilla HTML5 and CSS3 (compiled directly without client-side JavaScript packages).
-- **Accessibility:** Uses semantic layout tags (`<header>`, `<main>`, `<nav>`, `<article>`) to satisfy screen reader devices and accessibility guidelines.
-- **Performance:** Replaces raw asset dependencies with optimized image formats (WebP) and inline SVGs to reduce HTTP server requests.
-- **Responsive Layout:** Responsive layout driven by CSS grid systems that automatically collapse to single columns on small smartphone displays.
+- **Tech Stack:** Vanilla HTML5 and CSS3 (no external JavaScript scripts or render-blocking stylesheets).
+- **Accessibility:** Constructed with structured layout tags (`<header>`, `<main>`, `<nav>`) to comply with accessibility requirements.
 
 ## Code Link
 - [View ayodhya-phaco-center on GitHub](https://github.com/maniratansingh/ayodhya-phaco-center) ↗

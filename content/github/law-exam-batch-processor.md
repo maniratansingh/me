@@ -1,17 +1,41 @@
 ---
 title: "Law Exam Batch Processor"
-description: "A Python utility to batch process and automate steps for exam data."
+description: "A self-hosted legal-tech pipeline utilizing Flask, Ollama, and SearXNG to batch parse questions, run local inference, and export PDFs."
 section: github
 ---
 
 ## Philosophy & Architecture Decisions
-Data consolidation and parser scripts should do one thing and do it reliably. In administrative environments, manual data extraction leads to formatting mistakes. This Python utility parses structured text and raw data files into structured database-ready tables. It is designed to be easily inspectable, keeping logic separated from temporary IO tasks.
+Automating legal exam compilation and revision processes requires data integrity and confidentiality. Cloud-based LLM APIs share data and present data privacy concerns. This legal-tech batch processor operates entirely offline. It uses a self-hosted Flask server, local language models (Ollama), and a private search engine instance (SearXNG) to process datasets securely.
 
-## Technical Details
-- **Tech Stack:** Python 3 utilizing minimal external dependencies to ensure ease of deployment across generic environment runtimes.
-- **Parsing Logic:** Implements robust regular expression engines (`re` module) to extract names, scores, and dates from raw transcripts or text exports.
-- **IO Handling:** Exports clean, validated datasets directly to CSV formats, handling string escaping, structural validation, and formatting errors automatically.
-- **Modularity:** Written as a pipeline architecture where data reading, regex matching, clean-up operations, and file writing are written as standalone modules.
+## Features
+- **Privacy First:** Works entirely offline; no external cloud API dependencies.
+- **Batch Processing:** Handles multiple legal questions concurrently.
+- **Local RAG Integration:** Searches legal material via SearXNG and reasons locally using Ollama.
+- **Structured Outputs:** Compiles final notes and answers to PDF using Pandoc and wkhtmltopdf.
+
+## System Requirements
+- **OS:** Linux (recommended) or macOS.
+- **Hardware:** Python 3.10+ runtime, minimum 8GB RAM (16GB recommended).
+- **Core Dependencies:** Flask, requests, ollama (running `gemma3:4b` locally), pandoc, wkhtmltopdf, and SearXNG.
+
+## API Architecture
+
+| Endpoint | Method | Purpose |
+| --- | --- | --- |
+| `/exam` | POST | Submit batch questions |
+| `/progress/<task_id>` | GET | Poll processing progress |
+| `/download/pdf/<name>` | GET | Download final PDF |
+
+## Installation Summary
+1. Set up a virtual environment and install standard Python requirements:
+   ```bash
+   pip install flask requests ollama
+   ```
+2. Pull the model locally:
+   ```bash
+   ollama pull gemma3:4b
+   ```
+3. Run SearXNG via Docker, configure base search endpoints, and start `app.py`.
 
 ## Code Link
 - [View law-exam-batch-processor on GitHub](https://github.com/maniratansingh/law-exam-batch-processor) ↗
