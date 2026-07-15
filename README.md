@@ -92,33 +92,15 @@ Post content here.
 
 ### Add/Update a GitHub Project / Repo Description
 
-Instead of pasting entire files of code, summarize your thought process and production objectives, and link out to the code.
+To add a new repository or sync updates from existing repositories, follow the automated synchronization process described in [INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md). 
 
-1. Create: `content/github/project-name.md`
-2. Add an entry to `content/github/index.md`
-
-**GitHub Project template:**
-
-```markdown
----
-title: "Project Name Setup"
-description: "What I am achieving and thoughts regarding production."
-date: YYYY-MM-DD
-tags: [esp32, production]
-section: github
----
-
-## Objective & Thought Process
-What this repository accomplishes and why it was designed this way.
-
-## Production Setup
-Describe the physical/production environment.
-
-## Code Reference
-- [View Repository on GitHub](https://github.com/maniratanpratapsingh/repo-name) ↗
-
-← [Back to GitHub Projects](/github/)
-```
+Briefly:
+1. Open [INSTRUCTION.md](file:///Users/mrps/projects/me/INSTRUCTION.md) and copy the `update_projects.py` script code.
+2. Run it using Python to automatically fetch your repository README file from GitHub, format it correctly with site metadata, resolve relative paths to absolute raw links (like circuit diagrams), and append the original repository link:
+   ```bash
+   python3 update_projects.py
+   ```
+3. Add the project link to the list in `content/github/index.md`.
 
 ---
 
