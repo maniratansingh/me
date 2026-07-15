@@ -151,7 +151,7 @@ main { flex: 1; }
 
 /* ── Page layout wrapper (non-homepage) ───────────────────────────────────── */
 .main-content {
-  max-width: var(--measure);
+  max-width: var(--wide);
   margin: 0 auto;
   padding: var(--s-xl) var(--pad);
   width: 100%;
