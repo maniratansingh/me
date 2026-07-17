@@ -18,6 +18,24 @@ Here is how I took the concepts from TankSync and simplified them into [water-ta
 
 ---
 
+## The Core Philosophy: A Low-Cost DIY Alternative
+
+While the original TankSync project is an incredibly reliable, professional system built for production deployments, my goal was slightly different. I wanted a **low-cost, barebones DIY version**—essentially a "poor man's" monitor built on spare change. 
+
+The highlight of this project is how cheap it is to assemble. Here is the exact cost breakdown:
+
+| Component / Expense | Cost (INR) |
+|---|---|
+| **ESP8266 Microcontroller** | ₹175 |
+| **Waterproof Ultrasonic Sensor (JSN-SR04M)** | ₹259 |
+| **CCTV Camera Enclosure** (for waterproofing the board) | ₹50 |
+| **Misc (Solder, jumper wires, resistor)** | ₹2 |
+| **Total Build Cost** | **₹486 (~$6 USD)** |
+
+For less than ₹500, I got a fully functioning, real-time web dashboard. The original author's codebase works flawlessly and remains the gold standard if you need full history logging or multi-tank alerts. But for a minimal, fun weekend project that gets the job done without breaking the bank, this stripped-down DIY version hits the sweet spot.
+
+---
+
 ## The Barebones Philosophy: One File, Flash, and Play
 
 The original TankSync splits its responsibilities across various assets:
