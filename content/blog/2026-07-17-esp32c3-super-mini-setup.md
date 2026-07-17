@@ -8,18 +8,6 @@ parent_link: "/blog/"
 parent_text: "Posts"
 ---
 
-> *This isn't a prediction, nor is it a proposal claiming to have all the answers. It's simply a thought that came to me while using AI to compare products across different websites. The more I thought about it, the more interesting it became, so I decided to write it down. I may be overlooking important technical or business considerations, and if so, I'd genuinely like to hear them.*
-
-For most of the web's history, websites have been built for one audience: humans.
-
-A modern website delivers far more than HTML. It combines HTML, CSS, JavaScript, images, APIs, and client-side rendering to create an interactive experience. Search engines adapted to this model by indexing webpages and returning links.
-
-Today, there is a second audience.
-
-AI.
-
-The interesting part is that we're still expecting AI to consume the web almost exactly like humans do.
-
 ## Why I Wrote This
 When I decided to move from the ESP8266 to the ESP32-C3, I expected the transition to be straightforward.
 I purchased six ESP32-C3 Super Mini boards because they offered an excellent balance of price, performance, and power efficiency. On paper, they looked like a direct upgrade:
