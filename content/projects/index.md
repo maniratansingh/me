@@ -12,6 +12,10 @@ Here is a list of my active projects. For each project, I outline the design tho
 
 <ul class="post-list">
   <li class="post-list-item">
+    <a class="post-list-title" href="/projects/water-tank/">Water Tank Level Monitor</a>
+    <span class="post-list-date">C++</span>
+  </li>
+  <li class="post-list-item">
     <a class="post-list-title" href="/projects/rp2040-oled-macropad/">RP2040 OLED Macropad</a>
     <span class="post-list-date">Python</span>
   </li>

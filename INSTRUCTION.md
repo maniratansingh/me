@@ -40,6 +40,11 @@ repos = {
         "branch": "master",
         "title": "ESP8266 Smart LED Matrix Clock",
         "desc": "An ESP8266 smart clock utilizing a MAX7219 LED matrix, weather, and NTP sync."
+    },
+    "water-tank": {
+        "branch": "master",
+        "title": "Water Tank Level Monitor (ESP8266)",
+        "desc": "A real-time water tank level monitor utilizing an ESP8266 and a waterproof ultrasonic sensor."
     }
 }
 
