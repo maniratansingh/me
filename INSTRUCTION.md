@@ -45,6 +45,11 @@ repos = {
         "branch": "master",
         "title": "Water Tank Level Monitor (ESP8266)",
         "desc": "A real-time water tank level monitor utilizing an ESP8266 and a waterproof ultrasonic sensor."
+    },
+    "gpsclock": {
+        "branch": "master",
+        "title": "GPS Clock & Telemetry Dashboard",
+        "desc": "A dual-display Arduino GPS Clock with MAX7219 and SSD1306 OLED telemetry readout."
     }
 }
 

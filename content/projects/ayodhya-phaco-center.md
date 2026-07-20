@@ -11,7 +11,7 @@ parent_text: "Projects"
 Welcome to the official repository for the **Ayodhya Phaco Center** website.
 
 ## About Us
-Ayodhya Phaco Center is a certified premium eye care and cataract surgery clinic located in Ayodhya, Uttar Pradesh. We specialize in advanced eye diagnostics, laser treatments, and premium cataract surgeries. We proudly offer free surgeries under the PM-JAY Ayushman Bharat Yojana for eligible patients.
+[Ayodhya Phaco Center](https://ayodhyaphacocenter.piecs.org) - Direct Link: https://ayodhyaphacocenter.piecs.org is a certified premium eye care and cataract surgery clinic located in Ayodhya, Uttar Pradesh. We specialize in advanced eye diagnostics, laser treatments, and premium cataract surgeries. We proudly offer free surgeries under the PM-JAY Ayushman Bharat Yojana for eligible patients.
 
 ## Features
 - **Responsive Design**: Custom-built adaptive layouts for both desktop and mobile devices.
@@ -66,6 +66,18 @@ The visual design focuses on a modern **Glassmorphism** aesthetic.
 
 ***
 *Dedicated to preserving vision and providing world-class eye care.*
+
+
+***
+
+## 🌐 Purvanchal Eye Care Network
+
+This facility is part of a comprehensive network of premier eye care hospitals providing advanced surgical and diagnostic services across the Purvanchal region of Uttar Pradesh. Managed by a unified administration, these sister hospitals share a common commitment to exceptional patient care and identical high-quality standards.
+
+**Our Network of Hospitals:**
+* 🏥 **[Ayodhya Phaco Center Eye Hospital](https://ayodhyaphacocenter.piecs.org)** - Ayodhya
+* 🏥 **[Sant Kabir Eye Hospital](https://santkabireyehospital.piecs.org)** - Basti
+* 🏥 **[Sunbeam Eye Hospital](https://sunbeameyehospital.piecs.org)** - Sultanpur
 
 
 ***

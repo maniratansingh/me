@@ -13,21 +13,26 @@ parent_text: "Projects"
 
 ***
 
-## 🙏 Inspiration & Credit
+## 🙏 Inspiration & Gratitude
 
-This project was **heavily inspired by [TankSync](https://github.com/Techposts/TankSync) by [@Techposts](https://github.com/Techposts)**.
+This project is a simplified, budget-focused DIY variation of the incredible **[TankSync](https://github.com/Techposts/TankSync)** project created by **[@Techposts](https://github.com/Techposts)**. 
 
-I saw his project, loved the concept, and built this as my own **barebones learning version**.
+I want to express my deepest appreciation and credit to the original author. Without their open-source codebase and brilliant ideas, this build would not have been possible. TankSync is an exceptionally reliable, professional-grade solution that supports multiple tanks, history logging, and runs rock-solid 24/7.
 
-| | This project | TankSync (original) |
-|---|---|---|
-| **Complexity** | Barebones / minimal | Full-featured / professional |
-| **Files** | 1 single `.ino` file | Multi-file, structured project |
-| **Features** | Level % + Wi-Fi signal + calibration | Multi-tank, history, alerts, OTA, and more |
-| **Best for** | Quick personal use, learning, hacking | Production-ready deployments |
+My version is a humble, stripped-down DIY adaptation. My goal was simply to see if I could build a minimal, barebones version on a very tight budget to cover my basic needs. If you need a fully-featured, production-ready, and highly polished solution, I strongly encourage you to check out and support the original **[TankSync](https://github.com/Techposts/TankSync)** project.
 
-> **➡️ If you want something comprehensive and production-ready, go use [TankSync](https://github.com/Techposts/TankSync) — it is far more complete.**  
-> This repo is just my stripped-down version that I built to understand how it works.
+***
+
+## 🧾 Bill of Materials — Total Cost ~₹490
+
+This project was built using the absolute minimal, budget-friendly components available locally:
+
+- **ESP8266 NodeMCU** (Microcontroller & Wi-Fi): **₹175**
+- **JSN-SR04M** (Waterproof ultrasonic sensor): **₹259**
+- **CCTV Junction Box** (Weatherproof enclosure): **₹50**
+- **Solder, wires, & a resistor**: **₹2–5**
+
+*Total Estimated Cost: **≈ ₹490*** (Less than ₹500 for a local, subscription-free Wi-Fi water level monitor).
 
 ***
 
