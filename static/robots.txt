@@ -1,0 +1,15 @@
+# robots.txt for mrps.in
+# Brand Name: Mani Ratan Singh
+
+User-agent: *
+Allow: /
+
+# LLM Crawler Policies
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

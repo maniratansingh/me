@@ -1,0 +1,24 @@
+# Mani Ratan Singh
+
+> Personal directory, digital archive, and engineering notebook of Mani Ratan Singh.
+
+## About
+
+I am a tech generalist and photographer based in India. I build hardware controllers, manage homelab configurations, and document my thoughts and work.
+
+## Projects
+
+- [GPS Clock & Telemetry Dashboard](/projects/gpsclock/): A dual-display Arduino GPS Clock with MAX7219 and SSD1306 OLED telemetry readout.
+- [Water Tank Level Monitor (ESP8266)](/projects/water-tank/): A real-time water tank level monitor utilizing an ESP8266 and a waterproof ultrasonic sensor.
+- [RP2040 OLED Macro Pad (Wi-Fi Edition)](/projects/rp2040-oled-macropad/): A 16-key USB macro pad built with CircuitPython, OLED, and Wi-Fi.
+- [ESP8266 Smart LED Matrix Clock](/projects/wificlock/): An ESP8266 smart clock utilizing a MAX7219 LED matrix, weather, and NTP sync.
+- [Jellyfin Liquid Glass Theme](/projects/jellyfin-liquid-glass/): A modern glassmorphism custom stylesheet for Jellyfin web client.
+- [Law Exam Batch Processor](/projects/law-exam-batch-processor/): A self-hosted legal-tech pipeline utilizing Flask, Ollama, and SearXNG.
+- [Ayodhya Phaco Center Website](/projects/ayodhya-phaco-center/): Official static website repository for the Ayodhya Phaco Center clinic.
+
+## Blog Posts
+
+- [Building a High-Precision GPS Clock](/blog/2026-07-20-building-high-precision-gps-clock/): Gaining microsecond precision using Neo-6M GPS modules and display caching.
+- [Simplifying the Water Tank Level Monitor](/blog/2026-07-17-simplifying-water-tank-monitor/): Building an ultra-low-cost (~₹486 / $6 USD) DIY water level dashboard.
+- [ESP32-C3 Super Mini Setup Guide](/blog/2026-07-17-esp32c3-super-mini-setup/): Debugging common flash errors and setting up acceptance checklists.
+- [AI Doesn't Need Better Scrapers. It Needs Better Websites.](/blog/2026-07-17-ai-needs-better-websites/): Proposing read-only structured interfaces designed for machines alongside human-friendly web pages.
