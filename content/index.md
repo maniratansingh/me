@@ -1,10 +1,10 @@
 ---
-title: "Mani Ratan Pratap Singh"
-description: "Personal Directory for Mani Ratan Pratap Singh"
+title: "Mani Ratan Singh"
+description: "Personal Directory for Mani Ratan Singh"
 ---
 
 <section class="hero">
-  <h1>Mani Ratan<br>Pratap Singh</h1>
+  <h1>Mani Ratan<br>Singh</h1>
   
   <p class="hero-bio">I am a tech generalist and photographer based in India. I build hardware controllers, manage homelab configurations, and document my thoughts and work here.</p>
 
