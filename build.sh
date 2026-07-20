@@ -102,5 +102,9 @@ while IFS= read -r -d '' md_file; do
 
 done < <(find "$CONTENT_DIR" -name "*.md" -print0 | sort -z)
 
+# ── Generate sitemap.xml and llms.txt metadata ──────────────────────────────
+log "Generating sitemap.xml and llms.txt..."
+python3 generate_meta.py
+
 # ── Done ─────────────────────────────────────────────────────────────────────
 log "Done. Built $COUNT pages → $OUTPUT_DIR/"

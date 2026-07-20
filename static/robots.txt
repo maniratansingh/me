@@ -13,3 +13,6 @@ Allow: /
 
 User-agent: Google-Extended
 Allow: /
+
+# Sitemap
+Sitemap: https://mrps.in/sitemap.xml
