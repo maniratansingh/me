@@ -1,6 +1,6 @@
 ---
-title: "Benchmarking a 37.7 Gbps Thunderbolt 4 Link for Mac AI Clustering: Real-World Setup, iperf3 Results, and Exo Lessons Learned"
-description: "Connecting a MacBook Air and Mac mini M4 over Thunderbolt 4, hitting 37.7 Gbps throughput with iperf3, and setting up distributed AI clustering with Exo and MLX."
+title: "My First Experiment with Mac AI Clustering: 37.7 Gbps Benchmarks, MLX Hiccups, and Lessons Learned"
+description: "A beginner's first hands-on test connecting an M4 Mac mini and MacBook Air over Thunderbolt 4, testing speeds with iperf3, and exploring distributed AI."
 date: 2026-07-22
 tags: [mac, thunderbolt, ai, networking]
 section: blog
@@ -8,30 +8,32 @@ parent_link: "/blog/"
 parent_text: "Posts"
 ---
 
-When linking multiple Apple Silicon Macs together, one of the most exciting possibilities is combining their bandwidth and processing power. With an **M4 Mac mini** acting as a desktop server and a **MacBook Air** as a mobile workstation, connecting them directly over a high-speed Thunderbolt 4 cable opens up massive possibilities for local AI workloads, file transfers, and remote execution.
+I’m not a professional AI engineer or a low-level systems compiler expert—I’m a hobbyist and generalist who loves experimenting with tech, building things hands-on, and seeing what happens. 
 
-Recently, I set up a direct peer-to-peer connection between my MacBook Air and Mac mini M4 using a Portronics Flash C2 240W Thunderbolt 4 / USB4 cable (rated for 40 Gbps data transfer). 
+Recently, I decided to try my very first experiment with **Mac AI clustering**. 
 
-This post details the exact configuration, real-world `iperf3` benchmark results (hitting **37.7 Gbps**!), setting up a distributed AI cluster with **Exo**, troubleshooting Python dependencies like Apple's **MLX**, and lessons learned along the way.
+The concept sounded fascinating: connecting an **M4 Mac mini** and a **MacBook Air** using a high-speed **Portronics Flash C2 240W Thunderbolt 4 cable** (40 Gbps rated) to share processing tasks. I didn't want to dig too deep into complex low-level roots right away; I just wanted to run a practical test, measure the speeds, see how distributed AI behaves, and learn along the way.
+
+Here is a breakdown of my first experience, the benchmark results, where I got stuck, and my key takeaways.
 
 ---
 
-## 1. Hardware & Physical Network Setup
+## 1. Setting Up the Physical Link
 
-To build a zero-latency direct link between two Macs without congesting the local Wi-Fi router, you create a direct Thunderbolt Bridge interface.
+To get the fastest possible connection between the two Macs without burdening the Wi-Fi router, I set up a direct peer-to-peer Thunderbolt Bridge.
 
-### Hardware Components
+### The Gear
 * **Server Node:** Apple Mac mini (M4)
 * **Client Node:** Apple MacBook Air
-* **Interconnect:** Portronics Flash C2 240W Type-C to Type-C Cable (Thunderbolt 4 / 40 Gbps rated)
+* **Interconnect:** Portronics Flash C2 240W Type-C to Type-C Cable (Thunderbolt 4 / 40 Gbps)
 
 ### Static IP Configuration (`bridge0`)
-Rather than relying on link-local auto-assigned IPs (`169.254.x.x`), setting explicit static IPv4 addresses on the Thunderbolt Bridge interface guarantees consistent routing and prevents traffic from leaking onto Wi-Fi:
+To keep routing predictable, I assigned simple static IPv4 addresses to the Thunderbolt Bridge interface on both machines:
 
-* **MacBook Air (Client):** `192.168.5.1` (Subnet Mask: `255.255.255.0`)
-* **Mac mini M4 (Server):** `192.168.5.2` (Subnet Mask: `255.255.255.0`)
+* **MacBook Air (Client):** `192.168.5.1`
+* **Mac mini M4 (Server):** `192.168.5.2`
 
-Testing initial latency via ICMP ping:
+Testing the response time with ICMP ping:
 ```text
 64 bytes from 192.168.5.2: icmp_seq=0 ttl=64 time=0.414 ms
 64 bytes from 192.168.5.2: icmp_seq=1 ttl=64 time=0.494 ms
@@ -41,13 +43,13 @@ Testing initial latency via ICMP ping:
 23 packets transmitted, 23 packets received, 0.0% packet loss
 round-trip min/avg/max/stddev = 0.414/0.504/0.582/0.044 ms
 ```
-A sub-millisecond round-trip time (`~0.5 ms`) confirms the direct hardware link is active.
+Seeing sub-millisecond response times (`~0.5 ms`) was our first sign that the direct hardware link was working smoothly.
 
 ---
 
-## 2. Speed Benchmarking with `iperf3`
+## 2. Speed Benchmarking with `iperf3`: A Mind-Blowing 37.7 Gbps!
 
-To test the actual TCP bandwidth achievable over the Thunderbolt connection, I installed `iperf3` on both devices via Homebrew (`brew install iperf3`).
+Before jumping into AI models, I wanted to test the real transfer throughput between the two devices. I installed `iperf3` on both Macs using Homebrew (`brew install iperf3`).
 
 ### Test 1: Air ➔ Mini (Upload)
 On the Mac mini (Server):
@@ -95,72 +97,72 @@ iperf3 -c 192.168.5.2 -R
 ### Summary Benchmark Metrics
 | Metric | Measurement | Assessment |
 |---|---|---|
-| **Sustained Bitrate** | **37.7 – 37.8 Gbps** | Near theoretical 40 Gbps hardware limit |
+| **Sustained Bitrate** | **37.7 – 37.8 Gbps** | Pushing right up against the theoretical 40 Gbps limit |
 | **Total 10s Transfer** | **43.9 GBytes** | ~4.4 GB per second |
-| **Retransmissions** | **0** | Flawless signal integrity & zero packet drop |
-| **Round-Trip Latency** | **~0.5 ms** | Instantaneous responsiveness |
+| **Retransmissions** | **0** | Perfect signal stability & zero lost packets |
+| **Round-Trip Latency** | **~0.5 ms** | Instantaneous |
 
-At **37.7 Gbps**, transfer speeds exceed standard NVMe drive read/write caps, making local network bandwidth a non-issue for model streaming or remote execution.
+Seeing **37.7 Gbps** on the screen was incredible! That is faster than most internal SSDs, proving that local network bandwidth will never be the bottleneck here.
 
 ---
 
-## 3. Distributed AI Clustering with Exo
+## 3. Experimenting with `Exo` & Hitting the MLX Dependency Wall
 
-With a 37.7 Gbps link confirmed, I explored using [Exo](https://github.com/exo-explore/exo)—an open-source framework designed to run AI models by splitting layers dynamically across multiple devices.
+Next up was trying out [Exo](https://github.com/exo-explore/exo)—an experimental tool that splits model layers across devices.
 
-### Ideal AI Models Evaluated for 16GB Nodes
-When running clusters on machines with 16GB Unified Memory, quantization and model size are critical:
-- `mlx-community/Meta-Llama-3.1-8B-Instruct-4bit` (~4 GB footprint)
-- `mlx-community/Qwen3.5-9B-4bit` (~6 GB footprint)
-- `mlx-community/gemma-4-e4b-it-6bit` (~7 GB footprint)
+I looked at lightweight 4-bit and 6-bit models suited for 16GB memory hardware:
+- `mlx-community/Meta-Llama-3.1-8B-Instruct-4bit` (~4 GB)
+- `mlx-community/Qwen3.5-9B-4bit` (~6 GB)
+- `mlx-community/gemma-4-e4b-it-6bit` (~7 GB)
 
-### Troubleshooting MLX Dependencies
-During initialization, Exo spawned worker runners that failed with the following traceback:
+However, when launching Exo worker runners, I bumped into a Python environment issue:
 ```text
 File "/Users/mrps/exo/src/exo/worker/engines/mlx/patches/opt_batch_gen.py", line 4, in <module>
     import mlx.core as mx
 ModuleNotFoundError: No module named 'mlx'
 ```
 
-#### Root Cause
-Exo uses Apple’s native **MLX** framework (`mlx` and `mlx-lm`) to execute GPU-accelerated inference on Apple Silicon. When executing inside `uv` environments or standalone Python sub-processes, `mlx` must be installed directly into the workspace virtual environment:
+### What Happened?
+Exo uses Apple’s native **MLX** framework (`mlx` / `mlx-lm`) under the hood to handle matrix math on Apple Silicon GPUs. Because `uv` manages virtual environments in isolation, `mlx` wasn't present inside the specific sub-environment Exo spawned. 
 
+Installing it inside the environment (`uv pip install mlx mlx-lm`) resolved the module error:
 ```bash
-# Correct dependency resolution inside the Exo virtual environment
 cd ~/exo
 uv sync
 uv pip install mlx mlx-lm
 ```
 
-Verification snippet:
-```bash
-python3 -c "import mlx.core as mx; print(mx.__version__)"
-```
+As a beginner, running into environment and dependency issues can be a bit overwhelming. Since I wanted to keep this first experiment simple and light without getting lost down a rabbit hole of complex virtual environment debugging, I decided to pause here, clean up the temporary files, and save deeper troubleshooting for next time!
 
 ---
 
-## 4. Key Takeaways & Workspace Cleanup
+## 4. Key Takeaways from My First Experience
 
-While experimental cluster engines like Exo show immense promise for layer-splitting across Apple Silicon, hardware-level considerations remain:
+Even though I kept things high-level and didn't dive deep into complex roots, this first test was a fantastic learning experience:
 
-1. **Unified Memory Allocation:** Distributed layer-splitting does not pool RAM into one seamless pool. Each Mac must still have sufficient Unified Memory to house its designated layer shard and KV cache.
-2. **Dedicated Headless Server Model:** For everyday, production-ready AI workflows, running an M4 Mac mini as an always-on headless server (via **Ollama** or **LM Studio** and **Open WebUI**) connected over the 37.7 Gbps Thunderbolt bridge gives the cleanest, most reliable setup.
+1. **Thunderbolt 4 Direct Links are Insanely Fast:** Hitting 37.7 Gbps over a single cable proves that hardware connections between Macs are virtually transparent.
+2. **Unified Memory Doesn't Automatically Merge:** In clustering tools like Exo, each Mac still needs enough RAM to house its specific assigned layers. 16GB per machine gives room for 4B–8B models, but higher 70B models still won't fit.
+3. **Headless Server Is Super Practical:** For daily use, keeping the Mac mini as a dedicated server running Ollama / Open WebUI while accessing it over Thunderbolt from the MacBook Air is a smooth, silent, and highly usable setup.
 
-### Full Workspace Reset Procedure
-After testing the cluster environment, temporary model caches and virtual environments can be purged while keeping the rock-solid Thunderbolt static IP configuration intact:
-
+### Cleaning Up
+To keep my system clean after experimenting:
 ```bash
 # Purge temporary build folders & model caches
 cd ~
 rm -rf exo ~/.cache/huggingface ~/.cache/mlx ~/.cache/uv
 pip3 uninstall -y mlx mlx-lm exo 2>/dev/null
 ```
+The static IP settings on the Thunderbolt Bridge stay saved and ready for the next run.
 
 ---
 
-## Conclusion
+## Final Thoughts & Until Next Time!
 
-A single Thunderbolt 4 cable unlocks ultra-fast, 37.7 Gbps local networking between Apple Silicon Macs. Whether you're experimenting with distributed layer splitting via Exo or operating a dedicated, headless AI server on an M4 Mac mini, the hardware connection is exceptionally stable, fast, and easy to configure.
+This was my very first hands-on test with Mac AI clustering. I learned how to benchmark high-speed interfaces, experienced how layer-splitting frameworks operate, and discovered firsthand how Python environment dependencies behave on Apple Silicon. 
+
+Since I'm new to this and not a professional, I preferred keeping things simple, sharing what worked, and noting where I got stuck. 
+
+Next time, I'll take another crack at MLX and deeper model splitting! Until then, we'll see you again in the next post.
 
 ***
 
