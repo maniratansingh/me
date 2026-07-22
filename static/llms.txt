@@ -18,6 +18,7 @@ I am a tech generalist and photographer based in India. I build hardware control
 
 ## Blog Posts
 
+- [Benchmarking a 37.7 Gbps Thunderbolt 4 Link for Mac AI Clustering: Real-World Setup, iperf3 Results, and Exo Lessons Learned](/blog/2026-07-22-thunderbolt-4-mac-ai-cluster-benchmarks/): Connecting a MacBook Air and Mac mini M4 over Thunderbolt 4, hitting 37.7 Gbps throughput with iperf3, and setting up distributed AI clustering with Exo and MLX.
 - [Building a High-Precision GPS Clock: Neo-6M, MAX7219, and SSD1306 OLED Telemetry](/blog/2026-07-20-building-high-precision-gps-clock/): Designing a dual-display Arduino GPS Clock with silent window I2C synchronization, split-tier 2D/3D fixes, and advanced display caching.
 - [Simplifying the Water Tank Level Monitor: From Complex Frameworks to a Barebones ESP8266 Setup](/blog/2026-07-17-simplifying-water-tank-monitor/): How I took a complex, multi-file water monitoring project and stripped it down to a single-file ESP8266 WebSocket implementation.
 - [AI Doesn't Need Better Scrapers. It Needs Better Websites.](/blog/2026-07-17-ai-needs-better-websites/): A thought on how websites can expose structured, read-only representations of public data designed specifically for machines.
