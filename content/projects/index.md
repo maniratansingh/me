@@ -12,6 +12,22 @@ Here is a list of my active projects. For each project, I outline the design tho
 
 <ul class="post-list">
   <li class="post-list-item">
+    <a class="post-list-title" href="/projects/aesthetic-music-player/">MRPS MUSIC — Web Audio Player & Vinyl Turntable</a>
+    <span class="post-list-date">JavaScript</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/image-compressor-mrps/">Image Compressor – MRPS</a>
+    <span class="post-list-date">Kotlin</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/sunbeam-eye-hospital/">Sunbeam Eye Hospital Website</a>
+    <span class="post-list-date">HTML</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/sant-kabir-eye-hospital/">Sant Kabir Eye Hospital Website</a>
+    <span class="post-list-date">HTML</span>
+  </li>
+  <li class="post-list-item">
     <a class="post-list-title" href="/projects/gpsclock/">GPS Clock & Telemetry Dashboard</a>
     <span class="post-list-date">C++</span>
   </li>
