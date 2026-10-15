@@ -12,12 +12,24 @@ This is my personal blog where I share my unfiltered thoughts, views, and ideas.
 
 <ul class="post-list">
   <li class="post-list-item">
+    <a class="post-list-title" href="/blog/2026-10-14-building-mrps-music-player/">Why I Built My Own Web Music Player & Vinyl Turntable</a>
+    <span class="post-list-date">2026-10-14</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/blog/2026-09-30-why-i-built-an-offline-image-compressor/">Why I Built an Offline Image Compressor for Android</a>
+    <span class="post-list-date">2026-09-30</span>
+  </li>
+  <li class="post-list-item">
     <a class="post-list-title" href="/blog/2026-07-22-thunderbolt-4-mac-ai-cluster-benchmarks/">Benchmarking a 37.7 Gbps Thunderbolt 4 Link for Mac AI Clustering: Real-World Setup, iperf3 Results, and Exo Lessons Learned</a>
     <span class="post-list-date">2026-07-22</span>
   </li>
   <li class="post-list-item">
     <a class="post-list-title" href="/blog/2026-07-20-building-high-precision-gps-clock/">Building a High-Precision GPS Clock: Neo-6M, MAX7219, and SSD1306 OLED Telemetry</a>
     <span class="post-list-date">2026-07-20</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/blog/2026-07-18-building-websites-for-purvanchal-eye-hospitals/">Building Fast, Simple Websites for Real Hospitals in Purvanchal</a>
+    <span class="post-list-date">2026-07-18</span>
   </li>
   <li class="post-list-item">
     <a class="post-list-title" href="/blog/2026-07-17-simplifying-water-tank-monitor/">Simplifying the Water Tank Level Monitor: From Complex Frameworks to a Barebones ESP8266 Setup</a>
