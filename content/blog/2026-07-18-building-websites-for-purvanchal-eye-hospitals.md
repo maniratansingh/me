@@ -17,7 +17,7 @@ Over the past few months, I had the opportunity to build the official web presen
 
 These are not tech startups or corporate portfolios; they are functioning surgical clinics where patients seek treatment for cataracts, vision impairments, and check eligibility for free surgeries under the PM-JAY Ayushman Bharat Yojana.
 
-Here are my personal reflections on what designing for regional healthcare taught me about technology and simplicity.
+Here are my personal reflections on what designing for regional healthcare taught me about technology, simplicity, and architecture.
 
 ---
 
@@ -30,7 +30,7 @@ If a hospital website takes 8 seconds to load, freezes while downloading 15MB of
 Our design goals were straightforward:
 - **Immediate Load Time:** Pages must appear virtually instantly, even on weak cellular reception.
 - **Clear Information Hierarchy:** Doctor specializations, clinic addresses, emergency numbers, and PM-JAY Ayushman Bharat details must be front and center.
-- **Zero Layout Shifts:** No jumping banners or delayed fonts that cause elderly users to accidentally tap the wrong button.
+- **Zero Layout Shifts (CLS):** Preloaded critical assets and system font fallbacks ensure no jumping banners or delayed reflows that cause elderly users to accidentally tap the wrong button.
 
 ---
 
@@ -45,22 +45,48 @@ For these clinics, that would have been a mistake:
 Instead, we chose pure **vanilla HTML5, clean modern CSS, and minimal JavaScript**, deployed on Cloudflare’s global edge network. 
 
 Because the entire website consists of static files:
-- It loads in under 300 milliseconds.
+- It achieves a sub-300ms First Contentful Paint (FCP).
 - There is no database that can crash or be compromised.
-- Hosting is practically free and 100% reliable.
+- Hosting is practically free, requires zero server maintenance, and is 100% resilient under traffic spikes.
 
 ---
 
-## 3. The Telegram Bot: The Simplest Solution is Often the Best
+## 3. The Telegram Bot: Simple, Reliable Appointment Alerts
 
 One of the key requirements was an online appointment booking system.
 
 The conventional tech answer would be setting up a database, creating an admin login portal, and sending email alerts. But in a busy regional hospital, clinic staff and receptionists don't sit in front of desktop email inboxes all day. They have their phones in their pockets, and they use messaging apps constantly.
 
 Instead of building a complicated portal, we wired the appointment form directly to a **custom Telegram Bot**:
-1. When a patient submits their name, phone number, and desired appointment date, the frontend fires a quick background request to the Telegram Bot API.
+
+```javascript
+// Asynchronous appointment booking dispatch via Telegram Bot API
+const payload = {
+  chat_id: HOSPITAL_GROUP_CHAT_ID,
+  parse_mode: 'Markdown',
+  text: `🏥 *New Appointment Request*\n\n` +
+        `*Patient:* ${name}\n` +
+        `*Phone:* ${phone}\n` +
+        `*Date:* ${preferredDate}\n` +
+        `*Department:* ${service}\n` +
+        `*Notes:* ${notes}`
+};
+
+fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload)
+})
+.then(res => res.json())
+.then(data => showSuccessFeedback())
+.catch(err => showErrorNotice());
+```
+
+### The Operational Flow:
+1. When a patient submits their name, phone number, and desired date, the frontend fires a quick background request to the Telegram Bot API.
 2. The bot instantly drops a neatly formatted message directly into the hospital receptionists' private group chat.
-3. The staff's phone buzzes immediately, and they can call the patient back within minutes.
+3. The staff's phone buzzes immediately, and they can call the patient back within minutes to confirm the appointment.
+4. For security, raw tokens are abstracted behind Cloudflare Pages Functions in production deployments, keeping the public repositories clean.
 
 No login dashboards, no unread emails, and no missed inquiries.
 
@@ -71,6 +97,13 @@ No login dashboards, no unread emails, and no missed inquiries.
 Working on these hospital sites reinforced a core belief: **good engineering is not about showing off how complex you can make something; it is about finding the simplest solution that genuinely serves people.**
 
 Knowing that these fast, clean pages help real patients across Ayodhya, Sultanpur, and Basti connect with doctors and find surgical care has been one of the most fulfilling projects I've worked on.
+
+***
+
+### Code & Repositories
+- [Ayodhya Phaco Center on GitHub](https://github.com/maniratansingh/ayodhya-phaco-center) ↗
+- [Sunbeam Eye Hospital on GitHub](https://github.com/maniratansingh/sunbeam-eye-hospital) ↗
+- [Sant Kabir Eye Hospital on GitHub](https://github.com/maniratansingh/sant-kabir-eye-hospital) ↗
 
 ***
 

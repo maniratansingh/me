@@ -35,7 +35,35 @@ By building a lightweight utility in Kotlin, the entire compression process runs
 
 ---
 
-## 2. Privacy Shouldn't Be a Premium Feature
+## 2. A Look at the Technical Pipeline
+
+Under the hood, the processing pipeline was engineered to be memory-efficient and prevent `OutOfMemoryError` (OOM) crashes when handling 48MP or 108MP phone captures:
+
+### A. Subsampling with `inSampleSize`
+Decoding a full-resolution 48MP photo directly into a bitmap array can consume over 150MB of RAM. To prevent memory spikes, we decode the image dimensions first:
+
+```kotlin
+val options = BitmapFactory.Options().apply {
+    inJustDecodeBounds = true
+}
+BitmapFactory.decodeStream(inputStream, null, options)
+
+// Calculate optimal power-of-two subsampling ratio
+options.inSampleSize = calculateInSampleSize(options, targetWidth, targetHeight)
+options.inJustDecodeBounds = false
+val scaledBitmap = BitmapFactory.decodeStream(newInputStream, null, options)
+```
+
+### B. Compression & Non-Blocking Coroutines
+The scaled bitmap is compressed using Android's native JPEG encoder:
+```kotlin
+scaledBitmap.compress(Bitmap.CompressFormat.JPEG, qualityLevel, outputStream)
+```
+To ensure the user interface remains butter-smooth at 120Hz while processing large images, all disk I/O and compression math run in background worker threads using Kotlin Coroutines (`withContext(Dispatchers.IO)`).
+
+---
+
+## 3. Privacy Shouldn't Be a Premium Feature
 
 Photos are among the most personal data we carry. They contain sensitive EXIF metadata—precise GPS coordinates of where you live, timestamps of your daily routine, and images of family and private documents.
 
@@ -43,13 +71,15 @@ When an app uploads that image to an external server, you have no real way of kn
 
 For **Image Compressor – MRPS**, the design rule was absolute: **zero internet permissions.**
 ```xml
+<!-- In AndroidManifest.xml: Zero network permissions -->
 <!-- No android.permission.INTERNET -->
+<!-- No android.permission.ACCESS_NETWORK_STATE -->
 ```
-Because the app literally lacks network permissions in its manifest, it cannot leak data even if someone wanted it to. Your photos never leave your device.
+Because the app literally lacks network permissions in its manifest, it cannot leak data even if someone wanted it to. To share the compressed file safely with WhatsApp, Gmail, or your file manager, it uses Android's secure `FileProvider` mechanism without ever touching the public internet.
 
 ---
 
-## 3. The Joy of Single-Purpose Tools
+## 4. The Joy of Single-Purpose Tools
 
 In software engineering, there is a classic Unix philosophy: *Write programs that do one thing and do it well.*
 
@@ -62,6 +92,12 @@ Building this small app was a refreshing reminder of how satisfying single-purpo
 ## Final Thoughts
 
 We don't always need massive cloud architectures or complex ecosystems. Sometimes, the most respectful and empowering software you can build is a tiny, quiet tool that respects the user's device, honors their privacy, and simply gets out of the way.
+
+***
+
+### Code & Repository
+- [View Image-Compressor-MRPS on GitHub](https://github.com/maniratansingh/Image-Compressor-MRPS) ↗
+- [Read App Privacy Policy](https://maniratansingh.github.io/Image-Compressor-MRPS/privacy_policy.html) ↗
 
 ***
 
