@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obscura — MRPS Agent Toolkit</title>
+  <meta name="description" content="High-performance Rust-based headless browser for AI agents and web scraping.">
+  <link rel="canonical" href="https://mrps.in/agent-toolkit/tools/obscura.html">
+  <meta property="og:title" content="Obscura — MRPS Agent Toolkit">
+  <meta property="og:description" content="High-performance Rust-based headless browser for AI agents and web scraping.">
+  <meta property="og:url" content="https://mrps.in/agent-toolkit/tools/obscura.html">
+  <meta property="og:image" content="https://mrps.in/agent-toolkit/og.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Obscura — MRPS Agent Toolkit">
+  <meta name="twitter:description" content="High-performance Rust-based headless browser for AI agents and web scraping.">
+  <meta name="twitter:image" content="https://mrps.in/agent-toolkit/og.png">
+
+  <!-- Fonts: IBM Plex (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,200;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css?v=2" />
+  <link rel="stylesheet" href="/agent-toolkit/assets/style.css" />
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Obscura",
+  "description": "High-performance Rust-based headless browser for AI agents and web scraping.",
+  "url": "https://github.com/h4ckf0r0day/obscura",
+  "applicationCategory": "testing",
+  "license": "Apache-2.0",
+  "author": {
+    "@type": "Person",
+    "name": "h4ckf0r0day",
+    "url": "https://github.com/h4ckf0r0day"
+  }
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-title" href="/">MRPS</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/blog/">Posts</a>
+      <a href="/projects/">Projects</a>
+      <a href="/photos/">Photos</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main id="main-content" class="toolkit-container">
+    <div class="back-nav" style="margin-bottom: var(--s-md);">
+      <a href="/agent-toolkit/" class="btn-back">← Back to Toolkit</a>
+    </div>
+
+    <div class="toolkit-detail-wrap">
+      <header class="toolkit-detail-header">
+        <div class="toolkit-detail-title-row">
+          <h1>Obscura</h1>
+          <span class="toolkit-badge badge-app">App</span>
+        </div>
+        <p class="toolkit-badge-def">Standalone application or headless browser infrastructure.</p>
+      </header>
+
+      <!-- 1. What it does -->
+      <section class="toolkit-section">
+        <h2>1. What it does</h2>
+        <p>A fast, lightweight headless browser written in Rust with Chrome DevTools Protocol (CDP) and MCP server integration, designed as a stealthy, resource-efficient alternative to Chromium for agent web interactions.</p>
+      </section>
+
+      <!-- 2. Why MRPS selected it -->
+      <section class="toolkit-section">
+        <h2>2. Why MRPS selected it</h2>
+        <p>Offers lightweight, fast headless browser infrastructure that agents can drive directly without heavy browser dependencies.</p>
+      </section>
+
+      <!-- 3. Kind badge & definition -->
+      <section class="toolkit-section">
+        <h2>3. Tool Kind</h2>
+        <p><strong>App</strong>: Standalone application or headless browser infrastructure.</p>
+      </section>
+
+      <!-- 4. Original repository -->
+      <section class="toolkit-section">
+        <h2>4. Original repository</h2>
+        <p><a href="https://github.com/h4ckf0r0day/obscura" target="_blank" rel="noopener noreferrer">https://github.com/h4ckf0r0day/obscura</a></p>
+      </section>
+
+      <!-- 5. Official documentation -->
+      <section class="toolkit-section">
+        <h2>5. Official documentation</h2>
+        <p><a href="https://github.com/h4ckf0r0day/obscura#readme" target="_blank" rel="noopener noreferrer">https://github.com/h4ckf0r0day/obscura#readme</a></p>
+      </section>
+
+      <!-- 6. Author and license -->
+      <section class="toolkit-section">
+        <h2>6. Author and license</h2>
+        <p>Created by <a href="https://github.com/h4ckf0r0day" target="_blank" rel="noopener noreferrer">h4ckf0r0day</a> under the <strong>Apache-2.0</strong> license.</p>
+      </section>
+
+      <!-- 7. Installation (setup, copyable) -->
+      <section class="toolkit-section">
+        <h2>7. Installation</h2>
+        
+        <div class="toolkit-code-box">
+          <button class="btn-primary-action copy-snippet-btn" data-target="setup-code" style="float:right;">Copy</button>
+          <pre><code id="setup-code">cargo install obscura</code></pre>
+        </div>
+      </section>
+
+      <!-- 8. When the AI should use it -->
+      <section class="toolkit-section">
+        <h2>8. When the AI should use it</h2>
+        <p>Use when an agent needs a fast, lightweight headless browser to navigate web pages, inspect DOM elements, or interact over CDP without launching heavy Chromium instances.</p>
+      </section>
+
+      <!-- 9. When the AI should not use it -->
+      <section class="toolkit-section">
+        <h2>9. When the AI should not use it</h2>
+        <p>Do not use as a static code scanner or repository finding generator; Obscura is headless browser infrastructure.</p>
+      </section>
+
+      <!-- 10. What the AI must not do -->
+      <section class="toolkit-section">
+        <h2>10. What the AI must not do</h2>
+        <ul>
+          <li>Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.</li>
+          <li>Restrict browser automation to user-specified local or remote test targets.</li>
+          <li>Do not bypass authentication mechanisms or access controls on target sites.</li>
+          <li>Close browser sessions cleanly to prevent dangling background processes.</li>
+        </ul>
+      </section>
+
+      <!-- 11. MRPS usage instructions link -->
+      <section class="toolkit-section">
+        <h2>11. MRPS usage instructions</h2>
+        <p><a href="/agent-toolkit/instructions/TESTING.md">Read TESTING.md</a></p>
+      </section>
+
+      <!-- 12. Last verified -->
+      <section class="toolkit-section">
+        <h2>12. Last verified</h2>
+        <p>Verified against live repository on: <strong>2026-11-07</strong></p>
+      </section>
+
+      <!-- 13. Back to directory -->
+      <nav class="toolkit-section" style="margin-top:var(--s-lg); border-top:1px solid var(--border); padding-top:var(--s-md);">
+        <a href="/agent-toolkit/" class="btn-back">← Back to Toolkit Directory</a>
+      </nav>
+
+      <details class="toolkit-disclosure">
+        <summary>View Complete Agent Constraint Sheet</summary>
+        <div class="disclosure-inner">Tool: Obscura
+When to use: Use when an agent needs a fast, lightweight headless browser to navigate web pages, inspect DOM elements, or interact over CDP without launching heavy Chromium instances.
+When NOT to use: Do not use as a static code scanner or repository finding generator; Obscura is headless browser infrastructure.
+Invocation: Run obscura via CLI or connect via CDP or MCP server configuration.
+Rules:
+- Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.
+- Restrict browser automation to user-specified local or remote test targets.
+- Do not bypass authentication mechanisms or access controls on target sites.
+- Close browser sessions cleanly to prevent dangling background processes.</div>
+      </details>
+    </div>
+  </main>
+
+  
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-name"><a href="/">Mani Ratan Singh</a></p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/blog/">Posts</a>
+      <a href="/projects/">Projects</a>
+      <a href="/photos/">Photos</a>
+      <a href="/agent-toolkit/CREDITS.md">Credits</a>
+      <a href="/agent-toolkit/AGENTS.md">AGENTS.md</a>
+    </nav>
+  </div>
+</footer>
+
+  <script src="/agent-toolkit/assets/app.js" defer></script>
+</body>
+</html>

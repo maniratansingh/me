@@ -22,6 +22,7 @@ I am a tech generalist and photographer based in India. I build hardware control
 
 ## Blog Posts
 
+- [Building MRPS Agent Toolkit: A Curated Directory and Read-Only Auditor for Coding Agents](/blog/2026-11-07-building-mrps-agent-toolkit/): Why I built MRPS Agent Toolkit — curating real open-source tools with strict read/write boundaries, honest attribution, and a directory for coding agents.
 - [Why I Built My Own Web Music Player & Vinyl Turntable](/blog/2026-10-14-building-mrps-music-player/): Reflections on modern music streaming bloat, bringing back the tactile charm of vinyl records on the web, and building a clean player for road trips.
 - [Why I Built an Offline Image Compressor for Android](/blog/2026-09-30-why-i-built-an-offline-image-compressor/): Thoughts on mobile app bloatware, privacy skepticism, and why a simple utility that works 100% offline is all we really need.
 - [My First Experiment with Mac AI Clustering: 37.7 Gbps Benchmarks, MLX Hiccups, and Lessons Learned](/blog/2026-07-22-thunderbolt-4-mac-ai-cluster-benchmarks/): A beginner's first hands-on test connecting an M4 Mac mini and MacBook Air over Thunderbolt 4, testing speeds with iperf3, and exploring distributed AI.

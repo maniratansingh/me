@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MRPS Agent Toolkit · Tools for better AI development</title>
+  <meta name="description" content="A curated collection of open-source tools and agent skills for coding agents. Every entry credits its original creator and links to the real source.">
+  <link rel="canonical" href="https://mrps.in/agent-toolkit/">
+  <meta property="og:title" content="MRPS Agent Toolkit · Tools for better AI development">
+  <meta property="og:description" content="A curated collection of open-source tools and agent skills for coding agents. Crediting original creators.">
+  <meta property="og:url" content="https://mrps.in/agent-toolkit/">
+  <meta property="og:image" content="https://mrps.in/agent-toolkit/og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MRPS Agent Toolkit · Tools for better AI development">
+  <meta name="twitter:description" content="A curated collection of open-source tools and agent skills for coding agents.">
+  <meta name="twitter:image" content="https://mrps.in/agent-toolkit/og.png">
+
+  <!-- Fonts: IBM Plex (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,200;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css?v=2" />
+  <link rel="stylesheet" href="/agent-toolkit/assets/style.css" />
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "MRPS Agent Toolkit",
+  "description": "A curated collection of open-source tools and agent skills for coding agents.",
+  "url": "https://mrps.in/agent-toolkit/",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "MRPS Agent Launcher",
+      "url": "https://mrps.in/agent-toolkit/tools/mrps-agent-runner.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Impeccable",
+      "url": "https://mrps.in/agent-toolkit/tools/impeccable.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Obscura",
+      "url": "https://mrps.in/agent-toolkit/tools/obscura.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Playwright",
+      "url": "https://mrps.in/agent-toolkit/tools/playwright.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "axe-core",
+      "url": "https://mrps.in/agent-toolkit/tools/axe-core.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "Trivy",
+      "url": "https://mrps.in/agent-toolkit/tools/trivy.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "Graphify",
+      "url": "https://mrps.in/agent-toolkit/tools/graphify.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "REA",
+      "url": "https://mrps.in/agent-toolkit/tools/rea.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-title" href="/">MRPS</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/blog/">Posts</a>
+      <a href="/projects/">Projects</a>
+      <a href="/photos/">Photos</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main id="main-content" class="toolkit-container">
+    <div class="back-nav" style="margin-bottom: var(--s-md);">
+      <a href="/projects/" class="btn-back">← Back to Projects</a>
+    </div>
+
+    <section class="toolkit-hero">
+      <div class="toolkit-eyebrow">MRPS Agent Toolkit · Public</div>
+      <h1>Tools for better AI development.</h1>
+      <p class="toolkit-hero-lede">
+        A curated collection of modern, verified open-source tools and agent skills for coding agents. This is a directory and connector — not a fork or replacement for the projects it lists.
+      </p>
+
+      <div class="toolkit-note-box" style="background:var(--surface); border:1px solid var(--border); border-radius:var(--toolkit-card-radius); padding:var(--s-md); margin-bottom:var(--s-md); max-width:var(--measure);">
+        <p style="font-size:var(--step--1); color:var(--text); line-height:1.6; margin-bottom:var(--s-xs);">
+          <strong>How this works:</strong> These represent the latest tools used across UI/UX, accessibility, security, testing, and code analysis. You can use any of them independently from their respective creators by clicking their direct GitHub links.
+        </p>
+        <p style="font-size:var(--step--1); color:var(--muted); line-height:1.6; margin:0;">
+          If you want a <strong>unified workflow</strong>, running this toolkit connects and coordinates them together under strict read-only safety rules — auditing your project without modifying your source code, configuration, or manifests.
+        </p>
+      </div>
+
+      <div class="toolkit-cta-box">
+        <div class="toolkit-cta-header">
+          <span class="toolkit-cta-title">Agent Prompt Setup</span>
+          <button id="copy-prompt-btn" class="btn-primary-action" type="button" aria-label="Copy AI Setup Prompt">
+            Copy AI Setup Prompt
+          </button>
+        </div>
+        <pre class="prompt-preview-block"><code>MRPS Agent Toolkit — Setup Instructions
+
+Read the MRPS public agent instructions before performing the requested development task:
+https://mrps.in/agent-toolkit/AGENTS.md
+
+Read the capability index:
+https://mrps.in/agent-toolkit/index.json
+
+Follow the relevant tool-specific instructions, verify installation and compatibility,
+and use the original upstream tools. Respect all inspection, reporting and
+modification permissions. Do not modify files when the user only requests
+inspection or reporting. Preserve upstream attribution and licences.</code></pre>
+      </div>
+
+      <!-- Raw Assets & Direct Downloads Panel -->
+      <div class="toolkit-cta-box" style="margin-top: var(--s-md);">
+        <div class="toolkit-cta-header">
+          <span class="toolkit-cta-title">Direct Files &amp; Downloads</span>
+        </div>
+        <p style="font-size: var(--step--1); color: var(--muted); margin-bottom: var(--s-sm); line-height: 1.5;">
+          For offline use or AI clients that cannot fetch URLs directly, copy the raw markdown/JSON or download the file directly:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: var(--s-xs);">
+          <!-- AGENTS.md -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s-xs); padding: var(--s-xs) 0; border-bottom: 1px solid var(--border);">
+            <span style="font-family: var(--toolkit-font-mono); font-size: var(--step--1); color: var(--text); font-weight: 600;">AGENTS.md</span>
+            <div style="display: flex; gap: var(--s-xs);">
+              <button type="button" class="btn-action-small copy-asset-btn" data-target="raw-agents-md">Copy Markdown</button>
+              <a href="/agent-toolkit/AGENTS.md" download="AGENTS.md" class="btn-action-small-outline">Download</a>
+            </div>
+          </div>
+
+          <!-- index.json -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s-xs); padding: var(--s-xs) 0; border-bottom: 1px solid var(--border);">
+            <span style="font-family: var(--toolkit-font-mono); font-size: var(--step--1); color: var(--text); font-weight: 600;">index.json</span>
+            <div style="display: flex; gap: var(--s-xs);">
+              <button type="button" class="btn-action-small copy-asset-btn" data-target="raw-index-json">Copy JSON</button>
+              <a href="/agent-toolkit/index.json" download="index.json" class="btn-action-small-outline">Download</a>
+            </div>
+          </div>
+
+          <!-- llms.txt -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s-xs); padding: var(--s-xs) 0;">
+            <span style="font-family: var(--toolkit-font-mono); font-size: var(--step--1); color: var(--text); font-weight: 600;">llms.txt</span>
+            <div style="display: flex; gap: var(--s-xs);">
+              <button type="button" class="btn-action-small copy-asset-btn" data-target="raw-llms-txt">Copy Text</button>
+              <a href="/agent-toolkit/llms.txt" download="llms.txt" class="btn-action-small-outline">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden pre-loaded raw contents for instant copying -->
+        <textarea id="raw-agents-md" style="display:none;" aria-hidden="true"># MRPS Agent Instructions
+
+## 1. Purpose
+The MRPS Agent Toolkit provides operational instructions and safety constraints for AI coding agents (such as Codex, Antigravity, Claude Code, and Cursor). Its goal is to maximize code quality, architectural integrity, and developer velocity while maintaining strict read/write boundaries and full attribution.
+
+## 2. How to use
+When assisting with a software development or auditing task, execute the following eight-step sequence:
+1. **Read Index**: Fetch and review `https://mrps.in/agent-toolkit/index.json` to identify available project tools.
+2. **Identify Capability**: Match the user&#039;s intent to the appropriate category (`ui-ux`, `testing`, `accessibility`, `security`, `code-analysis`, `reverse-engineering`, `orchestration`).
+3. **Read Detailed Instructions**: Read the relevant category instruction file under `https://mrps.in/agent-toolkit/instructions/&lt;CATEGORY&gt;.md`.
+4. **Follow Upstream Docs**: Review the official documentation for the targeted tool.
+5. **Check Install**: Verify whether the tool is already present in the user&#039;s local environment.
+6. **Install if Authorized**: If absent and authorized by the user, install the tool using project-isolated commands. Never install packages globally without consent.
+7. **Execute Workflow**: Perform the inspection, analysis, or test using the recommended command flags.
+8. **Report Honestly**: Summarize findings clearly, using plain-English explanations first, accompanied by technical details and sticky IDs.
+
+## 3. Permission protocol
+
+| User says | Agent does |
+|---|---|
+| Check my UI | Run the `uiux` report, present findings |
+| Review my UI | Run the `uiux` report, then critique the findings |
+| Generate a report | Run the requested categories, present findings |
+| Suggest improvements | Run reports, then recommend fixes — no code changes |
+| Fix my UI | **Run `uiux` first to get current IDs. Then fix in source directly, with per-change confirmation. Then run `uiux` again — expect RESOLVED entries.** |
+| Check and ask me before fixing | Run reports, present IDs, ask which to fix, wait |
+
+## 4. Defaults
+When user intent is ambiguous, default to inspection and reporting only. Never modify source code, configuration files, or package manifests without explicit commands such as &quot;fix&quot;, &quot;apply&quot;, or &quot;implement&quot;.
+
+## 5. Honesty
+Always report findings honestly and factually:
+- Report failures as failures. Never claim a check passed that you did not actually execute.
+- Clearly distinguish between *not configured*, *skipped*, and *passed*.
+- If a check errors or exits with a non-zero code, document the exact command, exit code, and error trace.
+
+## 6. Attribution
+Always credit upstream project authors and repositories. Preserve license headers, copyright notices, and original attribution. Never fork, rename, or relicense upstream code.
+
+## 7. Specialized skills
+If the user asks for a full project audit — dependencies, tests, security, UI, a11y, types, build — load `https://mrps.in/agent-toolkit/runner/SKILL.md` before starting. That skill defines its own workflow and reporting format; follow it instead of improvising an audit.
+
+## 8. Limitation notice
+This file is guidance, not enforcement. A static site cannot force any agent to obey it. Stronger protection comes from your agent&#039;s approval settings and from git review.
+</textarea>
+        <textarea id="raw-index-json" style="display:none;" aria-hidden="true">[
+  {
+    &quot;id&quot;: &quot;mrps-agent-runner&quot;,
+    &quot;name&quot;: &quot;MRPS Agent Launcher&quot;,
+    &quot;category&quot;: &quot;orchestration&quot;,
+    &quot;kind&quot;: &quot;skill&quot;,
+    &quot;summary&quot;: &quot;Read-only project auditor and runner for code, security, a11y, and UI checks.&quot;,
+    &quot;repository&quot;: &quot;https://github.com/maniratansingh/me&quot;,
+    &quot;mcpEndpoint&quot;: null,
+    &quot;license&quot;: &quot;MIT&quot;,
+    &quot;instructions&quot;: &quot;/agent-toolkit/instructions/GLOBAL.md&quot;,
+    &quot;lastVerified&quot;: &quot;2026-11-07&quot;
+  },
+  {
+    &quot;id&quot;: &quot;impeccable&quot;,
+    &quot;name&quot;: &quot;Impeccable&quot;,
+    &quot;category&quot;: &quot;ui-ux&quot;,
+    &quot;kind&quot;: &quot;skill&quot;,
+    &quot;summary&quot;: &quot;The design vocabulary and UI critique system for coding agents.&quot;,
+    &quot;repository&quot;: &quot;https://github.com/pbakaus/impeccable&quot;,
+    &quot;mcpEndpoint&quot;: null,
+    &quot;license&quot;: &quot;Apache-2.0&quot;,
+    &quot;instructions&quot;: &quot;/agent-toolkit/instructions/UI-UX.md&quot;,
+    &quot;lastVerified&quot;: &quot;2026-11-07&quot;
+  },
+  {
+    &quot;id&quot;: &quot;obscura&quot;,
+    &quot;name&quot;: &quot;Obscura&quot;,
+    &quot;category&quot;: &quot;testing&quot;,
+    &quot;kind&quot;: &quot;app&quot;,
+    &quot;summary&quot;: &quot;High-performance Rust-based headless browser for AI agents and web scraping.&quot;,
+    &quot;repository&quot;: &quot;https://github.com/h4ckf0r0day/obscura&quot;,
+    &quot;mcpEndpoint&quot;: null,
+    &quot;license&quot;: &quot;Apache-2.0&quot;,
+    &quot;instructions&quot;: &quot;/agent-toolkit/instructions/TESTING.md&quot;,
+    &quot;lastVerified&quot;: &quot;2026-11-07&quot;
+  },
+  {
+    &quot;id&quot;: &quot;playwright&quot;,
+    &quot;name&quot;: &quot;Playwright&quot;,
+    &quot;category&quot;: &quot;testing&quot;,
+    &quot;kind&quot;: &quot;library&quot;,
+    &quot;summary&quot;: &quot;Reliable end-to-end multi-browser testing framework for modern web applications.&quot;,
+    &quot;repository&quot;: &quot;https://github.com/microsoft/playwright&quot;,
+    &quot;mcpEndpoint&quot;: null,
+    &quot;license&quot;: &quot;Apache-2.0&quot;,
+    &quot;instructions&quot;: &quot;/agent-toolkit/instructions/TESTING.md&quot;,
+    &quot;lastVerified&quot;: &quot;2026-11-07&quot;
+  },
+  {
+    &quot;id&quot;: &quot;axe-core&quot;,
+    &quot;name&quot;: &quot;axe-core&quot;,
+    &quot;category&quot;: &quot;accessibility&quot;,
+    &quot;kind&quot;: &quot;library&quot;,
+    &quot;summary&quot;: &quot;Automated accessibility testing engine for HTML and web applications.&quot;,
+    &quot;repository&quot;: &quot;https://github.com/dequelabs/axe-core&quot;,
+    &quot;mcpEndpoint&quot;: null,
+    &quot;license&quot;: &quot;MPL-2.0&quot;,
+    &quot;instructions&quot;: &quot;/agent-toolkit/instructions/ACCESSIBILITY.md&quot;,
+    &quot;lastVerified&quot;: &quot;2026-11-07&quot;
+  },
+  {
+    &quot;id&quot;: &quot;trivy&quot;,
+    &quot;name&quot;: &quot;Trivy&quot;,
+    &quot;category&quot;: &quot;security&quot;,
+    &quot;kind&quot;: &quot;cli&quot;,
+    &quot;summary&quot;: &quot;Comprehensive security scanner for vulnerabilities, secrets, and misconfigurations.&quot;,
+    &quot;repository&quot;: &quot;https://github.com/aquasecurity/trivy&quot;,
+    &quot;mcpEndpoint&quot;: null,
+    &quot;license&quot;: &quot;Apache-2.0&quot;,
+    &quot;instructions&quot;: &quot;/agent-toolkit/instructions/SECURITY.md&quot;,
+    &quot;lastVerified&quot;: &quot;2026-11-07&quot;
+  },
+  {
+    &quot;id&quot;: &quot;graphify&quot;,
+    &quot;name&quot;: &quot;Graphify&quot;,
+    &quot;category&quot;: &quot;code-analysis&quot;,
+    &quot;kind&quot;: &quot;skill&quot;,
+    &quot;summary&quot;: &quot;Codebase knowledge graph generator with deterministic AST parsing.&quot;,
+    &quot;repository&quot;: &quot;https://github.com/Graphify-Labs/graphify&quot;,
+    &quot;mcpEndpoint&quot;: null,
+    &quot;license&quot;: &quot;Apache-2.0&quot;,
+    &quot;instructions&quot;: &quot;/agent-toolkit/instructions/CODE-ANALYSIS.md&quot;,
+    &quot;lastVerified&quot;: &quot;2026-11-07&quot;
+  },
+  {
+    &quot;id&quot;: &quot;rea&quot;,
+    &quot;name&quot;: &quot;REA&quot;,
+    &quot;category&quot;: &quot;reverse-engineering&quot;,
+    &quot;kind&quot;: &quot;mcp-server&quot;,
+    &quot;summary&quot;: &quot;Universal reverse engineering MCP server for binaries, runtimes, and application behavior.&quot;,
+    &quot;repository&quot;: &quot;https://github.com/morluto/rea&quot;,
+    &quot;mcpEndpoint&quot;: &quot;npx -y rea-agents@latest&quot;,
+    &quot;license&quot;: &quot;MIT&quot;,
+    &quot;instructions&quot;: &quot;/agent-toolkit/instructions/REVERSE-ENGINEERING.md&quot;,
+    &quot;lastVerified&quot;: &quot;2026-11-07&quot;
+  }
+]</textarea>
+        <textarea id="raw-llms-txt" style="display:none;" aria-hidden="true"># MRPS Agent Toolkit
+&gt; A curated collection of open-source tools and agent skills for coding agents.
+
+This directory indexes verified open-source developer tools, CLI utilities, libraries, and agent skills. Every entry links to upstream sources and provides strict operational boundaries for coding agents.
+
+## Core Documents
+- [Agent Guidance](https://mrps.in/agent-toolkit/AGENTS.md): Operational protocols, permissions ladder, and honesty rules.
+- [Capability Index](https://mrps.in/agent-toolkit/index.json): Machine-readable index of all capabilities.
+- [Project Credits](https://mrps.in/agent-toolkit/CREDITS.md): Full attribution, repositories, and licenses.
+
+## Tools
+- [MRPS Agent Launcher](https://mrps.in/agent-toolkit/tools/mrps-agent-runner.html): Read-only project auditor and runner for code, security, a11y, and UI checks. Category: orchestration. Kind: skill. License: MIT.
+- [Impeccable](https://mrps.in/agent-toolkit/tools/impeccable.html): The design vocabulary and UI critique system for coding agents. Category: ui-ux. Kind: skill. License: Apache-2.0.
+- [Obscura](https://mrps.in/agent-toolkit/tools/obscura.html): High-performance Rust-based headless browser for AI agents and web scraping. Category: testing. Kind: app. License: Apache-2.0.
+- [Playwright](https://mrps.in/agent-toolkit/tools/playwright.html): Reliable end-to-end multi-browser testing framework for modern web applications. Category: testing. Kind: library. License: Apache-2.0.
+- [axe-core](https://mrps.in/agent-toolkit/tools/axe-core.html): Automated accessibility testing engine for HTML and web applications. Category: accessibility. Kind: library. License: MPL-2.0.
+- [Trivy](https://mrps.in/agent-toolkit/tools/trivy.html): Comprehensive security scanner for vulnerabilities, secrets, and misconfigurations. Category: security. Kind: cli. License: Apache-2.0.
+- [Graphify](https://mrps.in/agent-toolkit/tools/graphify.html): Codebase knowledge graph generator with deterministic AST parsing. Category: code-analysis. Kind: skill. License: Apache-2.0.
+- [REA](https://mrps.in/agent-toolkit/tools/rea.html): Universal reverse engineering MCP server for binaries, runtimes, and application behavior. Category: reverse-engineering. Kind: mcp-server. License: MIT.
+
+## Usage Instructions
+- [ACCESSIBILITY.md](https://mrps.in/agent-toolkit/instructions/ACCESSIBILITY.md): Category instructions and workflows for ACCESSIBILITY.
+- [CODE-ANALYSIS.md](https://mrps.in/agent-toolkit/instructions/CODE-ANALYSIS.md): Category instructions and workflows for CODE-ANALYSIS.
+- [GLOBAL.md](https://mrps.in/agent-toolkit/instructions/GLOBAL.md): Category instructions and workflows for GLOBAL.
+- [REVERSE-ENGINEERING.md](https://mrps.in/agent-toolkit/instructions/REVERSE-ENGINEERING.md): Category instructions and workflows for REVERSE-ENGINEERING.
+- [SECURITY.md](https://mrps.in/agent-toolkit/instructions/SECURITY.md): Category instructions and workflows for SECURITY.
+- [TESTING.md](https://mrps.in/agent-toolkit/instructions/TESTING.md): Category instructions and workflows for TESTING.
+- [UI-UX.md](https://mrps.in/agent-toolkit/instructions/UI-UX.md): Category instructions and workflows for UI-UX.
+</textarea>
+      </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <section class="toolkit-grid" aria-label="Tools Directory">
+      
+      <article class="toolkit-card" id="mrps-agent-runner">
+        <div class="toolkit-card-header">
+          <h2 class="toolkit-card-title">
+            <a href="/agent-toolkit/tools/mrps-agent-runner.html">MRPS Agent Launcher</a>
+          </h2>
+          <span class="toolkit-badge badge-skill">Skill</span>
+        </div>
+        <p class="toolkit-card-summary">Read-only project auditor and runner for code, security, a11y, and UI checks.</p>
+        <div class="toolkit-card-meta">
+          <div class="toolkit-card-meta-row">
+            <span>By <a href="https://mrps.in" target="_blank" rel="noopener noreferrer">Mani Ratan Singh</a></span>
+            <span>License: <strong>MIT</strong></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.4rem;">
+            <span><a href="https://github.com/maniratansingh/me" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:600; text-decoration:underline;">GitHub: github.com/maniratansingh/me ↗</a></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.35rem;">
+            <a href="/agent-toolkit/tools/mrps-agent-runner.html" style="font-weight:600;">View Rules &amp; Usage →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="toolkit-card" id="impeccable">
+        <div class="toolkit-card-header">
+          <h2 class="toolkit-card-title">
+            <a href="/agent-toolkit/tools/impeccable.html">Impeccable</a>
+          </h2>
+          <span class="toolkit-badge badge-skill">Skill</span>
+        </div>
+        <p class="toolkit-card-summary">The design vocabulary and UI critique system for coding agents.</p>
+        <div class="toolkit-card-meta">
+          <div class="toolkit-card-meta-row">
+            <span>By <a href="https://github.com/pbakaus" target="_blank" rel="noopener noreferrer">Paul Bakaus</a></span>
+            <span>License: <strong>Apache-2.0</strong></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.4rem;">
+            <span><a href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:600; text-decoration:underline;">GitHub: github.com/pbakaus/impeccable ↗</a></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.35rem;">
+            <a href="/agent-toolkit/tools/impeccable.html" style="font-weight:600;">View Rules &amp; Usage →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="toolkit-card" id="obscura">
+        <div class="toolkit-card-header">
+          <h2 class="toolkit-card-title">
+            <a href="/agent-toolkit/tools/obscura.html">Obscura</a>
+          </h2>
+          <span class="toolkit-badge badge-app">App</span>
+        </div>
+        <p class="toolkit-card-summary">High-performance Rust-based headless browser for AI agents and web scraping.</p>
+        <div class="toolkit-card-meta">
+          <div class="toolkit-card-meta-row">
+            <span>By <a href="https://github.com/h4ckf0r0day" target="_blank" rel="noopener noreferrer">h4ckf0r0day</a></span>
+            <span>License: <strong>Apache-2.0</strong></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.4rem;">
+            <span><a href="https://github.com/h4ckf0r0day/obscura" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:600; text-decoration:underline;">GitHub: github.com/h4ckf0r0day/obscura ↗</a></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.35rem;">
+            <a href="/agent-toolkit/tools/obscura.html" style="font-weight:600;">View Rules &amp; Usage →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="toolkit-card" id="playwright">
+        <div class="toolkit-card-header">
+          <h2 class="toolkit-card-title">
+            <a href="/agent-toolkit/tools/playwright.html">Playwright</a>
+          </h2>
+          <span class="toolkit-badge badge-library">Library</span>
+        </div>
+        <p class="toolkit-card-summary">Reliable end-to-end multi-browser testing framework for modern web applications.</p>
+        <div class="toolkit-card-meta">
+          <div class="toolkit-card-meta-row">
+            <span>By <a href="https://github.com/microsoft" target="_blank" rel="noopener noreferrer">Microsoft</a></span>
+            <span>License: <strong>Apache-2.0</strong></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.4rem;">
+            <span><a href="https://github.com/microsoft/playwright" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:600; text-decoration:underline;">GitHub: github.com/microsoft/playwright ↗</a></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.35rem;">
+            <a href="/agent-toolkit/tools/playwright.html" style="font-weight:600;">View Rules &amp; Usage →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="toolkit-card" id="axe-core">
+        <div class="toolkit-card-header">
+          <h2 class="toolkit-card-title">
+            <a href="/agent-toolkit/tools/axe-core.html">axe-core</a>
+          </h2>
+          <span class="toolkit-badge badge-library">Library</span>
+        </div>
+        <p class="toolkit-card-summary">Automated accessibility testing engine for HTML and web applications.</p>
+        <div class="toolkit-card-meta">
+          <div class="toolkit-card-meta-row">
+            <span>By <a href="https://github.com/dequelabs" target="_blank" rel="noopener noreferrer">Deque Systems</a></span>
+            <span>License: <strong>MPL-2.0</strong></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.4rem;">
+            <span><a href="https://github.com/dequelabs/axe-core" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:600; text-decoration:underline;">GitHub: github.com/dequelabs/axe-core ↗</a></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.35rem;">
+            <a href="/agent-toolkit/tools/axe-core.html" style="font-weight:600;">View Rules &amp; Usage →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="toolkit-card" id="trivy">
+        <div class="toolkit-card-header">
+          <h2 class="toolkit-card-title">
+            <a href="/agent-toolkit/tools/trivy.html">Trivy</a>
+          </h2>
+          <span class="toolkit-badge badge-cli">CLI</span>
+        </div>
+        <p class="toolkit-card-summary">Comprehensive security scanner for vulnerabilities, secrets, and misconfigurations.</p>
+        <div class="toolkit-card-meta">
+          <div class="toolkit-card-meta-row">
+            <span>By <a href="https://github.com/aquasecurity" target="_blank" rel="noopener noreferrer">Aqua Security</a></span>
+            <span>License: <strong>Apache-2.0</strong></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.4rem;">
+            <span><a href="https://github.com/aquasecurity/trivy" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:600; text-decoration:underline;">GitHub: github.com/aquasecurity/trivy ↗</a></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.35rem;">
+            <a href="/agent-toolkit/tools/trivy.html" style="font-weight:600;">View Rules &amp; Usage →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="toolkit-card" id="graphify">
+        <div class="toolkit-card-header">
+          <h2 class="toolkit-card-title">
+            <a href="/agent-toolkit/tools/graphify.html">Graphify</a>
+          </h2>
+          <span class="toolkit-badge badge-skill">Skill</span>
+        </div>
+        <p class="toolkit-card-summary">Codebase knowledge graph generator with deterministic AST parsing.</p>
+        <div class="toolkit-card-meta">
+          <div class="toolkit-card-meta-row">
+            <span>By <a href="https://github.com/Graphify-Labs" target="_blank" rel="noopener noreferrer">Graphify Labs</a></span>
+            <span>License: <strong>Apache-2.0</strong></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.4rem;">
+            <span><a href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:600; text-decoration:underline;">GitHub: github.com/Graphify-Labs/graphify ↗</a></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.35rem;">
+            <a href="/agent-toolkit/tools/graphify.html" style="font-weight:600;">View Rules &amp; Usage →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="toolkit-card" id="rea">
+        <div class="toolkit-card-header">
+          <h2 class="toolkit-card-title">
+            <a href="/agent-toolkit/tools/rea.html">REA</a>
+          </h2>
+          <span class="toolkit-badge badge-mcp-server">MCP server</span>
+        </div>
+        <p class="toolkit-card-summary">Universal reverse engineering MCP server for binaries, runtimes, and application behavior.</p>
+        <div class="toolkit-card-meta">
+          <div class="toolkit-card-meta-row">
+            <span>By <a href="https://github.com/morluto" target="_blank" rel="noopener noreferrer">Morluto</a></span>
+            <span>License: <strong>MIT</strong></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.4rem;">
+            <span><a href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:600; text-decoration:underline;">GitHub: github.com/morluto/rea ↗</a></span>
+          </div>
+          <div class="toolkit-card-meta-row" style="margin-top:0.35rem;">
+            <a href="/agent-toolkit/tools/rea.html" style="font-weight:600;">View Rules &amp; Usage →</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-name"><a href="/">Mani Ratan Singh</a></p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/blog/">Posts</a>
+      <a href="/projects/">Projects</a>
+      <a href="/photos/">Photos</a>
+      <a href="/agent-toolkit/CREDITS.md">Credits</a>
+      <a href="/agent-toolkit/AGENTS.md">AGENTS.md</a>
+    </nav>
+  </div>
+</footer>
+
+  <script src="/agent-toolkit/assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "id": "obscura",
+  "name": "Obscura",
+  "category": "testing",
+  "kind": "app",
+  "summary": "High-performance Rust-based headless browser for AI agents and web scraping.",
+  "description": "A fast, lightweight headless browser written in Rust with Chrome DevTools Protocol (CDP) and MCP server integration, designed as a stealthy, resource-efficient alternative to Chromium for agent web interactions.",
+  "creator": {
+    "name": "h4ckf0r0day",
+    "url": "https://github.com/h4ckf0r0day"
+  },
+  "repository": "https://github.com/h4ckf0r0day/obscura",
+  "mcpEndpoint": null,
+  "docsUrl": "https://github.com/h4ckf0r0day/obscura#readme",
+  "license": "Apache-2.0",
+  "reasonForInclusion": "Offers lightweight, fast headless browser infrastructure that agents can drive directly without heavy browser dependencies.",
+  "instructions": "/agent-toolkit/instructions/TESTING.md",
+  "setup": "cargo install obscura",
+  "tags": [
+    "browser",
+    "headless",
+    "rust",
+    "scraping",
+    "cdp"
+  ],
+  "lastVerified": "2026-11-07",
+  "agentInstructions": "Tool: Obscura\nWhen to use: Use when an agent needs a fast, lightweight headless browser to navigate web pages, inspect DOM elements, or interact over CDP without launching heavy Chromium instances.\nWhen NOT to use: Do not use as a static code scanner or repository finding generator; Obscura is headless browser infrastructure.\nInvocation: Run obscura via CLI or connect via CDP or MCP server configuration.\nRules:\n- Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.\n- Restrict browser automation to user-specified local or remote test targets.\n- Do not bypass authentication mechanisms or access controls on target sites.\n- Close browser sessions cleanly to prevent dangling background processes.",
+  "installedVersion": null,
+  "latestRelease": null,
+  "lastChecked": null
+}

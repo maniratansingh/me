@@ -1,0 +1,31 @@
+{
+  "id": "playwright",
+  "name": "Playwright",
+  "category": "testing",
+  "kind": "library",
+  "summary": "Reliable end-to-end multi-browser testing framework for modern web applications.",
+  "description": "Playwright enables reliable end-to-end testing across Chromium, Firefox, and WebKit with auto-wait assertions, network mocking, and cross-platform browser automation.",
+  "creator": {
+    "name": "Microsoft",
+    "url": "https://github.com/microsoft"
+  },
+  "repository": "https://github.com/microsoft/playwright",
+  "mcpEndpoint": null,
+  "docsUrl": "https://playwright.dev",
+  "license": "Apache-2.0",
+  "reasonForInclusion": "The industry standard for deterministic, automated browser integration and end-to-end web testing.",
+  "instructions": "/agent-toolkit/instructions/TESTING.md",
+  "setup": "npm init playwright@latest",
+  "tags": [
+    "testing",
+    "e2e",
+    "browser",
+    "automation",
+    "integration"
+  ],
+  "lastVerified": "2026-11-07",
+  "agentInstructions": "Tool: Playwright\nWhen to use: Use when running automated browser test suites, executing end-to-end regression tests, or generating trace recordings for frontend debugging.\nWhen NOT to use: Do not use for simple unit tests of pure algorithmic functions where Jest or Vitest executes significantly faster.\nInvocation: Execute via npx playwright test or project test scripts.\nRules:\n- Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.\n- Always run tests in headless mode unless the user explicitly requests a headed browser window.\n- Never modify test expectations to artificially pass a failing assertion without user consent.\n- Report all test failures with exact assertion details and file locations.",
+  "installedVersion": null,
+  "latestRelease": null,
+  "lastChecked": null
+}

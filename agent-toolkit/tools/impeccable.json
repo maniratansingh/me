@@ -1,0 +1,31 @@
+{
+  "id": "impeccable",
+  "name": "Impeccable",
+  "category": "ui-ux",
+  "kind": "skill",
+  "summary": "The design vocabulary and UI critique system for coding agents.",
+  "description": "An agent skill providing frontend design critique, spacing rhythm standards, and visual polish rules to prevent AI slop and ensure intentional interface design.",
+  "creator": {
+    "name": "Paul Bakaus",
+    "url": "https://github.com/pbakaus"
+  },
+  "repository": "https://github.com/pbakaus/impeccable",
+  "mcpEndpoint": null,
+  "docsUrl": "https://github.com/pbakaus/impeccable#readme",
+  "license": "Apache-2.0",
+  "reasonForInclusion": "Provides elite frontend visual vocabulary and critique rules directly into agent instructions.",
+  "instructions": "/agent-toolkit/instructions/UI-UX.md",
+  "setup": "Load https://github.com/pbakaus/impeccable into your agent instructions",
+  "tags": [
+    "ui-ux",
+    "design",
+    "critique",
+    "frontend",
+    "polish"
+  ],
+  "lastVerified": "2026-11-07",
+  "agentInstructions": "Tool: Impeccable\nWhen to use: Use when designing, styling, reviewing, or critiquing frontend web interfaces, component layouts, and design token hierarchies.\nWhen NOT to use: Do not use for testing backend logic, inspecting database schemas, or debugging low-level memory usage.\nInvocation: Reference Impeccable skill instructions when formulating UI reviews or component refactorings.\nRules:\n- Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.\n- Critique visual weight, alignment, and responsiveness before proposing code modifications.\n- Do not apply modifications to source code unless the user explicitly requests fixes.\n- Enforce strict 4pt/8pt spacing rhythm and prevent uncurated, unvalidated color selections.",
+  "installedVersion": null,
+  "latestRelease": null,
+  "lastChecked": null
+}

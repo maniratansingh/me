@@ -1,0 +1,31 @@
+{
+  "id": "axe-core",
+  "name": "axe-core",
+  "category": "accessibility",
+  "kind": "library",
+  "summary": "Automated accessibility testing engine for HTML and web applications.",
+  "description": "The standard automated accessibility engine that evaluates web applications against WCAG 2.0, 2.1, and 2.2 Level A and AA standards with zero false positives.",
+  "creator": {
+    "name": "Deque Systems",
+    "url": "https://github.com/dequelabs"
+  },
+  "repository": "https://github.com/dequelabs/axe-core",
+  "mcpEndpoint": null,
+  "docsUrl": "https://github.com/dequelabs/axe-core#readme",
+  "license": "MPL-2.0",
+  "reasonForInclusion": "The definitive benchmark for programmatic, rule-based accessibility violation detection.",
+  "instructions": "/agent-toolkit/instructions/ACCESSIBILITY.md",
+  "setup": "npm install -D @axe-core/cli",
+  "tags": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "audit",
+    "compliance"
+  ],
+  "lastVerified": "2026-11-07",
+  "agentInstructions": "Tool: axe-core\nWhen to use: Use when auditing web pages, templates, and rendered components for WCAG 2.1/2.2 AA accessibility violations, color contrast, and ARIA roles.\nWhen NOT to use: Do not assume 100% test coverage from automated checks; manual keyboard and screen reader verification is still required.\nInvocation: Execute using npx @axe-core/cli <target-url> or via test framework bindings.\nRules:\n- Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.\n- Group and report findings strictly by impact severity (critical, serious, moderate, minor).\n- Do not modify source templates or ARIA attributes without presenting the proposed changes and obtaining user confirmation.\n- Clearly differentiate between automated rule violations and warnings requiring manual review.",
+  "installedVersion": null,
+  "latestRelease": null,
+  "lastChecked": null
+}
