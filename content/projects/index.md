@@ -12,6 +12,10 @@ Here is a list of my active projects. For each project, I outline the design tho
 
 <ul class="post-list">
   <li class="post-list-item">
+    <a class="post-list-title" href="/agent-toolkit/">MRPS Agent Toolkit — Directory &amp; Launcher</a>
+    <span class="post-list-date">Toolkit</span>
+  </li>
+  <li class="post-list-item">
     <a class="post-list-title" href="/projects/aesthetic-music-player/">MRPS MUSIC — Web Audio Player & Vinyl Turntable</a>
     <span class="post-list-date">JavaScript</span>
   </li>

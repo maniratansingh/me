@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REA — MRPS Agent Toolkit</title>
+  <meta name="description" content="Universal reverse engineering MCP server for binaries, runtimes, and application behavior.">
+  <link rel="canonical" href="https://mrps.in/agent-toolkit/tools/rea.html">
+  <meta property="og:title" content="REA — MRPS Agent Toolkit">
+  <meta property="og:description" content="Universal reverse engineering MCP server for binaries, runtimes, and application behavior.">
+  <meta property="og:url" content="https://mrps.in/agent-toolkit/tools/rea.html">
+  <meta property="og:image" content="https://mrps.in/agent-toolkit/og.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="REA — MRPS Agent Toolkit">
+  <meta name="twitter:description" content="Universal reverse engineering MCP server for binaries, runtimes, and application behavior.">
+  <meta name="twitter:image" content="https://mrps.in/agent-toolkit/og.png">
+
+  <!-- Fonts: IBM Plex (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:ital,wght@0,200;0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css?v=2" />
+  <link rel="stylesheet" href="/agent-toolkit/assets/style.css" />
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "REA",
+  "description": "Universal reverse engineering MCP server for binaries, runtimes, and application behavior.",
+  "url": "https://github.com/morluto/rea",
+  "applicationCategory": "reverse-engineering",
+  "license": "MIT",
+  "author": {
+    "@type": "Person",
+    "name": "Morluto",
+    "url": "https://github.com/morluto"
+  }
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-title" href="/">MRPS</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/blog/">Posts</a>
+      <a href="/projects/">Projects</a>
+      <a href="/photos/">Photos</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main id="main-content" class="toolkit-container">
+    <div class="back-nav" style="margin-bottom: var(--s-md);">
+      <a href="/agent-toolkit/" class="btn-back">← Back to Toolkit</a>
+    </div>
+
+    <div class="toolkit-detail-wrap">
+      <header class="toolkit-detail-header">
+        <div class="toolkit-detail-title-row">
+          <h1>REA</h1>
+          <span class="toolkit-badge badge-mcp-server">MCP server</span>
+        </div>
+        <p class="toolkit-badge-def">Model Context Protocol server exposing tools to AI agents via standard protocol.</p>
+      </header>
+
+      <!-- 1. What it does -->
+      <section class="toolkit-section">
+        <h2>1. What it does</h2>
+        <p>An MCP server enabling agents to reverse engineer compiled applications, native binaries, Electron apps, Android APKs, and runtime behavior with deep inspection and decompilation capabilities.</p>
+      </section>
+
+      <!-- 2. Why MRPS selected it -->
+      <section class="toolkit-section">
+        <h2>2. Why MRPS selected it</h2>
+        <p>Provides deep binary, package, and runtime reverse engineering capabilities through standardized Model Context Protocol tools.</p>
+      </section>
+
+      <!-- 3. Kind badge & definition -->
+      <section class="toolkit-section">
+        <h2>3. Tool Kind</h2>
+        <p><strong>MCP server</strong>: Model Context Protocol server exposing tools to AI agents via standard protocol.</p>
+      </section>
+
+      <!-- 4. Original repository -->
+      <section class="toolkit-section">
+        <h2>4. Original repository</h2>
+        <p><a href="https://github.com/morluto/rea" target="_blank" rel="noopener noreferrer">https://github.com/morluto/rea</a></p>
+      </section>
+
+      <!-- 5. Official documentation -->
+      <section class="toolkit-section">
+        <h2>5. Official documentation</h2>
+        <p><a href="https://github.com/morluto/rea/blob/main/docs/mcp-contracts.md" target="_blank" rel="noopener noreferrer">https://github.com/morluto/rea/blob/main/docs/mcp-contracts.md</a></p>
+      </section>
+
+      <!-- 6. Author and license -->
+      <section class="toolkit-section">
+        <h2>6. Author and license</h2>
+        <p>Created by <a href="https://github.com/morluto" target="_blank" rel="noopener noreferrer">Morluto</a> under the <strong>MIT</strong> license.</p>
+      </section>
+
+      <!-- 7. Installation (setup, copyable) -->
+      <section class="toolkit-section">
+        <h2>7. Installation</h2>
+        
+        <div class="toolkit-code-box">
+          <button class="btn-primary-action copy-snippet-btn" data-target="setup-code" style="float:right;">Copy</button>
+          <pre><code id="setup-code">npx rea-agents setup</code></pre>
+        </div>
+      </section>
+
+      <!-- 8. When the AI should use it -->
+      <section class="toolkit-section">
+        <h2>8. When the AI should use it</h2>
+        <p>Use when analyzing compiled binaries, APKs, Electron apps, or closed-source runtime behavior where source code is unavailable.</p>
+      </section>
+
+      <!-- 9. When the AI should not use it -->
+      <section class="toolkit-section">
+        <h2>9. When the AI should not use it</h2>
+        <p>Do not use for ordinary source-code architecture reviews when clean source code is already present.</p>
+      </section>
+
+      <!-- 10. What the AI must not do -->
+      <section class="toolkit-section">
+        <h2>10. What the AI must not do</h2>
+        <ul>
+          <li>Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.</li>
+          <li>Restrict analysis to explicitly provided target files or processes.</li>
+          <li>Never modify or patch target binaries during analysis.</li>
+          <li>Preserve evidence trails and distinguish between observed factual behavior and decompiled inferences.</li>
+        </ul>
+      </section>
+
+      <!-- 11. MRPS usage instructions link -->
+      <section class="toolkit-section">
+        <h2>11. MRPS usage instructions</h2>
+        <p><a href="/agent-toolkit/instructions/REVERSE-ENGINEERING.md">Read REVERSE-ENGINEERING.md</a></p>
+      </section>
+
+      <!-- 12. Last verified -->
+      <section class="toolkit-section">
+        <h2>12. Last verified</h2>
+        <p>Verified against live repository on: <strong>2026-11-07</strong></p>
+      </section>
+
+      <!-- 13. Back to directory -->
+      <nav class="toolkit-section" style="margin-top:var(--s-lg); border-top:1px solid var(--border); padding-top:var(--s-md);">
+        <a href="/agent-toolkit/" class="btn-back">← Back to Toolkit Directory</a>
+      </nav>
+
+      <details class="toolkit-disclosure">
+        <summary>View Complete Agent Constraint Sheet</summary>
+        <div class="disclosure-inner">Tool: REA
+When to use: Use when analyzing compiled binaries, APKs, Electron apps, or closed-source runtime behavior where source code is unavailable.
+When NOT to use: Do not use for ordinary source-code architecture reviews when clean source code is already present.
+Invocation: Register REA as an MCP server using npx -y rea-agents@latest.
+Rules:
+- Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.
+- Restrict analysis to explicitly provided target files or processes.
+- Never modify or patch target binaries during analysis.
+- Preserve evidence trails and distinguish between observed factual behavior and decompiled inferences.</div>
+      </details>
+    </div>
+  </main>
+
+  
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-name"><a href="/">Mani Ratan Singh</a></p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/blog/">Posts</a>
+      <a href="/projects/">Projects</a>
+      <a href="/photos/">Photos</a>
+      <a href="/agent-toolkit/CREDITS.md">Credits</a>
+      <a href="/agent-toolkit/AGENTS.md">AGENTS.md</a>
+    </nav>
+  </div>
+</footer>
+
+  <script src="/agent-toolkit/assets/app.js" defer></script>
+</body>
+</html>

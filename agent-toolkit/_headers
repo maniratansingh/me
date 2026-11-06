@@ -1,0 +1,21 @@
+# MRPS Agent Toolkit caching headers
+/agent-toolkit/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/agent-toolkit/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+/agent-toolkit/*.json
+  Cache-Control: public, max-age=300, must-revalidate
+
+/agent-toolkit/*.md
+  Cache-Control: public, max-age=300, must-revalidate
+
+/agent-toolkit/tools/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+/agent-toolkit/tools/*.json
+  Cache-Control: public, max-age=300, must-revalidate
+
+/agent-toolkit/instructions/*.md
+  Cache-Control: public, max-age=300, must-revalidate

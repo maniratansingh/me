@@ -1,0 +1,370 @@
+/* MRPS Agent Toolkit — Integrated Stylesheet
+   Inherits directly from mrps.in design system and tokens */
+
+:root {
+  --toolkit-max-width: var(--wide, 120ch);
+  --toolkit-card-radius: var(--radius, 3px);
+  --toolkit-font-sans: var(--sans, 'IBM Plex Sans', system-ui, sans-serif);
+  --toolkit-font-mono: var(--mono, 'IBM Plex Mono', monospace);
+
+  /* Kind Badge Colors tailored for #202123 dark surface */
+  --badge-skill-bg: rgba(99, 102, 241, 0.15);
+  --badge-skill-fg: #a5b4fc;
+  --badge-mcp-bg: rgba(217, 70, 239, 0.15);
+  --badge-mcp-fg: #f0abfc;
+  --badge-cli-bg: rgba(16, 163, 127, 0.15);
+  --badge-cli-fg: #6ee7b7;
+  --badge-lib-bg: rgba(245, 158, 11, 0.15);
+  --badge-lib-fg: #fcd34d;
+  --badge-app-bg: rgba(239, 68, 68, 0.15);
+  --badge-app-fg: #fca5a5;
+  --badge-pack-bg: rgba(168, 85, 247, 0.15);
+  --badge-pack-fg: #d8b4fe;
+}
+
+.toolkit-container {
+  max-width: var(--toolkit-max-width);
+  margin: 0 auto;
+  padding: var(--s-md) var(--pad);
+  width: 100%;
+}
+
+/* Hero Section */
+.toolkit-hero {
+  padding-bottom: var(--s-lg);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--s-lg);
+}
+
+.toolkit-eyebrow {
+  font-family: var(--toolkit-font-sans);
+  font-size: var(--step--1);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: var(--s-xs);
+}
+
+.toolkit-hero h1 {
+  font-family: var(--toolkit-font-sans);
+  font-size: var(--step-3);
+  font-weight: 200;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: var(--s-sm);
+}
+
+.toolkit-hero-lede {
+  font-size: var(--step-0);
+  color: var(--muted);
+  max-width: var(--measure);
+  line-height: 1.6;
+  margin-bottom: var(--s-md);
+}
+
+/* Prompt CTA Box */
+.toolkit-cta-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--toolkit-card-radius);
+  padding: var(--s-md);
+  max-width: var(--measure);
+}
+
+.toolkit-cta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
+  margin-bottom: var(--s-xs);
+}
+
+.toolkit-cta-title {
+  font-family: var(--toolkit-font-sans);
+  font-weight: 600;
+  font-size: var(--step-0);
+  color: var(--text);
+}
+
+.btn-primary-action {
+  font-family: var(--toolkit-font-mono);
+  font-size: var(--step--1);
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--trans);
+}
+
+.btn-primary-action:hover {
+  opacity: 0.9;
+}
+
+.btn-action-small {
+  font-family: var(--toolkit-font-mono);
+  font-size: var(--step--1);
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all var(--trans);
+}
+
+.btn-action-small:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.btn-action-small-outline {
+  font-family: var(--toolkit-font-mono);
+  font-size: var(--step--1);
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border-mid);
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all var(--trans);
+}
+
+.btn-action-small-outline:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.prompt-preview-block {
+  font-family: var(--toolkit-font-mono);
+  font-size: var(--step--1);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--toolkit-card-radius);
+  padding: var(--s-sm);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  color: var(--muted);
+  user-select: all;
+  margin-top: var(--s-xs);
+}
+
+.toolkit-caveat {
+  font-size: var(--step--1);
+  color: var(--faint);
+  margin-top: var(--s-xs);
+  font-style: italic;
+}
+
+/* Cards Grid */
+.toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: var(--s-md);
+  margin-bottom: var(--s-xl);
+}
+
+.toolkit-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--toolkit-card-radius);
+  padding: var(--s-md);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--trans), transform var(--trans);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toolkit-card:hover {
+    border-color: var(--border-mid);
+    transform: translateY(-2px);
+  }
+}
+
+.toolkit-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-xs);
+  margin-bottom: var(--s-xs);
+}
+
+.toolkit-card-title {
+  font-family: var(--toolkit-font-sans);
+  font-size: var(--step-1);
+  font-weight: 600;
+}
+
+.toolkit-card-title a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.toolkit-card-title a:hover {
+  color: var(--accent);
+}
+
+.toolkit-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-family: var(--toolkit-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge-skill { background: var(--badge-skill-bg); color: var(--badge-skill-fg); }
+.badge-mcp-server { background: var(--badge-mcp-bg); color: var(--badge-mcp-fg); }
+.badge-cli { background: var(--badge-cli-bg); color: var(--badge-cli-fg); }
+.badge-library { background: var(--badge-lib-bg); color: var(--badge-lib-fg); }
+.badge-app { background: var(--badge-app-bg); color: var(--badge-app-fg); }
+.badge-prompt-pack { background: var(--badge-pack-bg); color: var(--badge-pack-fg); }
+
+.toolkit-card-summary {
+  font-size: var(--step--1);
+  color: var(--muted);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: var(--s-md);
+}
+
+.toolkit-card-meta {
+  font-size: var(--step--1);
+  color: var(--faint);
+  border-top: 1px solid var(--border);
+  padding-top: var(--s-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.toolkit-card-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Detail Page */
+.toolkit-detail-wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+.toolkit-detail-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--s-md);
+  margin-bottom: var(--s-lg);
+}
+
+.toolkit-detail-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--s-xs);
+}
+
+.toolkit-detail-title-row h1 {
+  font-family: var(--toolkit-font-sans);
+  font-size: var(--step-3);
+  font-weight: 200;
+  color: var(--text);
+}
+
+.toolkit-badge-def {
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+.toolkit-section {
+  margin-bottom: var(--s-lg);
+}
+
+.toolkit-section h2 {
+  font-family: var(--toolkit-font-sans);
+  font-size: var(--step-1);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--s-xs);
+  margin-bottom: var(--s-xs);
+}
+
+.toolkit-section p, .toolkit-section ul {
+  font-size: var(--step-0);
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: var(--s-xs);
+}
+
+.toolkit-section ul {
+  padding-left: var(--s-md);
+}
+
+.toolkit-section li {
+  margin-bottom: 0.25rem;
+}
+
+.toolkit-code-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--toolkit-card-radius);
+  padding: var(--s-sm);
+  position: relative;
+  margin: var(--s-xs) 0;
+}
+
+.toolkit-code-box pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: var(--toolkit-font-mono);
+  font-size: var(--step--1);
+  color: var(--accent);
+}
+
+details.toolkit-disclosure {
+  border: 1px solid var(--border);
+  border-radius: var(--toolkit-card-radius);
+  background: var(--surface);
+  margin-top: var(--s-md);
+}
+
+details.toolkit-disclosure summary {
+  padding: var(--s-sm);
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--surface);
+  user-select: none;
+  color: var(--muted);
+}
+
+details.toolkit-disclosure summary:hover {
+  color: var(--text);
+}
+
+details.toolkit-disclosure .disclosure-inner {
+  padding: var(--s-md);
+  font-family: var(--toolkit-font-mono);
+  font-size: var(--step--1);
+  white-space: pre-wrap;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}

@@ -12,6 +12,10 @@ This is my personal blog where I share my unfiltered thoughts, views, and ideas.
 
 <ul class="post-list">
   <li class="post-list-item">
+    <a class="post-list-title" href="/blog/2026-11-07-building-mrps-agent-toolkit/">Building MRPS Agent Toolkit: A Curated Directory and Read-Only Auditor for Coding Agents</a>
+    <span class="post-list-date">2026-11-07</span>
+  </li>
+  <li class="post-list-item">
     <a class="post-list-title" href="/blog/2026-10-14-building-mrps-music-player/">Why I Built My Own Web Music Player & Vinyl Turntable</a>
     <span class="post-list-date">2026-10-14</span>
   </li>

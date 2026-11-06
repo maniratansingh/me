@@ -1,0 +1,30 @@
+{
+  "id": "rea",
+  "name": "REA",
+  "category": "reverse-engineering",
+  "kind": "mcp-server",
+  "summary": "Universal reverse engineering MCP server for binaries, runtimes, and application behavior.",
+  "description": "An MCP server enabling agents to reverse engineer compiled applications, native binaries, Electron apps, Android APKs, and runtime behavior with deep inspection and decompilation capabilities.",
+  "creator": {
+    "name": "Morluto",
+    "url": "https://github.com/morluto"
+  },
+  "repository": "https://github.com/morluto/rea",
+  "mcpEndpoint": "npx -y rea-agents@latest",
+  "docsUrl": "https://github.com/morluto/rea/blob/main/docs/mcp-contracts.md",
+  "license": "MIT",
+  "reasonForInclusion": "Provides deep binary, package, and runtime reverse engineering capabilities through standardized Model Context Protocol tools.",
+  "instructions": "/agent-toolkit/instructions/REVERSE-ENGINEERING.md",
+  "setup": "npx rea-agents setup",
+  "tags": [
+    "reverse-engineering",
+    "mcp-server",
+    "binary-analysis",
+    "decompilation"
+  ],
+  "lastVerified": "2026-11-07",
+  "agentInstructions": "Tool: REA\nWhen to use: Use when analyzing compiled binaries, APKs, Electron apps, or closed-source runtime behavior where source code is unavailable.\nWhen NOT to use: Do not use for ordinary source-code architecture reviews when clean source code is already present.\nInvocation: Register REA as an MCP server using npx -y rea-agents@latest.\nRules:\n- Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.\n- Restrict analysis to explicitly provided target files or processes.\n- Never modify or patch target binaries during analysis.\n- Preserve evidence trails and distinguish between observed factual behavior and decompiled inferences.",
+  "installedVersion": null,
+  "latestRelease": null,
+  "lastChecked": null
+}
