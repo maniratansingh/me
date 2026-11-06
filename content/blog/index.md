@@ -16,6 +16,18 @@ This is my personal blog where I share my unfiltered thoughts, views, and ideas.
     <span class="post-list-date">2026-11-07</span>
   </li>
   <li class="post-list-item">
+    <a class="post-list-title" href="/blog/2026-11-06-building-shairdisplay-airplay2-hifi/">Building ShairDisplay: Room-Scale Now Playing &amp; Ballistic VU Telemetry for AirPlay 2</a>
+    <span class="post-list-date">2026-11-06</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/blog/2026-10-20-building-openmapindia-zero-backend/">Building OpenMapIndia: Zero-Backend Geocompute and Rural Healthcare Routing for 373,988 Villages</a>
+    <span class="post-list-date">2026-10-20</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/blog/2026-10-19-sant-kabir-fleet-shield-rural-ambulances/">Sant Kabir Fleet Shield: Edge-Native Telemetry Wallboards for Rural Outreach Ambulances</a>
+    <span class="post-list-date">2026-10-19</span>
+  </li>
+  <li class="post-list-item">
     <a class="post-list-title" href="/blog/2026-10-14-building-mrps-music-player/">Why I Built My Own Web Music Player & Vinyl Turntable</a>
     <span class="post-list-date">2026-10-14</span>
   </li>

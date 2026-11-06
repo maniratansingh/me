@@ -9,10 +9,24 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
+
+// If invoked directly by Cloudflare (e.g. build command: node data/build.mjs),
+// execute full site build via build.sh so all content and pandoc pages compile.
+if (process.env.MRPS_BUILD_SH_RUNNING !== '1') {
+  console.log('Invoked outside build.sh — executing full site build via build.sh...');
+  execSync('bash build.sh', {
+    cwd: ROOT_DIR,
+    stdio: 'inherit',
+    env: { ...process.env, MRPS_BUILD_SH_RUNNING: '1' }
+  });
+  process.exit(0);
+}
+
 const DATA_DIR = path.resolve(ROOT_DIR, 'data');
 const OUT_DIR = path.resolve(ROOT_DIR, 'agent-toolkit');
 const SITE_OUT_DIR = path.resolve(ROOT_DIR, 'site', 'agent-toolkit');

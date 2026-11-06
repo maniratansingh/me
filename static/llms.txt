@@ -15,14 +15,20 @@ I am a tech generalist and photographer based in India. I build hardware control
 - [Jellyfin Liquid Glass Theme](/projects/jellyfin-liquid-glass/): A modern glassmorphism custom stylesheet for Jellyfin web client.
 - [Law Exam Batch Processor](/projects/law-exam-batch-processor/): A self-hosted legal-tech pipeline utilizing Flask, Ollama, and SearXNG.
 - [MRPS MUSIC — Web Audio Player & Vinyl Turntable](/projects/aesthetic-music-player/): A sleek, glassmorphic web audio player featuring an interactive vinyl turntable simulation, WebGL 2.0 ambient procedural shader, and responsive mobile interface.
+- [OpenMapIndia — 100% GitHub-Native Geocompute & Rural Routing for India](/projects/open-map-india/): Zero-backend geocompute and infrastructure intelligence for India covering 35 States, 594 Districts, 373,988 Villages, and Primary Health Centers with zero API keys.
 - [RP2040 OLED Macro Pad (Wi-Fi Edition)](/projects/rp2040-oled-macropad/): A 16-key USB macro pad built with CircuitPython, OLED, and Wi-Fi.
 - [Sant Kabir Eye Hospital Website](/projects/sant-kabir-eye-hospital/): Official static website repository for Sant Kabir Eye Hospital in Basti, Uttar Pradesh.
+- [Sant Kabir Fleet Shield — Rural Medical Outreach Telemetry Wallboard](/projects/santkabir-fleet-shield/): Real-time edge-native fleet command wallboard engineered for rural medical outreach ambulances and vision screening vans of Sant Kabir Eye Hospital in Basti, UP.
+- [ShairDisplay: AirPlay 2 Hi-Fi Music Display & Precision Diagnostics](/projects/shairdisplay/): A room-scale, production-ready Now Playing display and vintage Hi-Fi diagnostic monitor for Shairport Sync (AirPlay 2) on Raspberry Pi / Linux.
 - [Sunbeam Eye Hospital Website](/projects/sunbeam-eye-hospital/): Official static website repository for Sunbeam Eye Hospital in Sultanpur, Uttar Pradesh.
 - [Water Tank Level Monitor (ESP8266)](/projects/water-tank/): A real-time water tank level monitor utilizing an ESP8266 and a waterproof ultrasonic sensor.
 
 ## Blog Posts
 
 - [Building MRPS Agent Toolkit: A Curated Directory and Read-Only Auditor for Coding Agents](/blog/2026-11-07-building-mrps-agent-toolkit/): Why I built MRPS Agent Toolkit — curating real open-source tools with strict read/write boundaries, honest attribution, and a directory for coding agents.
+- [Building ShairDisplay: Room-Scale Now Playing & Ballistic VU Telemetry for AirPlay 2](/blog/2026-11-06-building-shairdisplay-airplay2-hifi/): Reflections on building a dedicated room-scale Hi-Fi display and diagnostic bench for Shairport Sync on Raspberry Pi.
+- [Building OpenMapIndia: Zero-Backend Geocompute and Rural Healthcare Routing for 373,988 Villages](/blog/2026-10-20-building-openmapindia-zero-backend/): How I built a completely self-contained rural healthcare routing and geocompute platform for India with zero external APIs and zero hosting costs.
+- [Sant Kabir Fleet Shield: Edge-Native Telemetry Wallboards for Rural Outreach Ambulances](/blog/2026-10-19-sant-kabir-fleet-shield-rural-ambulances/): Engineering a real-time hospital dispatch wallboard and Android telemetry client for rural vision screening vans in Basti, UP.
 - [Why I Built My Own Web Music Player & Vinyl Turntable](/blog/2026-10-14-building-mrps-music-player/): Reflections on modern music streaming bloat, bringing back the tactile charm of vinyl records on the web, and building a clean player for road trips.
 - [Why I Built an Offline Image Compressor for Android](/blog/2026-09-30-why-i-built-an-offline-image-compressor/): Thoughts on mobile app bloatware, privacy skepticism, and why a simple utility that works 100% offline is all we really need.
 - [My First Experiment with Mac AI Clustering: 37.7 Gbps Benchmarks, MLX Hiccups, and Lessons Learned](/blog/2026-07-22-thunderbolt-4-mac-ai-cluster-benchmarks/): A beginner's first hands-on test connecting an M4 Mac mini and MacBook Air over Thunderbolt 4, testing speeds with iperf3, and exploring distributed AI.
