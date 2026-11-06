@@ -2,15 +2,18 @@
 /css/*
   Cache-Control: public, max-age=31536000, immutable
 
+/agent-toolkit/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /img/*
   Cache-Control: public, max-age=31536000, immutable
 
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
-# HTML pages — short cache, revalidate
+# HTML pages — instant revalidation
 /*
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
