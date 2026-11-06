@@ -108,6 +108,7 @@ python3 generate_meta.py
 
 # ── Build agent-toolkit ──────────────────────────────────────────────────────
 log "Building agent-toolkit..."
+export MRPS_BUILD_SH_RUNNING=1
 node data/build.mjs
 
 # ── Done ─────────────────────────────────────────────────────────────────────
