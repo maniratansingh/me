@@ -1,5 +1,7 @@
-/* MRPS Agent Toolkit — Integrated Stylesheet
-   Inherits directly from mrps.in design system and tokens */
+/* =============================================================================
+   MRPS Agent Toolkit — Integrated Stylesheet
+   Inherits directly from mrps.in design system and layout tokens
+   ============================================================================= */
 
 :root {
   --toolkit-max-width: var(--wide, 120ch);
@@ -7,48 +9,76 @@
   --toolkit-font-sans: var(--sans, 'IBM Plex Sans', system-ui, sans-serif);
   --toolkit-font-mono: var(--mono, 'IBM Plex Mono', monospace);
 
-  /* Kind Badge Colors tailored for #202123 dark surface */
-  --badge-skill-bg: rgba(99, 102, 241, 0.15);
+  /* Kind Badge Colors tailored for dark surface */
+  --badge-skill-bg: rgba(99, 102, 241, 0.12);
   --badge-skill-fg: #a5b4fc;
-  --badge-mcp-bg: rgba(217, 70, 239, 0.15);
+  --badge-mcp-bg: rgba(217, 70, 239, 0.12);
   --badge-mcp-fg: #f0abfc;
-  --badge-cli-bg: rgba(16, 163, 127, 0.15);
+  --badge-cli-bg: rgba(16, 163, 127, 0.12);
   --badge-cli-fg: #6ee7b7;
-  --badge-lib-bg: rgba(245, 158, 11, 0.15);
+  --badge-lib-bg: rgba(245, 158, 11, 0.12);
   --badge-lib-fg: #fcd34d;
-  --badge-app-bg: rgba(239, 68, 68, 0.15);
+  --badge-app-bg: rgba(239, 68, 68, 0.12);
   --badge-app-fg: #fca5a5;
-  --badge-pack-bg: rgba(168, 85, 247, 0.15);
+  --badge-pack-bg: rgba(168, 85, 247, 0.12);
   --badge-pack-fg: #d8b4fe;
 }
 
+/* ── Container ───────────────────────────────────────────────────────────── */
 .toolkit-container {
-  max-width: var(--toolkit-max-width);
+  max-width: var(--wide);
   margin: 0 auto;
-  padding: var(--s-md) var(--pad);
+  padding: var(--s-xl) var(--pad);
   width: 100%;
 }
 
-/* Hero Section */
-.toolkit-hero {
-  padding-bottom: var(--s-lg);
-  border-bottom: 1px solid var(--border);
+/* ── Back Navigation ─────────────────────────────────────────────────────── */
+.back-nav {
   margin-bottom: var(--s-lg);
 }
 
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--toolkit-font-mono);
+  font-size: var(--step--1);
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  white-space: nowrap;
+  line-height: 1.2;
+  transition: all var(--trans);
+}
+
+.btn-back:hover {
+  color: var(--text);
+  border-color: var(--border-mid);
+  background: var(--bg);
+}
+
+/* ── Hero Section ────────────────────────────────────────────────────────── */
+.toolkit-hero {
+  padding-bottom: var(--s-xl);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--s-xl);
+}
+
 .toolkit-eyebrow {
-  font-family: var(--toolkit-font-sans);
+  font-family: var(--toolkit-font-mono);
   font-size: var(--step--1);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--accent);
   margin-bottom: var(--s-xs);
 }
 
 .toolkit-hero h1 {
   font-family: var(--toolkit-font-sans);
-  font-size: var(--step-3);
+  font-size: var(--step-4);
   font-weight: 200;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -64,7 +94,21 @@
   margin-bottom: var(--s-md);
 }
 
-/* Prompt CTA Box */
+.toolkit-note-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--toolkit-card-radius);
+  padding: var(--s-md);
+  margin-bottom: var(--s-md);
+  max-width: var(--measure);
+}
+
+.toolkit-note-box p {
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+/* ── Interactive CTA Boxes ───────────────────────────────────────────────── */
 .toolkit-cta-box {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -77,8 +121,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--s-xs);
+  gap: var(--s-sm);
   margin-bottom: var(--s-xs);
 }
 
@@ -89,17 +132,24 @@
   color: var(--text);
 }
 
+/* Action Buttons */
 .btn-primary-action {
   font-family: var(--toolkit-font-mono);
   font-size: var(--step--1);
   background: var(--accent);
-  color: var(--bg);
-  border: none;
+  color: #000;
+  border: 1px solid transparent;
   border-radius: 20px;
-  padding: 0.4rem 1rem;
+  padding: 0.35rem 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: opacity var(--trans);
+  white-space: nowrap;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity var(--trans), background var(--trans);
 }
 
 .btn-primary-action:hover {
@@ -109,22 +159,26 @@
 .btn-action-small {
   font-family: var(--toolkit-font-mono);
   font-size: var(--step--1);
-  background: var(--surface);
+  background: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
   border-radius: 20px;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.8rem;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.2;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   transition: all var(--trans);
 }
 
 .btn-action-small:hover {
   background: var(--accent);
-  color: var(--bg);
+  color: #000;
 }
 
 .btn-action-small-outline {
@@ -134,12 +188,16 @@
   color: var(--muted);
   border: 1px solid var(--border-mid);
   border-radius: 20px;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.8rem;
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.2;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   transition: all var(--trans);
 }
 
@@ -157,24 +215,25 @@
   padding: var(--s-sm);
   overflow-x: auto;
   white-space: pre-wrap;
+  word-break: break-word;
   color: var(--muted);
   user-select: all;
   margin-top: var(--s-xs);
+  line-height: 1.5;
 }
 
-.toolkit-caveat {
-  font-size: var(--step--1);
-  color: var(--faint);
-  margin-top: var(--s-xs);
-  font-style: italic;
-}
-
-/* Cards Grid */
+/* ── Grid of Tools ───────────────────────────────────────────────────────── */
 .toolkit-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--s-md);
   margin-bottom: var(--s-xl);
+}
+
+@media (max-width: 680px) {
+  .toolkit-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .toolkit-card {
@@ -184,6 +243,8 @@
   padding: var(--s-md);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s-sm);
   transition: border-color var(--trans), transform var(--trans);
 }
 
@@ -197,15 +258,15 @@
 .toolkit-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
   gap: var(--s-xs);
-  margin-bottom: var(--s-xs);
 }
 
 .toolkit-card-title {
   font-family: var(--toolkit-font-sans);
   font-size: var(--step-1);
   font-weight: 600;
+  line-height: 1.25;
 }
 
 .toolkit-card-title a {
@@ -222,10 +283,12 @@
   padding: 0.15rem 0.5rem;
   border-radius: 3px;
   font-family: var(--toolkit-font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   white-space: nowrap;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
 .badge-skill { background: var(--badge-skill-bg); color: var(--badge-skill-fg); }
@@ -240,28 +303,44 @@
   color: var(--muted);
   line-height: 1.6;
   flex-grow: 1;
-  margin-bottom: var(--s-md);
+  margin: 0;
 }
 
 .toolkit-card-meta {
   font-size: var(--step--1);
   color: var(--faint);
   border-top: 1px solid var(--border);
-  padding-top: var(--s-xs);
+  padding-top: var(--s-sm);
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
 
 .toolkit-card-meta-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-xs);
 }
 
-/* Detail Page */
+.toolkit-card-meta-row a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.toolkit-card-meta-row a:hover {
+  color: var(--accent);
+}
+
+.toolkit-card-meta-row a.link-action {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Tool Detail Page ────────────────────────────────────────────────────── */
 .toolkit-detail-wrap {
-  max-width: var(--measure);
+  max-width: var(--wide);
   margin: 0 auto;
 }
 
@@ -284,6 +363,7 @@
   font-size: var(--step-3);
   font-weight: 200;
   color: var(--text);
+  line-height: 1.2;
 }
 
 .toolkit-badge-def {
@@ -293,12 +373,13 @@
 
 .toolkit-section {
   margin-bottom: var(--s-lg);
+  max-width: var(--measure);
 }
 
 .toolkit-section h2 {
   font-family: var(--toolkit-font-sans);
-  font-size: var(--step-1);
-  font-weight: 400;
+  font-size: var(--step-0);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--muted);
@@ -345,6 +426,7 @@ details.toolkit-disclosure {
   border-radius: var(--toolkit-card-radius);
   background: var(--surface);
   margin-top: var(--s-md);
+  max-width: var(--measure);
 }
 
 details.toolkit-disclosure summary {

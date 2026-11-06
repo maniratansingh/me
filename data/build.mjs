@@ -629,27 +629,27 @@ inspection or reporting. Preserve upstream attribution and licences.</code></pre
 
         <div style="display: flex; flex-direction: column; gap: var(--s-xs);">
           <!-- AGENTS.md -->
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s-xs); padding: var(--s-xs) 0; border-bottom: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--s-sm); padding: var(--s-xs) 0; border-bottom: 1px solid var(--border);">
             <span style="font-family: var(--toolkit-font-mono); font-size: var(--step--1); color: var(--text); font-weight: 600;">AGENTS.md</span>
-            <div style="display: flex; gap: var(--s-xs);">
+            <div style="display: flex; gap: var(--s-xs); flex-shrink: 0; align-items: center;">
               <button type="button" class="btn-action-small copy-asset-btn" data-target="raw-agents-md">Copy Markdown</button>
               <a href="/agent-toolkit/AGENTS.md" download="AGENTS.md" class="btn-action-small-outline">Download</a>
             </div>
           </div>
 
           <!-- index.json -->
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s-xs); padding: var(--s-xs) 0; border-bottom: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--s-sm); padding: var(--s-xs) 0; border-bottom: 1px solid var(--border);">
             <span style="font-family: var(--toolkit-font-mono); font-size: var(--step--1); color: var(--text); font-weight: 600;">index.json</span>
-            <div style="display: flex; gap: var(--s-xs);">
+            <div style="display: flex; gap: var(--s-xs); flex-shrink: 0; align-items: center;">
               <button type="button" class="btn-action-small copy-asset-btn" data-target="raw-index-json">Copy JSON</button>
               <a href="/agent-toolkit/index.json" download="index.json" class="btn-action-small-outline">Download</a>
             </div>
           </div>
 
           <!-- llms.txt -->
-          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--s-xs); padding: var(--s-xs) 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--s-sm); padding: var(--s-xs) 0;">
             <span style="font-family: var(--toolkit-font-mono); font-size: var(--step--1); color: var(--text); font-weight: 600;">llms.txt</span>
-            <div style="display: flex; gap: var(--s-xs);">
+            <div style="display: flex; gap: var(--s-xs); flex-shrink: 0; align-items: center;">
               <button type="button" class="btn-action-small copy-asset-btn" data-target="raw-llms-txt">Copy Text</button>
               <a href="/agent-toolkit/llms.txt" download="llms.txt" class="btn-action-small-outline">Download</a>
             </div>
