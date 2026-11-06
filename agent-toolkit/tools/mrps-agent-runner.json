@@ -1,0 +1,31 @@
+{
+  "id": "mrps-agent-runner",
+  "name": "MRPS Agent Launcher",
+  "category": "orchestration",
+  "kind": "skill",
+  "summary": "Read-only project auditor and runner for code, security, a11y, and UI checks.",
+  "description": "A static, read-only launcher skill for agent IDEs (Codex, Antigravity) that shows an audit menu, prepares isolated environments, runs selected checks, and writes structured reports with sticky IDs and plain-English summaries.",
+  "creator": {
+    "name": "Mani Ratan Singh",
+    "url": "https://mrps.in"
+  },
+  "repository": "https://github.com/maniratansingh/me",
+  "mcpEndpoint": null,
+  "docsUrl": "https://mrps.in/agent-toolkit/runner/SKILL.md",
+  "license": "MIT",
+  "reasonForInclusion": "Serves as the primary inspection orchestrator for the toolkit, ensuring agents run audits without modifying user source code.",
+  "instructions": "/agent-toolkit/instructions/GLOBAL.md",
+  "setup": "Load https://mrps.in/agent-toolkit/runner/SKILL.md as a skill in your agent",
+  "tags": [
+    "orchestration",
+    "auditor",
+    "runner",
+    "skills",
+    "checks"
+  ],
+  "lastVerified": "2026-11-07",
+  "agentInstructions": "Tool: MRPS Agent Launcher\nWhen to use: Whenever the user asks for a project audit, or wants to run UI, security, a11y, tests, deps, or build checks. Before trusting or shipping a project.\nWhen NOT to use: For single-file edits, explanations, or quick fixes. The launcher audits; it does not modify source.\nInvocation: Load https://mrps.in/agent-toolkit/runner/SKILL.md as a skill, or paste its contents into your agent instructions. No executable — you, the agent, are the runtime.\nRules:\n- Before you invoke anything, state what you intend to do and why. Do not act until the user confirms. If a rule is ambiguous, ask — do not guess.\n- Never modify source, config, or manifests. Install declared dependencies and the tools a selected category needs, run the checks, write reports under reports/. Nothing else.\n- Show the menu immediately on load; do not wait to be asked.\n- Present the plan and wait for y/N before any install or any check.\n- Read the prior report and _toolchain.json before writing a new one; preserve sticky IDs and label findings NEW / STILL OPEN / RESOLVED / NOT CHECKED.\n- Every report contains a plain-English block and a changelog block above the technical table. Never omit either.\n- Address findings only by their IDs (e.g. uiux-03); never summarize them away.\n- Never mark a check as passed that was skipped, unconfigured, or errored.\n- Never re-execute checks to produce a filtered or historical view; read the existing files.\n- Append to CHANGELOG.md after every run — one line per category per run.",
+  "installedVersion": null,
+  "latestRelease": null,
+  "lastChecked": null
+}

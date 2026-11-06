@@ -106,5 +106,10 @@ done < <(find "$CONTENT_DIR" -name "*.md" -print0 | sort -z)
 log "Generating sitemap.xml and llms.txt..."
 python3 generate_meta.py
 
+# ── Build agent-toolkit ──────────────────────────────────────────────────────
+log "Building agent-toolkit..."
+export MRPS_BUILD_SH_RUNNING=1
+node data/build.mjs
+
 # ── Done ─────────────────────────────────────────────────────────────────────
 log "Done. Built $COUNT pages → $OUTPUT_DIR/"

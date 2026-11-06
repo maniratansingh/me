@@ -12,6 +12,38 @@ Here is a list of my active projects. For each project, I outline the design tho
 
 <ul class="post-list">
   <li class="post-list-item">
+    <a class="post-list-title" href="/projects/shairdisplay/">ShairDisplay — AirPlay 2 Hi-Fi Music Display &amp; Precision Diagnostics</a>
+    <span class="post-list-date">JavaScript</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/open-map-india/">OpenMapIndia — 100% GitHub-Native Geocompute &amp; Rural Routing</a>
+    <span class="post-list-date">Geocompute</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/santkabir-fleet-shield/">Sant Kabir Fleet Shield — Real-Time Outreach Fleet Telemetry Wallboard</a>
+    <span class="post-list-date">Serverless</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/agent-toolkit/">MRPS Agent Toolkit — Directory &amp; Launcher</a>
+    <span class="post-list-date">Toolkit</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/aesthetic-music-player/">MRPS MUSIC — Web Audio Player & Vinyl Turntable</a>
+    <span class="post-list-date">JavaScript</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/image-compressor-mrps/">Image Compressor – MRPS</a>
+    <span class="post-list-date">Kotlin</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/sunbeam-eye-hospital/">Sunbeam Eye Hospital Website</a>
+    <span class="post-list-date">HTML</span>
+  </li>
+  <li class="post-list-item">
+    <a class="post-list-title" href="/projects/sant-kabir-eye-hospital/">Sant Kabir Eye Hospital Website</a>
+    <span class="post-list-date">HTML</span>
+  </li>
+  <li class="post-list-item">
     <a class="post-list-title" href="/projects/gpsclock/">GPS Clock & Telemetry Dashboard</a>
     <span class="post-list-date">C++</span>
   </li>

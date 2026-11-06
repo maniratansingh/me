@@ -1,0 +1,98 @@
+[
+  {
+    "id": "mrps-agent-runner",
+    "name": "MRPS Agent Launcher",
+    "category": "orchestration",
+    "kind": "skill",
+    "summary": "Read-only project auditor and runner for code, security, a11y, and UI checks.",
+    "repository": "https://github.com/maniratansingh/me",
+    "mcpEndpoint": null,
+    "license": "MIT",
+    "instructions": "/agent-toolkit/instructions/GLOBAL.md",
+    "lastVerified": "2026-11-07"
+  },
+  {
+    "id": "impeccable",
+    "name": "Impeccable",
+    "category": "ui-ux",
+    "kind": "skill",
+    "summary": "The design vocabulary and UI critique system for coding agents.",
+    "repository": "https://github.com/pbakaus/impeccable",
+    "mcpEndpoint": null,
+    "license": "Apache-2.0",
+    "instructions": "/agent-toolkit/instructions/UI-UX.md",
+    "lastVerified": "2026-11-07"
+  },
+  {
+    "id": "obscura",
+    "name": "Obscura",
+    "category": "testing",
+    "kind": "app",
+    "summary": "High-performance Rust-based headless browser for AI agents and web scraping.",
+    "repository": "https://github.com/h4ckf0r0day/obscura",
+    "mcpEndpoint": null,
+    "license": "Apache-2.0",
+    "instructions": "/agent-toolkit/instructions/TESTING.md",
+    "lastVerified": "2026-11-07"
+  },
+  {
+    "id": "playwright",
+    "name": "Playwright",
+    "category": "testing",
+    "kind": "library",
+    "summary": "Reliable end-to-end multi-browser testing framework for modern web applications.",
+    "repository": "https://github.com/microsoft/playwright",
+    "mcpEndpoint": null,
+    "license": "Apache-2.0",
+    "instructions": "/agent-toolkit/instructions/TESTING.md",
+    "lastVerified": "2026-11-07"
+  },
+  {
+    "id": "axe-core",
+    "name": "axe-core",
+    "category": "accessibility",
+    "kind": "library",
+    "summary": "Automated accessibility testing engine for HTML and web applications.",
+    "repository": "https://github.com/dequelabs/axe-core",
+    "mcpEndpoint": null,
+    "license": "MPL-2.0",
+    "instructions": "/agent-toolkit/instructions/ACCESSIBILITY.md",
+    "lastVerified": "2026-11-07"
+  },
+  {
+    "id": "trivy",
+    "name": "Trivy",
+    "category": "security",
+    "kind": "cli",
+    "summary": "Comprehensive security scanner for vulnerabilities, secrets, and misconfigurations.",
+    "repository": "https://github.com/aquasecurity/trivy",
+    "mcpEndpoint": null,
+    "license": "Apache-2.0",
+    "instructions": "/agent-toolkit/instructions/SECURITY.md",
+    "lastVerified": "2026-11-07"
+  },
+  {
+    "id": "graphify",
+    "name": "Graphify",
+    "category": "code-analysis",
+    "kind": "skill",
+    "summary": "Codebase knowledge graph generator with deterministic AST parsing.",
+    "repository": "https://github.com/Graphify-Labs/graphify",
+    "mcpEndpoint": null,
+    "license": "Apache-2.0",
+    "instructions": "/agent-toolkit/instructions/CODE-ANALYSIS.md",
+    "lastVerified": "2026-11-07"
+  },
+  {
+    "id": "rea",
+    "name": "REA",
+    "category": "reverse-engineering",
+    "kind": "mcp-server",
+    "summary": "Universal reverse engineering MCP server for binaries, runtimes, and application behavior.",
+    "repository": "https://github.com/morluto/rea",
+    "mcpEndpoint": "npx -y rea-agents@latest",
+    "license": "MIT",
+    "instructions": "/agent-toolkit/instructions/REVERSE-ENGINEERING.md",
+    "lastVerified": "2026-11-07"
+  }
+]

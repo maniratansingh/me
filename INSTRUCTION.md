@@ -16,6 +16,26 @@ import re
 
 # List of repositories to sync from https://github.com/maniratansingh/
 repos = {
+    "aesthetic-music-player": {
+        "branch": "master",
+        "title": "MRPS MUSIC — Web Audio Player & Vinyl Turntable",
+        "desc": "A sleek, glassmorphic web audio player featuring an interactive vinyl turntable simulation, WebGL 2.0 ambient procedural shader, and responsive mobile interface."
+    },
+    "Image-Compressor-MRPS": {
+        "branch": "main",
+        "title": "Image Compressor – MRPS",
+        "desc": "An offline image compression utility for Android. Compress images locally without internet access or uploading data."
+    },
+    "sunbeam-eye-hospital": {
+        "branch": "main",
+        "title": "Sunbeam Eye Hospital Website",
+        "desc": "Official static website repository for Sunbeam Eye Hospital in Sultanpur, Uttar Pradesh."
+    },
+    "sant-kabir-eye-hospital": {
+        "branch": "main",
+        "title": "Sant Kabir Eye Hospital Website",
+        "desc": "Official static website repository for Sant Kabir Eye Hospital in Basti, Uttar Pradesh."
+    },
     "ayodhya-phaco-center": {
         "branch": "master",
         "title": "Ayodhya Phaco Center Website",
