@@ -1,0 +1,64 @@
+name: Validate build
+
+# Runs on every push to testing/main and on PRs targeting them.
+# This is the "Cloudflare-ready" gate: the site must build and wrangler
+# must accept the config with --dry-run (no upload, no credentials).
+
+on:
+  push:
+    branches: [testing, main]
+  pull_request:
+    branches: [testing, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build site
+        env:
+          CI: 'true'
+        run: bash build.sh
+
+      - name: Cloudflare dry-run
+        run: npx --yes wrangler@4 deploy --dry-run --outdir=/tmp/wrangler-out
+
+      - name: Assert generated output
+        run: |
+          test -f site/agent-toolkit/runner/SKILL.md
+          test -f site/agent-toolkit/instructions/COMPREHENSIVE.md
+          test -f site/fonts/ibm-plex-sans-latin-wght-normal.woff2
+          python3 - <<'PY'
+          import json
+          d = json.load(open('site/agent-toolkit/index.json'))
+          assert len(d) >= 9, f"expected 9+ tools, got {len(d)}"
+          ids = [t['id'] for t in d]
+          assert 'mrps-agent-runner' in ids
+          print(f"tools: {len(d)}")
+          PY
+
+      - name: Assert no third-party font host
+        run: |
+          if grep -rq "fonts.googleapis\|fonts.gstatic" site/; then
+            echo "::error::third-party font reference found in build"
+            exit 1
+          fi
+          echo "no third-party font references"
+
+      - name: Assert no root-absolute paths (Pages safety)
+        run: |
+          # Production is served at /, so this is informational only.
+          echo "root-absolute href count: $(grep -rhoE 'href="/[^"]*"' site --include='*.html' | wc -l)"
