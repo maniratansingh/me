@@ -111,5 +111,33 @@ log "Building agent-toolkit..."
 export MRPS_BUILD_SH_RUNNING=1
 node data/build.mjs
 
+# ── Optional base path (GitHub Pages project sites serve under /<repo>/) ────
+if [ -n "${BASE_PATH:-}" ]; then
+  log "Applying base path: $BASE_PATH"
+  BASE_PATH="$BASE_PATH" python3 - "$OUTPUT_DIR" <<'PY'
+import os, re, sys, pathlib
+base = os.environ['BASE_PATH'].rstrip('/')
+root = pathlib.Path(sys.argv[1])
+html_re = re.compile(r'((?:href|src)=")/(?!/)')
+css_re = re.compile(r"url\('/")
+changed = 0
+for p in root.rglob('*'):
+    if not p.is_file():
+        continue
+    if p.suffix == '.html':
+        s = p.read_text(encoding='utf-8')
+        t = html_re.sub(lambda m: m.group(1) + base + '/', s)
+    elif p.suffix == '.css':
+        s = p.read_text(encoding='utf-8')
+        t = css_re.sub("url('" + base + "/", s)
+    else:
+        continue
+    if t != s:
+        p.write_text(t, encoding='utf-8')
+        changed += 1
+print(f"  rewrote {changed} files with base '{base}'")
+PY
+fi
+
 # ── Done ─────────────────────────────────────────────────────────────────────
 log "Done. Built $COUNT pages → $OUTPUT_DIR/"

@@ -1,0 +1,59 @@
+name: Pages (experimental)
+
+# Preview-only deployment for the `experimental` branch.
+# Turn on/off any time:
+#   gh workflow disable "Pages (experimental)"
+#   gh workflow enable  "Pages (experimental)"
+# Manual run: gh workflow run "Pages (experimental)" --ref experimental
+#
+# Does NOT deploy testing or main. Production stays on Cloudflare.
+
+on:
+  push:
+    branches: [experimental]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-experimental
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build site
+        env:
+          BASE_PATH: /me
+          CI: 'true'
+        run: bash build.sh
+
+      - name: Verify subpath rewrite
+        run: |
+          grep -q 'href="/me/css/style.css' site/index.html
+          grep -q "url('/me/fonts/" site/css/style.css
+          echo "base path OK"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
