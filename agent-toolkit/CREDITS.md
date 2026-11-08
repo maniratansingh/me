@@ -12,5 +12,6 @@ The MRPS Agent Toolkit is a curated index of exceptional open-source tools and a
 | [Trivy](https://mrps.in/agent-toolkit/tools/trivy.html) | [Aqua Security](https://github.com/aquasecurity) | [aquasecurity/trivy](https://github.com/aquasecurity/trivy) | Apache-2.0 | 2026-11-07 |
 | [Graphify](https://mrps.in/agent-toolkit/tools/graphify.html) | [Graphify Labs](https://github.com/Graphify-Labs) | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Apache-2.0 | 2026-11-07 |
 | [REA](https://mrps.in/agent-toolkit/tools/rea.html) | [Morluto](https://github.com/morluto) | [morluto/rea](https://github.com/morluto/rea) | MIT | 2026-11-07 |
+| [Cloudflare Security Audit](https://mrps.in/agent-toolkit/tools/cloudflare-security-audit.html) | [Cloudflare](https://github.com/cloudflare) | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) | MIT | 2026-11-09 |
 
 MRPS Agent Toolkit is a directory. All projects remain the property of their creators under their respective licenses. No code is forked or rehosted.

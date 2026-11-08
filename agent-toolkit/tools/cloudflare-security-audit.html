@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloudflare Security Audit — MRPS Agent Toolkit</title>
+  <meta name="description" content="Multi-phase source-level security audit skill with independently verified, machine-readable findings.">
+  <link rel="canonical" href="https://mrps.in/agent-toolkit/tools/cloudflare-security-audit.html">
+  <meta property="og:title" content="Cloudflare Security Audit — MRPS Agent Toolkit">
+  <meta property="og:description" content="Multi-phase source-level security audit skill with independently verified, machine-readable findings.">
+  <meta property="og:url" content="https://mrps.in/agent-toolkit/tools/cloudflare-security-audit.html">
+  <meta property="og:image" content="https://mrps.in/agent-toolkit/og.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cloudflare Security Audit — MRPS Agent Toolkit">
+  <meta name="twitter:description" content="Multi-phase source-level security audit skill with independently verified, machine-readable findings.">
+  <meta name="twitter:image" content="https://mrps.in/agent-toolkit/og.png">
+
+  <!-- Fonts: IBM Plex, self-hosted (no third-party stylesheet) -->
+  <link rel="preload" href="/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/css/style.css?v=3" />
+  <link rel="stylesheet" href="/agent-toolkit/assets/style.css?v=3" />
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Cloudflare Security Audit",
+  "description": "Multi-phase source-level security audit skill with independently verified, machine-readable findings.",
+  "url": "https://github.com/cloudflare/security-audit-skill",
+  "applicationCategory": "comprehensive",
+  "license": "MIT",
+  "author": {
+    "@type": "Person",
+    "name": "Cloudflare",
+    "url": "https://github.com/cloudflare"
+  }
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-title" href="/">MRPS</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/blog/">Posts</a>
+      <a href="/projects/">Projects</a>
+      <a href="/photos/">Photos</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main id="main-content" class="toolkit-container">
+    <div class="back-nav" style="margin-bottom: var(--s-md);">
+      <a href="/agent-toolkit/" class="btn-back">← Back to Toolkit</a>
+    </div>
+
+    <div class="toolkit-detail-wrap">
+      <header class="toolkit-detail-header">
+        <div class="toolkit-detail-title-row">
+          <h1>Cloudflare Security Audit</h1>
+          <span class="toolkit-badge badge-skill">Skill</span>
+        </div>
+        <p class="toolkit-badge-def">Instruction set and reference documentation loaded directly into an agent environment.</p>
+      </header>
+
+      <!-- 1. What it does -->
+      <section class="toolkit-section">
+        <h2>1. What it does</h2>
+        <p>A coding-agent skill that orchestrates isolated agents through reconnaissance, coverage-led hunting, candidate validation, structured output, independent record verification, and target-neutral reporting. Produces findings.json validated against a JSON schema plus a coverage ledger, so every claim is traceable and re-runs are additive.</p>
+      </section>
+
+      <!-- 2. Why MRPS selected it -->
+      <section class="toolkit-section">
+        <h2>2. Why MRPS selected it</h2>
+        <p>Goes beyond dependency CVEs into source-level vulnerability hunting: isolated hunters, independent verifiers, schema-validated findings, and a coverage ledger that proves what was actually inspected.</p>
+      </section>
+
+      <!-- 3. Kind badge & definition -->
+      <section class="toolkit-section">
+        <h2>3. Tool Kind</h2>
+        <p><strong>Skill</strong>: Instruction set and reference documentation loaded directly into an agent environment.</p>
+      </section>
+
+      <!-- 4. Original repository -->
+      <section class="toolkit-section">
+        <h2>4. Original repository</h2>
+        <p><a href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noopener noreferrer">https://github.com/cloudflare/security-audit-skill</a></p>
+      </section>
+
+      <!-- 5. Official documentation -->
+      <section class="toolkit-section">
+        <h2>5. Official documentation</h2>
+        <p><a href="https://github.com/cloudflare/security-audit-skill#readme" target="_blank" rel="noopener noreferrer">https://github.com/cloudflare/security-audit-skill#readme</a></p>
+      </section>
+
+      <!-- 6. Author and license -->
+      <section class="toolkit-section">
+        <h2>6. Author and license</h2>
+        <p>Created by <a href="https://github.com/cloudflare" target="_blank" rel="noopener noreferrer">Cloudflare</a> under the <strong>MIT</strong> license.</p>
+      </section>
+
+      <!-- 7. Installation (setup, copyable) -->
+      <section class="toolkit-section">
+        <h2>7. Installation</h2>
+        
+        <div class="toolkit-code-box">
+          <button class="btn-primary-action copy-snippet-btn" data-target="setup-code" style="float:right;">Copy</button>
+          <pre><code id="setup-code">npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit</code></pre>
+        </div>
+      </section>
+
+      <!-- 8. When the AI should use it -->
+      <section class="toolkit-section">
+        <h2>8. When the AI should use it</h2>
+        <p>Use when the user wants a deep, source-level security audit of a codebase — authentication, authorization, input handling, tenant isolation, supply chain, or agent/LLM surfaces — and not merely a dependency version check.</p>
+      </section>
+
+      <!-- 9. When the AI should not use it -->
+      <section class="toolkit-section">
+        <h2>9. When the AI should not use it</h2>
+        <p>Do not use for a quick dependency CVE scan (that is Trivy), for a single obvious fix, or on systems the user does not own or have written authorization to test.</p>
+      </section>
+
+      <!-- 10. What the AI must not do -->
+      <section class="toolkit-section">
+        <h2>10. What the AI must not do</h2>
+        <ul>
+          <li>Before you invoke anything, state what you intend to do, the estimated cost, and the target path. Do not act until the user confirms.</li>
+          <li>Operate on source and local artifacts only. Never exploit, fuzz, or probe a live production or third-party system.</li>
+          <li>Run validate-coverage-ledger.cjs after creating or updating the ledger, and validate-findings.cjs in the output phase and after every replacement.</li>
+          <li>Treat only schema-valid records with a complete source trace as findings. Never promote needs_validation to confirmed to fill a report.</li>
+          <li>Keep prior ledgers and findings: re-runs are additive and must not treat unresolved work as covered.</li>
+          <li>Report rejected candidates in findings.json, not as findings in the human report.</li>
+        </ul>
+      </section>
+
+      <!-- 11. MRPS usage instructions link -->
+      <section class="toolkit-section">
+        <h2>11. MRPS usage instructions</h2>
+        <p><a href="/agent-toolkit/instructions/COMPREHENSIVE.md">Read COMPREHENSIVE.md</a></p>
+      </section>
+
+      <!-- 12. Last verified -->
+      <section class="toolkit-section">
+        <h2>12. Last verified</h2>
+        <p>Verified against live repository on: <strong>2026-11-09</strong></p>
+      </section>
+
+      <!-- 13. Back to directory -->
+      <nav class="toolkit-section" style="margin-top:var(--s-lg); border-top:1px solid var(--border); padding-top:var(--s-md);">
+        <a href="/agent-toolkit/" class="btn-back">← Back to Toolkit Directory</a>
+      </nav>
+
+      <details class="toolkit-disclosure">
+        <summary>View Complete Agent Constraint Sheet</summary>
+        <div class="disclosure-inner">Tool: Cloudflare Security Audit
+When to use: Use when the user wants a deep, source-level security audit of a codebase — authentication, authorization, input handling, tenant isolation, supply chain, or agent/LLM surfaces — and not merely a dependency version check.
+When NOT to use: Do not use for a quick dependency CVE scan (that is Trivy), for a single obvious fix, or on systems the user does not own or have written authorization to test.
+Invocation: npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit, then ask the agent to security audit the codebase.
+Rules:
+- Before you invoke anything, state what you intend to do, the estimated cost, and the target path. Do not act until the user confirms.
+- Operate on source and local artifacts only. Never exploit, fuzz, or probe a live production or third-party system.
+- Run validate-coverage-ledger.cjs after creating or updating the ledger, and validate-findings.cjs in the output phase and after every replacement.
+- Treat only schema-valid records with a complete source trace as findings. Never promote needs_validation to confirmed to fill a report.
+- Keep prior ledgers and findings: re-runs are additive and must not treat unresolved work as covered.
+- Report rejected candidates in findings.json, not as findings in the human report.</div>
+      </details>
+    </div>
+  </main>
+
+  
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-name"><a href="/">Mani Ratan Singh</a></p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/blog/">Posts</a>
+      <a href="/projects/">Projects</a>
+      <a href="/photos/">Photos</a>
+      <a href="/agent-toolkit/CREDITS.md">Credits</a>
+      <a href="/agent-toolkit/AGENTS.md">AGENTS.md</a>
+    </nav>
+  </div>
+</footer>
+
+  <script src="/agent-toolkit/assets/app.js" defer></script>
+</body>
+</html>

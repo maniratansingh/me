@@ -1,62 +1,84 @@
 # Testing Instructions — MRPS Agent Toolkit
 
 ## Overview
-Guidelines for automated functional testing, end-to-end integration, browser emulation, and headless execution.
+Functional testing, end-to-end integration, and headless browser observation.
 
 ## Category & Tools
-- **Tools**:
-  - `playwright` (`kind: library`)
-  - `obscura` (`kind: app`)
+- **Tools**: `playwright` (`kind: library`), `obscura` (`kind: app`)
 - **Category**: `testing`
+- **ID prefix**: `test` · **Report slug**: `tests`
+- **Produces findings**: Playwright yes · Obscura no
 
 ## When to Reach for What
-- Reach for `playwright` when writing or running reliable multi-browser end-to-end (E2E) automated tests and user journey validations.
-- Reach for `obscura` when high-performance headless browsing, stealth CDP automation, or agent-driven scraping is required without heavyweight Chromium overhead. Note: Obscura is infrastructure for direct invocation; it does not generate scan finding lists.
+- **`playwright`** — writing or running multi-browser E2E tests and user-journey validation.
+- **`obscura`** — lightweight headless browsing, CDP automation, agent-driven observation.
+  It is infrastructure: it helps you watch a target, it does not emit finding lists.
 
-## The Inspect → Critique → Recommend → Fix Ladder
-1. **Inspect**: Discover test runner configurations (`playwright.config.ts`, `vitest.config.ts`, etc.) and run declared test suites in read-only mode.
-2. **Critique**: Analyze failure logs, unhandled assertions, flaky timeouts, or missing test coverage for critical paths.
-3. **Recommend**: Suggest exact test code additions or bug diagnoses before touching source files.
-4. **Fix**: Implement fixes to failing test cases or underlying application code only under explicit user direction.
+## What Inspect means here
+Discover the runner configuration (`playwright.config.ts`, `vitest.config.ts`), then run
+only the declared suites. Do not author new tests during an audit — that is Fix work.
 
-## Tool Guidance: Playwright
-### When to use
-Use when verifying user interactions across Chromium, Firefox, and WebKit, testing responsive viewports, and generating trace recordings of bugs.
-### When NOT to use
-Do not use for micro-benchmarks or purely isolated pure-function unit tests where lighter runners suffice.
-### Example Invocation
+## Prerequisites (state these in the plan)
+- Browsers installed: `npx playwright install --with-deps`
+- The app must be reachable. If a dev server is required, announce that you will start it.
+- A test run is a side effect. Gate it like any other command.
+
+## The ladder, applied here
+- **Inspect** — run the suite. Read-only.
+- **Critique** — separate product bugs from test bugs from environment flake.
+- **Recommend** — give the failing assertion and a proposed cause.
+- **Fix** — only on explicit instruction.
+
+## Anti-cheat rule (non-negotiable)
+Never weaken, skip, delete, or `.only` a test to make the suite green. Never change an
+assertion to match buggy output. If a test is genuinely wrong, quarantine it with a
+written reason and a new finding ID — do not silently adjust it.
+
+## Flake policy
+Retry once. If it passes on retry, record it as a **flake finding**, not a pass:
+`Low` severity, evidence = the retry log. Two consecutive flakes on the same test are a
+`Medium`.
+
+## Commands
 ```bash
-npx playwright test
+npx playwright test --reporter=json > reports/tests/playwright.json
 ```
-
-## Tool Guidance: Obscura
-### When to use
-Use when spinning up a lightweight, fast Rust-based headless browser instance for scraping, agent web observation, or CDP connectivity.
-### When NOT to use
-Do not use as a static project scanner or code linter.
-### Example Invocation
+Obscura, when used as an observer (not a test runner):
 ```bash
 obscura --headless --remote-debugging-port 9222
 ```
 
-## Report Format
-```markdown
-# tests — <YYYY-MM-DD-HH-MM>
+## Evidence rules
+Every finding cites: test title, `file:line` of the assertion, and the error line.
+A timeout with no error text is not evidence of a product bug — say so.
 
-Prior: <prior-run-timestamp | none>
+## Report example
+```markdown
+# tests — 2026-11-09T14-32-05Z
+
+Prior: none (first run)
 Toolchain: Playwright 1.48.0
-Delta: +N new · N still open · N resolved
+Delta: +1 new · 0 still open · 0 resolved · 0 not checked
 
 ## What was found (plain English)
-- **test-01** — Checkout checkout button click failed due to timeout. (High)
+- **test-01** — The checkout button never becomes clickable, so the purchase flow cannot finish. (High)
 
 ## What changed since last run
-- First audit. 1 issue found.
+- First run.
 
 ## Technical detail
-| ID | Sev | File | Rule | Status |
-|----|-----|------|------|--------|
-| test-01 | H | tests/checkout.spec.ts | test-failure | NEW |
+| ID | Sev | Evidence | File | Rule | Status |
+|----|-----|----------|------|------|--------|
+| test-01 | H | locator #checkout not visible after 30s | tests/checkout.spec.ts:41 | e2e-timeout | NEW |
 
-Generated by MRPS Agent Launcher. Read-only. Findings are advisory.
+## Commands run
+| Command | Exit | Note |
+|---------|------|------|
+| npx playwright test | 1 | 1 failed, 12 passed |
+
+## Not checked
+- Firefox and WebKit — browsers not installed.
+
+Generated by <agent name>. Read-only. No source files were modified.
+Findings are advisory; the user decides what to fix.
 ```

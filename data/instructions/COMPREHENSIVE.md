@@ -1,0 +1,120 @@
+# Comprehensive Audit Instructions — MRPS Agent Toolkit
+
+## Overview
+A deep, **source-level** security audit. It reasons about exploitability rather than only
+matching known dependency versions. Slow and expensive by design.
+
+## Category & Tools
+- **Tools**: `cloudflare-security-audit` (`kind: skill`)
+- **Category**: `comprehensive`
+- **ID prefix**: `audit` · **Report slug**: `comprehensive`
+- **Produces findings**: yes (source-level, independently verified)
+
+## When to Reach for What
+- **Trivy** (`security`) answers: *"is any dependency version known-bad?"* Fast, cheap.
+- **This skill** answers: *"is the auth check bypassable?"* Slow, deep.
+
+Pick this category when the question is about **logic, trust boundaries, or design** — not
+version numbers. Pick `security` when you only need a CVE/secret/misconfig sweep.
+
+## When NOT to use
+- A quick dependency scan — that is `security` / Trivy.
+- A single obvious fix.
+- Any system the user does not own or have written authorization to test.
+- A hobby static site with no server-side logic — the cost is not justified.
+
+## Prerequisites
+Install the skill into the agent environment:
+```bash
+npx skills add https://github.com/cloudflare/security-audit-skill \
+  --skill security-audit
+```
+Add `--global` only if the user asks for a user-level install.
+
+**Cost warning:** this spawns multiple agents across six phases. State the estimated scope
+in the plan before starting. Do not run it silently.
+
+## The six phases
+1. **Reconnaissance** — map architecture, trust boundaries, input surfaces, prior evidence,
+   deterministic coverage → `architecture.md`, `coverage-ledger.json`.
+2. **Coverage-led hunting** — assign isolated hunters per ledger unit; coverage critics
+   find gaps.
+3. **Candidate validation** — every candidate goes to a *fresh* verifier that tries to
+   disprove it.
+4. **Structured output** — write `confirmed`, `needs_validation`, `rejected` records to
+   `findings.json`; validate against `report-schema.json`.
+5. **Independent record verification** — fresh agents verify final source claims.
+6. **Target-neutral reporting** — derive `REPORT.md`, `FINDINGS-DETAIL.md`,
+   `NEEDS-VALIDATION.md`.
+
+## Verdicts (do not collapse these)
+| Verdict | Meaning | May carry severity? |
+|---|---|---|
+| `confirmed` | Complete source trace + bounded observed result | yes |
+| `needs_validation` | Exact unresolved fact; not proven | **no** |
+| `rejected` | Disproved candidate | no |
+
+**Never** promote `needs_validation` to `confirmed` to make a report look stronger.
+
+## Mapping to the toolkit's report
+| Skill phrase | Toolkit status |
+|---|---|
+| `confirmed`, first seen | `NEW` |
+| `confirmed`, seen before | `STILL OPEN` |
+| `confirmed`, previously present, now gone (re-verified) | `RESOLVED` |
+| `needs_validation` | listed under `## Not checked` with the exact unresolved fact |
+| `rejected` | not a finding — keep in `findings.json` only |
+
+`needs_validation` findings get **no severity** and no ID in the technical table. They are
+not findings yet.
+
+## Validation commands
+Run these; a report that fails validation is not a report.
+```bash
+node validate-coverage-ledger.cjs coverage-ledger.json
+node validate-findings.cjs findings.json
+```
+
+## Runnability rules
+- Source and local artifacts only. **Never** exploit, fuzz, or probe a live production or
+  third-party system.
+- Re-runs are additive: read the prior ledger and findings, target gaps, revalidate changed
+  source. Never treat unresolved work as covered.
+- Every confirmed finding cites a **source trace**: `file:line` and the exact code path.
+
+## Report example
+```markdown
+# comprehensive — 2026-11-09T10-12-00Z
+
+Prior: none (first run)
+Toolchain: cloudflare/security-audit-skill @ <commit> · validators pass
+Delta: +2 new · 0 still open · 0 resolved · 1 not checked
+
+## What was found (plain English)
+- **audit-01** — The export endpoint checks that a user is logged in, but not that the
+  record belongs to them, so any signed-in user can download another tenant's data. (Critical)
+- **audit-02** — The password reset token never expires, so a leaked link works forever. (High)
+
+## What changed since last run
+- First run.
+
+## Technical detail
+| ID | Sev | Evidence | File | Rule | Status |
+|----|-----|----------|------|------|--------|
+| audit-01 | C | `find_by_id(id)` used without owner filter | app/exports.py:88 | broken-access-control | NEW |
+| audit-02 | H | token compared with no `expires_at` check | app/auth.py:142 | token-expiry | NEW |
+
+## Commands run
+| Command | Exit | Note |
+|---------|------|------|
+| `npx skills add … --skill security-audit` | 0 | installed |
+| `node validate-coverage-ledger.cjs coverage-ledger.json` | 0 | 0 gaps |
+| `node validate-findings.cjs findings.json` | 0 | 2 confirmed, 1 needs_validation, 4 rejected |
+
+## Not checked
+- `needs_validation`: whether the admin route is reachable without the internal header —
+  requires runtime confirmation, not attempted on a live system.
+
+Generated by <agent name>. Read-only. No source files were modified.
+Findings are advisory; the user decides what to fix.
+```

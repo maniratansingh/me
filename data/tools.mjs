@@ -87,6 +87,7 @@ Rules:
     docsUrl: "https://github.com/h4ckf0r0day/obscura#readme",
     license: "Apache-2.0",
     reasonForInclusion: "Offers lightweight, fast headless browser infrastructure that agents can drive directly without heavy browser dependencies.",
+    producesFindings: false,
     instructions: "/agent-toolkit/instructions/TESTING.md",
     setup: "cargo install obscura",
     tags: ["browser", "headless", "rust", "scraping", "cdp"],
@@ -265,6 +266,41 @@ Rules:
 - Restrict analysis to explicitly provided target files or processes.
 - Never modify or patch target binaries during analysis.
 - Preserve evidence trails and distinguish between observed factual behavior and decompiled inferences.`,
+    installedVersion: null,
+    latestRelease: null,
+    lastChecked: null
+  },
+  {
+    id: "cloudflare-security-audit",
+    name: "Cloudflare Security Audit",
+    category: "comprehensive",
+    kind: "skill",
+    summary: "Multi-phase source-level security audit skill with independently verified, machine-readable findings.",
+    description: "A coding-agent skill that orchestrates isolated agents through reconnaissance, coverage-led hunting, candidate validation, structured output, independent record verification, and target-neutral reporting. Produces findings.json validated against a JSON schema plus a coverage ledger, so every claim is traceable and re-runs are additive.",
+    creator: {
+      name: "Cloudflare",
+      url: "https://github.com/cloudflare"
+    },
+    repository: "https://github.com/cloudflare/security-audit-skill",
+    mcpEndpoint: null,
+    docsUrl: "https://github.com/cloudflare/security-audit-skill#readme",
+    license: "MIT",
+    reasonForInclusion: "Goes beyond dependency CVEs into source-level vulnerability hunting: isolated hunters, independent verifiers, schema-validated findings, and a coverage ledger that proves what was actually inspected.",
+    instructions: "/agent-toolkit/instructions/COMPREHENSIVE.md",
+    setup: "npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit",
+    tags: ["security", "audit", "comprehensive", "verification", "skills"],
+    lastVerified: "2026-11-09",
+    agentInstructions: `Tool: Cloudflare Security Audit
+When to use: Use when the user wants a deep, source-level security audit of a codebase — authentication, authorization, input handling, tenant isolation, supply chain, or agent/LLM surfaces — and not merely a dependency version check.
+When NOT to use: Do not use for a quick dependency CVE scan (that is Trivy), for a single obvious fix, or on systems the user does not own or have written authorization to test.
+Invocation: npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit, then ask the agent to security audit the codebase.
+Rules:
+- Before you invoke anything, state what you intend to do, the estimated cost, and the target path. Do not act until the user confirms.
+- Operate on source and local artifacts only. Never exploit, fuzz, or probe a live production or third-party system.
+- Run validate-coverage-ledger.cjs after creating or updating the ledger, and validate-findings.cjs in the output phase and after every replacement.
+- Treat only schema-valid records with a complete source trace as findings. Never promote needs_validation to confirmed to fill a report.
+- Keep prior ledgers and findings: re-runs are additive and must not treat unresolved work as covered.
+- Report rejected candidates in findings.json, not as findings in the human report.`,
     installedVersion: null,
     latestRelease: null,
     lastChecked: null

@@ -9,6 +9,12 @@
     "mcpEndpoint": null,
     "license": "MIT",
     "instructions": "/agent-toolkit/instructions/GLOBAL.md",
+    "instructionFile": "GLOBAL.md",
+    "idPrefix": "run",
+    "reportSlug": "run",
+    "producesFindings": false,
+    "setup": "Load https://mrps.in/agent-toolkit/runner/SKILL.md as a skill in your agent",
+    "docsUrl": "https://mrps.in/agent-toolkit/runner/SKILL.md",
     "lastVerified": "2026-11-07"
   },
   {
@@ -21,6 +27,12 @@
     "mcpEndpoint": null,
     "license": "Apache-2.0",
     "instructions": "/agent-toolkit/instructions/UI-UX.md",
+    "instructionFile": "UI-UX.md",
+    "idPrefix": "uiux",
+    "reportSlug": "uiux",
+    "producesFindings": true,
+    "setup": "Load https://github.com/pbakaus/impeccable into your agent instructions",
+    "docsUrl": "https://github.com/pbakaus/impeccable#readme",
     "lastVerified": "2026-11-07"
   },
   {
@@ -33,6 +45,12 @@
     "mcpEndpoint": null,
     "license": "Apache-2.0",
     "instructions": "/agent-toolkit/instructions/TESTING.md",
+    "instructionFile": "TESTING.md",
+    "idPrefix": "test",
+    "reportSlug": "tests",
+    "producesFindings": false,
+    "setup": "cargo install obscura",
+    "docsUrl": "https://github.com/h4ckf0r0day/obscura#readme",
     "lastVerified": "2026-11-07"
   },
   {
@@ -45,6 +63,12 @@
     "mcpEndpoint": null,
     "license": "Apache-2.0",
     "instructions": "/agent-toolkit/instructions/TESTING.md",
+    "instructionFile": "TESTING.md",
+    "idPrefix": "test",
+    "reportSlug": "tests",
+    "producesFindings": true,
+    "setup": "npm init playwright@latest",
+    "docsUrl": "https://playwright.dev",
     "lastVerified": "2026-11-07"
   },
   {
@@ -57,6 +81,12 @@
     "mcpEndpoint": null,
     "license": "MPL-2.0",
     "instructions": "/agent-toolkit/instructions/ACCESSIBILITY.md",
+    "instructionFile": "ACCESSIBILITY.md",
+    "idPrefix": "a11y",
+    "reportSlug": "a11y",
+    "producesFindings": true,
+    "setup": "npm install -D @axe-core/cli",
+    "docsUrl": "https://github.com/dequelabs/axe-core#readme",
     "lastVerified": "2026-11-07"
   },
   {
@@ -69,6 +99,12 @@
     "mcpEndpoint": null,
     "license": "Apache-2.0",
     "instructions": "/agent-toolkit/instructions/SECURITY.md",
+    "instructionFile": "SECURITY.md",
+    "idPrefix": "sec",
+    "reportSlug": "security",
+    "producesFindings": true,
+    "setup": "curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin",
+    "docsUrl": "https://aquasecurity.github.io/trivy/",
     "lastVerified": "2026-11-07"
   },
   {
@@ -81,6 +117,12 @@
     "mcpEndpoint": null,
     "license": "Apache-2.0",
     "instructions": "/agent-toolkit/instructions/CODE-ANALYSIS.md",
+    "instructionFile": "CODE-ANALYSIS.md",
+    "idPrefix": "code",
+    "reportSlug": "code",
+    "producesFindings": false,
+    "setup": "uv tool install graphifyy && graphify install",
+    "docsUrl": "https://github.com/Graphify-Labs/graphify#readme",
     "lastVerified": "2026-11-07"
   },
   {
@@ -93,6 +135,30 @@
     "mcpEndpoint": "npx -y rea-agents@latest",
     "license": "MIT",
     "instructions": "/agent-toolkit/instructions/REVERSE-ENGINEERING.md",
+    "instructionFile": "REVERSE-ENGINEERING.md",
+    "idPrefix": "rev",
+    "reportSlug": "reverse",
+    "producesFindings": false,
+    "setup": "npx rea-agents setup",
+    "docsUrl": "https://github.com/morluto/rea/blob/main/docs/mcp-contracts.md",
     "lastVerified": "2026-11-07"
+  },
+  {
+    "id": "cloudflare-security-audit",
+    "name": "Cloudflare Security Audit",
+    "category": "comprehensive",
+    "kind": "skill",
+    "summary": "Multi-phase source-level security audit skill with independently verified, machine-readable findings.",
+    "repository": "https://github.com/cloudflare/security-audit-skill",
+    "mcpEndpoint": null,
+    "license": "MIT",
+    "instructions": "/agent-toolkit/instructions/COMPREHENSIVE.md",
+    "instructionFile": "COMPREHENSIVE.md",
+    "idPrefix": "audit",
+    "reportSlug": "comprehensive",
+    "producesFindings": true,
+    "setup": "npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit",
+    "docsUrl": "https://github.com/cloudflare/security-audit-skill#readme",
+    "lastVerified": "2026-11-09"
   }
 ]

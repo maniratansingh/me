@@ -3,9 +3,13 @@
 
 This directory indexes verified open-source developer tools, CLI utilities, libraries, and agent skills. Every entry links to upstream sources and provides strict operational boundaries for coding agents.
 
+Start here if you are an agent asked to audit a project: read AGENTS.md, then load
+runner/SKILL.md. Everything else is reference.
+
 ## Core Documents
-- [Agent Guidance](https://mrps.in/agent-toolkit/AGENTS.md): Operational protocols, permissions ladder, and honesty rules.
-- [Capability Index](https://mrps.in/agent-toolkit/index.json): Machine-readable index of all capabilities.
+- [Agent Guidance](https://mrps.in/agent-toolkit/AGENTS.md): Read-only audit protocol, permission ladder, report contract, honesty rules.
+- [Launcher Skill](https://mrps.in/agent-toolkit/runner/SKILL.md): The full audit workflow an agent follows — menu, gate, report format, ID scheme.
+- [Capability Index](https://mrps.in/agent-toolkit/index.json): Machine-readable index of all capabilities, with instruction file, id prefix, and report slug per tool.
 - [Project Credits](https://mrps.in/agent-toolkit/CREDITS.md): Full attribution, repositories, and licenses.
 
 ## Tools
@@ -17,12 +21,14 @@ This directory indexes verified open-source developer tools, CLI utilities, libr
 - [Trivy](https://mrps.in/agent-toolkit/tools/trivy.html): Comprehensive security scanner for vulnerabilities, secrets, and misconfigurations. Category: security. Kind: cli. License: Apache-2.0.
 - [Graphify](https://mrps.in/agent-toolkit/tools/graphify.html): Codebase knowledge graph generator with deterministic AST parsing. Category: code-analysis. Kind: skill. License: Apache-2.0.
 - [REA](https://mrps.in/agent-toolkit/tools/rea.html): Universal reverse engineering MCP server for binaries, runtimes, and application behavior. Category: reverse-engineering. Kind: mcp-server. License: MIT.
+- [Cloudflare Security Audit](https://mrps.in/agent-toolkit/tools/cloudflare-security-audit.html): Multi-phase source-level security audit skill with independently verified, machine-readable findings. Category: comprehensive. Kind: skill. License: MIT.
 
 ## Usage Instructions
-- [ACCESSIBILITY.md](https://mrps.in/agent-toolkit/instructions/ACCESSIBILITY.md): Category instructions and workflows for ACCESSIBILITY.
-- [CODE-ANALYSIS.md](https://mrps.in/agent-toolkit/instructions/CODE-ANALYSIS.md): Category instructions and workflows for CODE-ANALYSIS.
-- [GLOBAL.md](https://mrps.in/agent-toolkit/instructions/GLOBAL.md): Category instructions and workflows for GLOBAL.
-- [REVERSE-ENGINEERING.md](https://mrps.in/agent-toolkit/instructions/REVERSE-ENGINEERING.md): Category instructions and workflows for REVERSE-ENGINEERING.
-- [SECURITY.md](https://mrps.in/agent-toolkit/instructions/SECURITY.md): Category instructions and workflows for SECURITY.
-- [TESTING.md](https://mrps.in/agent-toolkit/instructions/TESTING.md): Category instructions and workflows for TESTING.
-- [UI-UX.md](https://mrps.in/agent-toolkit/instructions/UI-UX.md): Category instructions and workflows for UI-UX.
+- [ACCESSIBILITY.md](https://mrps.in/agent-toolkit/instructions/ACCESSIBILITY.md): WCAG 2.2 AA checks with axe-core, severity mapping, and required manual checks.
+- [CODE-ANALYSIS.md](https://mrps.in/agent-toolkit/instructions/CODE-ANALYSIS.md): Codebase knowledge graphs with Graphify; linting delegated to the project.
+- [COMPREHENSIVE.md](https://mrps.in/agent-toolkit/instructions/COMPREHENSIVE.md): Six-phase, source-level security audit with schema-validated, independently verified findings.
+- [GLOBAL.md](https://mrps.in/agent-toolkit/instructions/GLOBAL.md): Orchestration, permission ladder, report contract, and finding ID scheme.
+- [REVERSE-ENGINEERING.md](https://mrps.in/agent-toolkit/instructions/REVERSE-ENGINEERING.md): Authorized artifact analysis with REA; never patch binaries.
+- [SECURITY.md](https://mrps.in/agent-toolkit/instructions/SECURITY.md): Dependency CVEs, secrets, and misconfiguration with Trivy — plus redaction rules.
+- [TESTING.md](https://mrps.in/agent-toolkit/instructions/TESTING.md): End-to-end tests with Playwright; Obscura as headless infrastructure, not a scanner.
+- [UI-UX.md](https://mrps.in/agent-toolkit/instructions/UI-UX.md): Visual hierarchy, spacing rhythm, responsive integrity, and UI critique evidence rules.

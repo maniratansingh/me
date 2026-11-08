@@ -27,3 +27,6 @@ __pycache__/
 
 # Local downloaded binaries
 bin/
+
+# Audit output — local only, never ship
+reports/

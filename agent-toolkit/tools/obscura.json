@@ -14,6 +14,7 @@
   "docsUrl": "https://github.com/h4ckf0r0day/obscura#readme",
   "license": "Apache-2.0",
   "reasonForInclusion": "Offers lightweight, fast headless browser infrastructure that agents can drive directly without heavy browser dependencies.",
+  "producesFindings": false,
   "instructions": "/agent-toolkit/instructions/TESTING.md",
   "setup": "cargo install obscura",
   "tags": [

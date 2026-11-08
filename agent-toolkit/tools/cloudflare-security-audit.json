@@ -1,0 +1,31 @@
+{
+  "id": "cloudflare-security-audit",
+  "name": "Cloudflare Security Audit",
+  "category": "comprehensive",
+  "kind": "skill",
+  "summary": "Multi-phase source-level security audit skill with independently verified, machine-readable findings.",
+  "description": "A coding-agent skill that orchestrates isolated agents through reconnaissance, coverage-led hunting, candidate validation, structured output, independent record verification, and target-neutral reporting. Produces findings.json validated against a JSON schema plus a coverage ledger, so every claim is traceable and re-runs are additive.",
+  "creator": {
+    "name": "Cloudflare",
+    "url": "https://github.com/cloudflare"
+  },
+  "repository": "https://github.com/cloudflare/security-audit-skill",
+  "mcpEndpoint": null,
+  "docsUrl": "https://github.com/cloudflare/security-audit-skill#readme",
+  "license": "MIT",
+  "reasonForInclusion": "Goes beyond dependency CVEs into source-level vulnerability hunting: isolated hunters, independent verifiers, schema-validated findings, and a coverage ledger that proves what was actually inspected.",
+  "instructions": "/agent-toolkit/instructions/COMPREHENSIVE.md",
+  "setup": "npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit",
+  "tags": [
+    "security",
+    "audit",
+    "comprehensive",
+    "verification",
+    "skills"
+  ],
+  "lastVerified": "2026-11-09",
+  "agentInstructions": "Tool: Cloudflare Security Audit\nWhen to use: Use when the user wants a deep, source-level security audit of a codebase — authentication, authorization, input handling, tenant isolation, supply chain, or agent/LLM surfaces — and not merely a dependency version check.\nWhen NOT to use: Do not use for a quick dependency CVE scan (that is Trivy), for a single obvious fix, or on systems the user does not own or have written authorization to test.\nInvocation: npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit, then ask the agent to security audit the codebase.\nRules:\n- Before you invoke anything, state what you intend to do, the estimated cost, and the target path. Do not act until the user confirms.\n- Operate on source and local artifacts only. Never exploit, fuzz, or probe a live production or third-party system.\n- Run validate-coverage-ledger.cjs after creating or updating the ledger, and validate-findings.cjs in the output phase and after every replacement.\n- Treat only schema-valid records with a complete source trace as findings. Never promote needs_validation to confirmed to fill a report.\n- Keep prior ledgers and findings: re-runs are additive and must not treat unresolved work as covered.\n- Report rejected candidates in findings.json, not as findings in the human report.",
+  "installedVersion": null,
+  "latestRelease": null,
+  "lastChecked": null
+}
