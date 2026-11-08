@@ -40,8 +40,8 @@ jobs:
 
       - name: Verify subpath rewrite
         run: |
-          grep -q 'href="/me/css/style.css' site/index.html
-          grep -q "url('/me/fonts/" site/css/style.css
+          grep -q "url('/me/fonts/" site/index.html
+          ! grep -q 'href="/me/css/style.css' site/index.html
           echo "base path OK"
 
       - uses: actions/upload-pages-artifact@v3

@@ -139,5 +139,37 @@ print(f"  rewrote {changed} files with base '{base}'")
 PY
 fi
 
+# ── Inline render-blocking stylesheets ──────────────────────────────────────
+if [ "${INLINE_CSS:-1}" = "1" ]; then
+  log "Inlining stylesheets..."
+  BASE_PATH="${BASE_PATH:-}" python3 - "$OUTPUT_DIR" <<'PY'
+import os, re, sys, pathlib
+root = pathlib.Path(sys.argv[1])
+base = os.environ.get('BASE_PATH', '').rstrip('/')
+link_re = re.compile(r'<link\s+rel="stylesheet"\s+href="([^"]+)"\s*/?>')
+changed = 0
+for p in root.rglob('*.html'):
+    s = p.read_text(encoding='utf-8')
+
+    def repl(m):
+        href = m.group(1).split('?')[0].split('#')[0]
+        if href.startswith('http'):
+            return m.group(0)
+        rel = href
+        if base and rel.startswith(base + '/'):
+            rel = rel[len(base):]
+        f = root / rel.lstrip('/')
+        if not f.exists():
+            return m.group(0)
+        return '<style>\n' + f.read_text(encoding='utf-8') + '\n</style>'
+
+    t = link_re.sub(repl, s)
+    if t != s:
+        p.write_text(t, encoding='utf-8')
+        changed += 1
+print(f"  inlined stylesheets in {changed} files")
+PY
+fi
+
 # ── Done ─────────────────────────────────────────────────────────────────────
 log "Done. Built $COUNT pages → $OUTPUT_DIR/"
